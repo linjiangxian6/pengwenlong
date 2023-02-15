@@ -16,16 +16,16 @@ package beans;/**
  */
 
 // 传感器温度读数的数据类型
-public class SensorReading {
+public class Temperature {
     // 属性：id，时间戳，温度值
     private String id;
     private Long timestamp;
     private Double temperature;
 
-    public SensorReading() {
+    public Temperature() {
     }
 
-    public SensorReading(String id, Long timestamp, Double temperature) {
+    public Temperature(String id, Long timestamp, Double temperature) {
         this.id = id;
         this.timestamp = timestamp;
         this.temperature = temperature;
