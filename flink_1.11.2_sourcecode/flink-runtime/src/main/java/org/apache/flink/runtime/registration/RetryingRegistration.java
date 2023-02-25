@@ -135,7 +135,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 			final CompletableFuture<G> rpcGatewayFuture;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 链接 RM
 			 */
 			if(FencedRpcGateway.class.isAssignableFrom(targetType)) {
@@ -150,7 +150,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 				log.info("Resolved {} address, beginning registration", targetName);
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 执行注册
 				 */
 				//TODO *****
@@ -194,7 +194,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 			log.debug("Registration at {} attempt {} (timeout={}ms)", targetName, attempt, timeoutMillis);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 调用注册
 			 */
 			//TODO ***** invokeRegistration 实现类ResourceManagerRegistration
@@ -211,7 +211,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 						completionFuture.complete(Tuple2.of(gateway, success));
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释： TaskExecutor　向 ResourceManager 注册成功之后，就应该要做一件事：
 						 *  应该开始间隔发心跳！
 						 *  Flink 集群 和 HDFS 集群不一样：
@@ -284,7 +284,7 @@ public abstract class RetryingRegistration<F extends Serializable, G extends Rpc
 	private void startRegistrationLater(final long delay) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		rpcService.scheduleRunnable(this::startRegistration, delay, TimeUnit.MILLISECONDS);

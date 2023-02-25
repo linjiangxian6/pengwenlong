@@ -86,7 +86,7 @@ public class BlobUtils {
 		if(HighAvailabilityMode.isHighAvailabilityModeActivated(config)) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建 BlobStore
 			 */
 			return createFileSystemBlobStore(config);
@@ -99,7 +99,7 @@ public class BlobUtils {
 	private static BlobStoreService createFileSystemBlobStore(Configuration configuration) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 HA 模式下，存储状态数据的 HDFS 路径
 		 */
 		final Path clusterStoragePath = HighAvailabilityServicesUtils.getClusterHighAvailableStoragePath(configuration);
@@ -108,7 +108,7 @@ public class BlobUtils {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 获取文件系统类型，一般是 HDFS，返回值类型是： HadoopFileSystem
 			 *  它是一个 Hadoop FileSystem 的包装对象
 			 */
@@ -118,7 +118,7 @@ public class BlobUtils {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 FileSystemBlobStore 返回
 		 */
 		return new FileSystemBlobStore(fileSystem, clusterStoragePath.toUri().toString());

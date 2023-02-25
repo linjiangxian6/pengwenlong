@@ -651,7 +651,7 @@ public class ExecutionVertex implements AccessExecutionVertex, Archiveable<Archi
 	public void tryAssignResource(LogicalSlot slot) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 分配 slot 资源
 		 */
 		if(!currentExecution.tryAssignResource(slot)) {
@@ -662,7 +662,7 @@ public class ExecutionVertex implements AccessExecutionVertex, Archiveable<Archi
 	public void deploy() throws JobException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用 Execution 的 deploy() 方法部署
 		 */
 		currentExecution.deploy();

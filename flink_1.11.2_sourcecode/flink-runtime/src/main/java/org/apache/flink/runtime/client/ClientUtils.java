@@ -74,7 +74,7 @@ public enum ClientUtils {
 			try(BlobClient client = clientSupplier.get()) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 上传
 				 */
 				uploadAndSetUserJars(jobGraph, userJars, client);
@@ -98,7 +98,7 @@ public enum ClientUtils {
 	private static void uploadAndSetUserJars(JobGraph jobGraph, Collection<Path> userJars, BlobClient blobClient) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 上传 jar
 		 */
 		Collection<PermanentBlobKey> blobKeys = uploadUserJars(jobGraph.getJobID(), userJars, blobClient);
@@ -109,7 +109,7 @@ public enum ClientUtils {
 		Collection<PermanentBlobKey> blobKeys = new ArrayList<>(userJars.size());
 		for(Path jar : userJars) {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 通过 BlobClient 上传 jar 等资源到 BlobServer
 			 */
 			final PermanentBlobKey blobKey = blobClient.uploadFile(jobId, jar);

@@ -104,7 +104,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		final ExecutionSlotAllocatorFactory executionSlotAllocatorFactory) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 SchedulerBase
 		 *  1、获取 ExecutioinGragh
 		 *  2、获取 OperatorCoordinator
@@ -127,7 +127,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		this.executionVertexOperations = checkNotNull(executionVertexOperations);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 FailoverStrategy
 		 */
 		final FailoverStrategy failoverStrategy = failoverStrategyFactory.create(getSchedulingTopology(), getResultPartitionAvailabilityChecker());
@@ -136,7 +136,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		this.executionFailureHandler = new ExecutionFailureHandler(getSchedulingTopology(), failoverStrategy, restartBackoffTimeStrategy);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 SchedulingStrategyFactory
 		 *  schedulingStrategy = EagerSchedulingStrategy
 		 */
@@ -160,13 +160,13 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		log.info("Starting scheduling with scheduling strategy [{}]", schedulingStrategy.getClass().getName());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 准备 ExecutionGraph
 		 */
 		prepareExecutionGraphForNgScheduling();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调度
 		 *  流式作业默认调度方式： schedulingStrategy = EagerSchedulingStrategy
 		 *  1、EagerSchedulingStrategy（主要用于流式作业，所有顶点（ExecutionVertex）同时开始调度）
@@ -307,7 +307,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		transitionToScheduled(verticesToDeploy);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 申请Slot
 		 *  参数： 待调度执行的 ExecutionVertex 集合
 		 */
@@ -319,7 +319,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 			slotExecutionVertexAssignments);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 部署运行
 		 *  1、申请到了 slot
 		 *  2、构件好了 Handler
@@ -343,7 +343,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 	private List<SlotExecutionVertexAssignment> allocateSlots(final List<ExecutionVertexDeploymentOption> executionVertexDeploymentOptions) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 通过一个专业的 ExecutionSlotAllocator slot申请器 来申请 Slots
 		 *  参数内部执行一下操作：
 		 *  ExecutionVertexId ==> ExecutionVertex ==> ExecutionVertexSchedulingRequirements
@@ -358,14 +358,14 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		final List<SlotExecutionVertexAssignment> slotExecutionVertexAssignments) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 给每一个 ExecutionVertex 构建一个 Handler 用于部署：  DeploymentHandle
 		 */
 		return slotExecutionVertexAssignments.stream().map(slotExecutionVertexAssignment -> {
 			final ExecutionVertexID executionVertexId = slotExecutionVertexAssignment.getExecutionVertexId();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 一堆：DeploymentHandle
 			 */
 			return new DeploymentHandle(requiredVersionByVertex.get(executionVertexId), deploymentOptionsByVertex.get(executionVertexId),
@@ -376,7 +376,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 	private void waitForAllSlotsAndDeploy(final List<DeploymentHandle> deploymentHandles) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调用 deployAll() 部署任务
 		 *  1、assignAllResources(deploymentHandles) 分配 slot
 		 *  2、deployAll(deploymentHandles) 执行任务部署
@@ -389,14 +389,14 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		final List<CompletableFuture<Void>> slotAssignedFutures = new ArrayList<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 每个 DeploymentHandle 去分配资源给自己对应的 ExecutionVertex
 		 */
 		for(DeploymentHandle deploymentHandle : deploymentHandles) {
 			final CompletableFuture<Void> slotAssigned = deploymentHandle.getSlotExecutionVertexAssignment().getLogicalSlotFuture()
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 调用 assignResourceOrHandleError 来获取 申请到的 slot， 有可能获取不到
 				 */
 				.handle(assignResourceOrHandleError(deploymentHandle));
@@ -406,7 +406,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 部署
 	 */
 	private BiFunction<Void, Throwable, Void> deployAll(final List<DeploymentHandle> deploymentHandles) {
@@ -414,7 +414,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 			propagateIfNonNull(throwable);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 遍历的部署每一个 Task
 			 */
 			for(final DeploymentHandle deploymentHandle : deploymentHandles) {
@@ -425,7 +425,7 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 				checkState(slotAssigned.isDone());
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 通过 deployOrHandleError 来进行部署
 				 *  当然，部署 Task 的时候，也有可能会报错！
 				 */
@@ -458,21 +458,21 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 				final boolean sendScheduleOrUpdateConsumerMessage = deploymentHandle.getDeploymentOption().sendScheduleOrUpdateConsumerMessage();
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 注册输入分区
 				 */
 				executionVertex.getCurrentExecutionAttempt()
 					.registerProducedPartitions(logicalSlot.getTaskManagerLocation(), sendScheduleOrUpdateConsumerMessage);
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 分配 slot 资源
 				 */
 				executionVertex.tryAssignResource(logicalSlot);
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 报错处理
 				 */
 				handleTaskDeploymentFailure(executionVertexId, maybeWrapWithNoResourceAvailableException(throwable));
@@ -518,14 +518,14 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 			if(throwable == null) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 部署 Task（到时候根据 ExecutionVertexID 来确定 Task）
 				 */
 				deployTaskSafe(executionVertexId);
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 部署 Task 报错处理
 				 */
 				handleTaskDeploymentFailure(executionVertexId, throwable);
@@ -538,13 +538,13 @@ public class DefaultScheduler extends SchedulerBase implements SchedulerOperatio
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 根据 ExecutionVertexId 获取 ExecutionVertex
 			 */
 			final ExecutionVertex executionVertex = getExecutionVertex(executionVertexId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 一个 Task 执行一个 ExecutionVertex
 			 *  executionVertexOperations = DefaultExecutionVertexOperations
 			 */

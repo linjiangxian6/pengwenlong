@@ -54,7 +54,7 @@ public class StreamSource<OUT, SRC extends SourceFunction<OUT>> extends Abstract
 		super(sourceFunction);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： chain 策略！ 注意
 		 */
 		this.chainingStrategy = ChainingStrategy.HEAD;

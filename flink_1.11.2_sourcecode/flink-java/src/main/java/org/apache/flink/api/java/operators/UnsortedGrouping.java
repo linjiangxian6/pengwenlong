@@ -92,7 +92,7 @@ public class UnsortedGrouping<T> extends Grouping<T> {
 	private AggregateOperator<T> aggregate(Aggregations agg, int field, String callLocationName) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 还是返回 Operator
 		 */
 		return new AggregateOperator<T>(this, agg, field, callLocationName);
@@ -108,7 +108,7 @@ public class UnsortedGrouping<T> extends Grouping<T> {
 	public AggregateOperator<T> sum(int field) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： sum 的内部，调用 aggregate 方法执行 SUM 汇总逻辑
 		 */
 		return this.aggregate(Aggregations.SUM, field, Utils.getCallLocationName());

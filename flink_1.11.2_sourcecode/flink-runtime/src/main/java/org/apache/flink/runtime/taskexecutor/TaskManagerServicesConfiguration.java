@@ -255,7 +255,7 @@ public class TaskManagerServicesConfiguration {
 		final int numIoThreads = ClusterEntrypointUtils.getPoolSize(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 TaskManagerServicesConfiguration 对象返回
 		 */
 		return new TaskManagerServicesConfiguration(configuration, resourceID, externalAddress, bindAddress, externalDataPort, localCommunicationOnly,

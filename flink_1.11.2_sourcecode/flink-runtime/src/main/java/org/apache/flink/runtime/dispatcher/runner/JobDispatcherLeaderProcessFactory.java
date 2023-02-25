@@ -46,7 +46,7 @@ public class JobDispatcherLeaderProcessFactory implements DispatcherLeaderProces
 	public DispatcherLeaderProcess create(UUID leaderSessionID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new JobDispatcherLeaderProcess(leaderSessionID, dispatcherGatewayServiceFactory, jobGraph, fatalErrorHandler);

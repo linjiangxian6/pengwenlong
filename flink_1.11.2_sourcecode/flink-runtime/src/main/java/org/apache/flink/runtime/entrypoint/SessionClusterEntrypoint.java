@@ -52,7 +52,7 @@ public abstract class SessionClusterEntrypoint extends ClusterEntrypoint {
 		final long maximumCacheSizeBytes = configuration.getLong(JobManagerOptions.JOB_STORE_CACHE_SIZE);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回一个 FileArchivedExecutionGraphStore 对象
 		 */
 		return new FileArchivedExecutionGraphStore(tmpDir, expirationTime, maximumCapacity, maximumCacheSizeBytes, scheduledExecutor,

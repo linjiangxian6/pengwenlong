@@ -31,7 +31,7 @@ public enum SessionDispatcherFactory implements DispatcherFactory {
 		PartialDispatcherServicesWithJobGraphStore partialDispatcherServicesWithJobGraphStore) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建一个 StandaloneDispatcher 返回
 		 */
 		// create the default dispatcher

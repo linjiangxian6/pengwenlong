@@ -31,13 +31,13 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 public class NettyConnectionManager implements ConnectionManager {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： Netty 服务端
 	 */
 	private final NettyServer server;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： Netty 客户端
 	 */
 	private final NettyClient client;
@@ -51,13 +51,13 @@ public class NettyConnectionManager implements ConnectionManager {
 	public NettyConnectionManager(ResultPartitionProvider partitionProvider, TaskEventPublisher taskEventPublisher, NettyConfig nettyConfig) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化一个 NettyServer
 		 */
 		this.server = new NettyServer(nettyConfig);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化一个 NettyClient
 		 */
 		this.client = new NettyClient(nettyConfig);
@@ -68,7 +68,7 @@ public class NettyConnectionManager implements ConnectionManager {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 做了两件事
 	 *  1、启动了一个 Netty 客户端
 	 *  2、启动了一个 Netty 服务端
@@ -79,14 +79,14 @@ public class NettyConnectionManager implements ConnectionManager {
 	public int start() throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		//TODO *****
 		client.init(nettyProtocol, bufferPool);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		int result = server.init(nettyProtocol, bufferPool);

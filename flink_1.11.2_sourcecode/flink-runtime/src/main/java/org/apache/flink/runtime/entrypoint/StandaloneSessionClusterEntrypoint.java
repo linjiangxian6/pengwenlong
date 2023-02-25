@@ -27,7 +27,7 @@ import org.apache.flink.runtime.util.JvmShutdownSafeguard;
 import org.apache.flink.runtime.util.SignalHandler;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO
  *  注释： flink有三种方式执行应用程序：session mode, per-job mode, applocation mode
  *  模型的区别主要包含：
  *  1. 集群生命周期和资源隔离保证
@@ -46,7 +46,7 @@ public class StandaloneSessionClusterEntrypoint extends SessionClusterEntrypoint
 	@Override
 	protected DefaultDispatcherResourceManagerComponentFactory createDispatcherResourceManagerComponentFactory(Configuration configuration) {
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、参数是：StandaloneResourceManagerFactory 实例
 		 *  2、返回值：DefaultDispatcherResourceManagerComponentFactory 实例
@@ -57,7 +57,7 @@ public class StandaloneSessionClusterEntrypoint extends SessionClusterEntrypoint
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 入口
 	 */
 	public static void main(String[] args) {
@@ -82,7 +82,7 @@ public class StandaloneSessionClusterEntrypoint extends SessionClusterEntrypoint
 
 		try {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 对传入的参数进行解析
 			 *  内部通过 EntrypointClusterConfigurationParserFactory 解析配置文件，
 			 *  返回 EntrypointClusterConfiguration 为 ClusterConfiguration 的子类
@@ -96,19 +96,19 @@ public class StandaloneSessionClusterEntrypoint extends SessionClusterEntrypoint
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 解析配置参数, 解析 flink 的配置文件： flink-conf.ymal
 		 */
 		Configuration configuration = loadConfiguration(entrypointClusterConfiguration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：创建 StandaloneSessionClusterEntrypoint
 		 */
 		StandaloneSessionClusterEntrypoint entrypoint = new StandaloneSessionClusterEntrypoint(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：启动集群的entrypoint
 		 *  这个方法接受的是父类 ClusterEntrypoint，可想而知其他几种启动方式也是通过这个方法。
 		 */

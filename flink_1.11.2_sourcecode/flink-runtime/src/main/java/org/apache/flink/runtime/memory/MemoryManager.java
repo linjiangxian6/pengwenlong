@@ -640,7 +640,7 @@ public class MemoryManager {
 	public static MemoryManager create(long memorySize, int pageSize) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化 MemoryManager 实例对象
 		 */
 		return new MemoryManager(memorySize, pageSize, UnsafeMemoryBudget.MAX_SLEEPS_VERIFY_EMPTY);

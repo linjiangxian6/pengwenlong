@@ -67,7 +67,7 @@ class NettyServer {
 	int init(final NettyProtocol protocol, NettyBufferPool nettyBufferPool) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化
 		 */
 		return init(nettyBufferPool, sslHandlerFactory -> new ServerChannelInitializer(protocol, sslHandlerFactory));
@@ -79,7 +79,7 @@ class NettyServer {
 		final long start = System.nanoTime();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动引导程序
 		 */
 		bootstrap = new ServerBootstrap();
@@ -89,7 +89,7 @@ class NettyServer {
 		// --------------------------------------------------------------------
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 默认是： auto， 自动根据环境选择： epoll 或者 nio
 		 */
 		switch(config.getTransportType()) {
@@ -192,7 +192,7 @@ class NettyServer {
 		String name = NettyConfig.SERVER_THREAD_GROUP_NAME + " (" + config.getServerPort() + ")";
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化
 		 */
 		NioEventLoopGroup nioGroup = new NioEventLoopGroup(config.getServerNumThreads(), getNamedThreadFactory(name));

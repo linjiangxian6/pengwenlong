@@ -175,7 +175,7 @@ public abstract class AbstractHandler<T extends RestfulGateway, R extends Reques
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 处理请求
 			 */
 			log.trace("Starting request processing.");

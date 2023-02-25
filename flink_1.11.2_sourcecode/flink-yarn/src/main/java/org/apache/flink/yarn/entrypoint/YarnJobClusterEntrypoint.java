@@ -76,19 +76,19 @@ public class YarnJobClusterEntrypoint extends JobClusterEntrypoint {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		Configuration configuration = YarnEntrypointUtils.loadConfiguration(workingDirectory, env);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		YarnJobClusterEntrypoint yarnJobClusterEntrypoint = new YarnJobClusterEntrypoint(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		ClusterEntrypoint.runClusterEntrypoint(yarnJobClusterEntrypoint);

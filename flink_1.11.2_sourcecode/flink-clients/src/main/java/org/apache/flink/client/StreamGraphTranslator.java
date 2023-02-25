@@ -47,7 +47,7 @@ public class StreamGraphTranslator implements FlinkPipelineTranslator {
 		StreamGraph streamGraph = (StreamGraph) pipeline;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 通过 StreamGraph 转换得到 JobGragh
 		 */
 		//TODO *****

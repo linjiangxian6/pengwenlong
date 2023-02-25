@@ -81,7 +81,7 @@ import static org.apache.flink.runtime.security.ExitTrappingSecurityManager.repl
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO 
  *  注释： 启动主类
  *  This class is the executable entry point for the task manager in yarn or standalone mode.
  *  It constructs the related components (network, I/O manager, memory manager,
@@ -131,7 +131,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		timeout = AkkaUtils.getTimeoutAsTime(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化进行回调处理的 线程池
 		 *  future.xxx(() -> xxxxx(),  exceutor)
 		 */
@@ -139,7 +139,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 			.newScheduledThreadPool(Hardware.getNumberCPUCores(), new ExecutorThreadFactory("taskmanager-future"));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： HA 服务： ZooKeeperHaServices highAvailabilityServices
 		 *  提供对高可用性所需的所有服务的访问注册，分布式计数器和领导人选举
 		 *  已经解析过了 flink-conf.yaml ,  zookeeper
@@ -149,7 +149,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 			.createHighAvailabilityServices(configuration, executor, HighAvailabilityServicesUtils.AddressResolution.NO_ADDRESS_RESOLUTION);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 RpcService
 		 *  RpcServer 内部细节和主节点启动的 Rpc 服务的启动方式完全一致
 		 *  从结点的RPC服务
@@ -158,7 +158,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		rpcService = createRpcService(configuration, highAvailabilityServices);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 HeartbeatServices
 		 *  1、TaskExecutor 这个组件是一定会启动的
 		 *  2、JobMaster JobLeader Flink Job的主控程序，类似于Spark的Driver
@@ -172,7 +172,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		HeartbeatServices heartbeatServices = HeartbeatServices.fromConfiguration(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： Flink 集群监控
 		 */
 		metricRegistry = new MetricRegistryImpl(MetricRegistryConfiguration.fromConfiguration(configuration),
@@ -181,7 +181,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		metricRegistry.startQueryService(metricQueryServiceRpcService, resourceId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 BlobCacheService
 		 *  其实内部就是启动两个定时任务，用来定时执行检查，删除过期的 Job 的资源文件。
 		 *  通过 引用计数(RefCount) 的方式，来判断是否文件过期（JVM）
@@ -199,7 +199,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 				ExternalResourceUtils.externalResourceDriversFromConfig(configuration, pluginManager));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 TaskManager
 		 *  1、负责创建 TaskExecutor，负责多个任务Task的运行
 		 */
@@ -230,7 +230,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： TaskManager 启动入口
 	 */
 	// --------------------------------------------------------------------------------------------
@@ -251,7 +251,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动入口
 		 *  ResourceID: Flink集群： 主节点  从节点， 每个节点都有一个全局唯一的ID
 		 */
@@ -355,7 +355,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	public static Configuration loadConfiguration(String[] args) throws FlinkParseException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 解析 main方法参数 和 flink-conf.yaml 配置信息
 		 */
 		return ConfigurationParserUtils.loadCommonConfiguration(args, TaskManagerRunner.class.getSimpleName());
@@ -364,7 +364,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	public static void runTaskManager(Configuration configuration, ResourceID resourceId, PluginManager pluginManager) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 TaskManager 实例
 		 *  TaskManagerRunner 是 standalone 模式下 TaskManager 的可执行入口点。
 		 *  它构造相关组件(network, I/O manager, memory manager, RPC service, HA service)并启动它们。
@@ -373,7 +373,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		final TaskManagerRunner taskManagerRunner = new TaskManagerRunner(configuration, resourceId, pluginManager);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 发送 START 消息, 确认启动成功
 		 */
 		taskManagerRunner.start();
@@ -383,7 +383,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 加载配置参数
 			 *  解析 main方法参数 和 flink-conf.yaml 配置信息
 			 */
@@ -391,7 +391,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 			Configuration configuration = loadConfiguration(args);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动TaskManager
 			 */
 			//TODO *****
@@ -408,7 +408,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		replaceGracefulExitWithHaltIfConfigured(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化插件
 		 *  主节点启动的时候，也是启动了 PluginManager
 		 */
@@ -420,7 +420,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		SecurityUtils.install(new SecurityConfiguration(configuration));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 包装启动
 		 */
 		SecurityUtils.getInstalledContext().runSecured(
@@ -438,7 +438,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	// --------------------------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：
 	 *  1、方法名称： startTaskManager
 	 *  2、方法返回值： TaskExecutor
@@ -459,7 +459,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		String externalAddress = rpcService.getAddress();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取资源定义对象
 		 *  一台真实的物理节点，到底有哪些资源（cpucore， memroy, network, ...）
 		 *  HardwareDescription 硬件抽象
@@ -484,7 +484,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 			.newFixedThreadPool(taskManagerServicesConfiguration.getNumIoThreads(), new ExecutorThreadFactory("flink-taskexecutor-io"));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 重点
 		 *  taskManagerServices = TaskManagerServices
 		 *  里头初始化了很多很多的 TaskManager 在运行过程中需要的服务
@@ -506,7 +506,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		String metricQueryServiceAddress = metricRegistry.getMetricQueryServiceGatewayRpcAddress();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 TaskExecutor 实例
 		 *  内部会创建两个重要的心跳管理器：
 		 *  1、JobManagerHeartbeatManager
@@ -531,7 +531,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 记住： 由于当前这个 TaskExecutor 是 RpcEndpoint 的子类，所以在上述构造方法执行完毕的时候，要转到 onStart() 方法执行
 		 */
 	}
@@ -539,7 +539,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 	static BackPressureSampleService createBackPressureSampleService(Configuration configuration, ScheduledExecutor scheduledExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建一个 背压率 采样服务
 		 */
 		return new BackPressureSampleService(configuration.getInteger(WebOptions.BACKPRESSURE_NUM_SAMPLES),
@@ -558,7 +558,7 @@ public class TaskManagerRunner implements FatalErrorHandler, AutoCloseableAsync 
 		checkNotNull(haServices);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		//TODO ***** createRemoteRpcService

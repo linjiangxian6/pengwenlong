@@ -94,7 +94,7 @@ public abstract class AbstractDispatcherLeaderProcess implements DispatcherLeade
 	public final void start() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用 startInternal()
 		 */
 		//TODO ***** startInternal
@@ -170,7 +170,7 @@ public abstract class AbstractDispatcherLeaderProcess implements DispatcherLeade
 	final void completeDispatcherSetup(DispatcherGatewayService dispatcherService) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		runIfStateIs(State.RUNNING, () -> completeDispatcherSetupInternal(dispatcherService));

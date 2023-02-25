@@ -70,7 +70,7 @@ public class MiniDispatcher extends Dispatcher {
 	public CompletableFuture<Acknowledge> submitJob(JobGraph jobGraph, Time timeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		final CompletableFuture<Acknowledge> acknowledgeCompletableFuture = super.submitJob(jobGraph, timeout);

@@ -98,7 +98,7 @@ public class PermanentBlobCache extends AbstractBlobCache implements PermanentBl
 		super(blobClientConfig, blobView, LoggerFactory.getLogger(PermanentBlobCache.class), serverAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动一个定时服务
 		 */
 		// Initializing the clean up task
@@ -108,7 +108,7 @@ public class PermanentBlobCache extends AbstractBlobCache implements PermanentBl
 		this.cleanupInterval = blobClientConfig.getLong(BlobServerOptions.CLEANUP_INTERVAL) * 1000;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调度定时任务执行
 		 */
 		this.cleanupTimer.schedule(new PermanentBlobCleanupTask(), cleanupInterval, cleanupInterval);
@@ -233,7 +233,7 @@ public class PermanentBlobCache extends AbstractBlobCache implements PermanentBl
 			synchronized(jobRefCounters) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 先获取到所有的 blob 的引用计数
 				 */
 				Iterator<Map.Entry<JobID, RefCount>> entryIter = jobRefCounters.entrySet().iterator();
@@ -249,7 +249,7 @@ public class PermanentBlobCache extends AbstractBlobCache implements PermanentBl
 						JobID jobId = entry.getKey();
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释： 根据 JobID 获取到 Job 的 File 文件夹
 						 */
 						final File localFile = new File(BlobUtils.getStorageLocationPath(storageDir.getAbsolutePath(), jobId));

@@ -69,7 +69,7 @@ public final class StandaloneResourceManagerFactory extends ResourceManagerFacto
 		final Time standaloneClusterStartupPeriodTime = ConfigurationUtils.getStandaloneClusterStartupPeriodTime(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 得到一个 StandaloneResourceManager 实例对象
 		 */
 		//TODO *****

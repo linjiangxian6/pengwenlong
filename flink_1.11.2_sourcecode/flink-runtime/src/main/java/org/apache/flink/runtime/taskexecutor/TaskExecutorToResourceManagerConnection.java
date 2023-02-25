@@ -67,7 +67,7 @@ public class TaskExecutorToResourceManagerConnection extends RegisteredRpcConnec
 	protected RetryingRegistration<ResourceManagerId, ResourceManagerGateway, TaskExecutorRegistrationSuccess> generateRegistration() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回 ResourceManagerRegistration
 		 */
 		return new TaskExecutorToResourceManagerConnection.ResourceManagerRegistration(
@@ -113,7 +113,7 @@ public class TaskExecutorToResourceManagerConnection extends RegisteredRpcConnec
 			Time timeout = Time.milliseconds(timeoutMillis);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 向 ResourceManager 注册 TaskExecutor
 			 */
 			//TODO ***** 实现类ResourceManager

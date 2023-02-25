@@ -94,7 +94,7 @@ public class ExecutionGraphBuilder {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：
 	 */
 	public static ExecutionGraph buildGraph(@Nullable ExecutionGraph prior, JobGraph jobGraph, Configuration jobManagerConfig,
@@ -106,7 +106,7 @@ public class ExecutionGraphBuilder {
 		checkNotNull(jobGraph, "job graph cannot be null");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 从 JobGraph 中获取 JobName 和 JobID
 		 */
 		final String jobName = jobGraph.getName();
@@ -126,7 +126,7 @@ public class ExecutionGraphBuilder {
 		final ExecutionGraph executionGraph;
 		try {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 获取 ExecutionGraph， 只是创建了一个 ExecutionGraph 对象而已
 			 */
 			executionGraph = (prior != null) ? prior : new ExecutionGraph(jobInformation, futureExecutor, ioExecutor, rpcTimeout, restartStrategy,
@@ -139,7 +139,7 @@ public class ExecutionGraphBuilder {
 		// set the basic properties
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 设置 ExecutionGraph 的一些基本属性
 		 *  1、JsonPlanGenerator.generatePlan(jobGraph) 根据 JobGraph 生成一个 JsonPlan
 		 *  2、executionGraph.setJsonPlan(JsonPlan) 把 JsonPlan 设置到 ExecutionGraph
@@ -160,7 +160,7 @@ public class ExecutionGraphBuilder {
 		log.info("Running initialization on master for job {} ({}).", jobName, jobId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 遍历每个 JobVertex 执行初始化
 		 */
 		for(JobVertex vertex : jobGraph.getVertices()) {
@@ -188,7 +188,7 @@ public class ExecutionGraphBuilder {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 核心
 		 *  ExecutionGraph 事实上只是改动了 JobGraph 的每个节点，而没有对整个拓扑结构进行变动，
 		 *  所以代码里只是挨个遍历 jobVertex 并进行处理
@@ -201,7 +201,7 @@ public class ExecutionGraphBuilder {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 配置 state 的 checkpoint
 		 */
 		// configure the state checkpointing
@@ -290,7 +290,7 @@ public class ExecutionGraphBuilder {
 			final CheckpointCoordinatorConfiguration chkConfig = snapshotSettings.getCheckpointCoordinatorConfiguration();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 设置 executionGraph 的 checkpoint 相关配置
 			 */
 			executionGraph
@@ -307,7 +307,7 @@ public class ExecutionGraphBuilder {
 		executionGraph.getFailoverStrategy().registerMetrics(metrics);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回 ExecutioinGraph
 		 */
 		return executionGraph;

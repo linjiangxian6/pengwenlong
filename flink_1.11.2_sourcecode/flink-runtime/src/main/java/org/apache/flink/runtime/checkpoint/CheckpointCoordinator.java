@@ -441,7 +441,7 @@ public class CheckpointCoordinator {
 		final CheckpointProperties properties = CheckpointProperties.forSavepoint(!unalignedCheckpointsEnabled);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return triggerSavepointInternal(properties, false, targetLocation);
@@ -476,7 +476,7 @@ public class CheckpointCoordinator {
 		final CompletableFuture<CompletedCheckpoint> resultFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 触发 triggerCheckpoint()
 		 */
 		timer.execute(
@@ -503,7 +503,7 @@ public class CheckpointCoordinator {
 	public CompletableFuture<CompletedCheckpoint> triggerCheckpoint(boolean isPeriodic) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return triggerCheckpoint(checkpointProperties, null, isPeriodic, false);
@@ -520,7 +520,7 @@ public class CheckpointCoordinator {
 		CheckpointTriggerRequest request = new CheckpointTriggerRequest(props, externalSavepointLocation, isPeriodic, advanceToEndOfTime);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用 startTriggeringCheckpoint() 触发 Checkpoint + SavePoint
 		 */
 		chooseRequestToExecute(request).ifPresent(this::startTriggeringCheckpoint);
@@ -548,7 +548,7 @@ public class CheckpointCoordinator {
 				timer);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			final CompletableFuture<?> coordinatorCheckpointsComplete = pendingCheckpointCompletableFuture.thenComposeAsync(
@@ -587,7 +587,7 @@ public class CheckpointCoordinator {
 						final long checkpointId = checkpoint.getCheckpointId();
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释：
 						 */
 						snapshotTaskState(timestamp, checkpointId, checkpoint.getCheckpointStorageLocation(), request.props, executions,
@@ -743,7 +743,7 @@ public class CheckpointCoordinator {
 			isExactlyOnceMode, props.getCheckpointType() == CheckpointType.CHECKPOINT && unalignedCheckpointsEnabled);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		// send the messages to the tasks that trigger their checkpoint
@@ -751,14 +751,14 @@ public class CheckpointCoordinator {
 			if(props.isSynchronous()) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				execution.triggerSynchronousSavepoint(checkpointID, timestamp, checkpointOptions, advanceToEndOfTime);
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				execution.triggerCheckpoint(checkpointID, timestamp, checkpointOptions);
@@ -1424,7 +1424,7 @@ public class CheckpointCoordinator {
 			periodicScheduling = true;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			currentPeriodicTrigger = scheduleTriggerWithDelay(getRandomInitDelay());
@@ -1487,7 +1487,7 @@ public class CheckpointCoordinator {
 	private ScheduledFuture<?> scheduleTriggerWithDelay(long initDelay) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return timer.scheduleAtFixedRate(new ScheduledTrigger(), initDelay, baseInterval, TimeUnit.MILLISECONDS);
@@ -1540,7 +1540,7 @@ public class CheckpointCoordinator {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				triggerCheckpoint(true);

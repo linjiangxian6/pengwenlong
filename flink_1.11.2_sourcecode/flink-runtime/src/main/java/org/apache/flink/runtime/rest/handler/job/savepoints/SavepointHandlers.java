@@ -185,7 +185,7 @@ public class SavepointHandlers extends AbstractAsynchronousOperationHandlers<Asy
 			final String targetDirectory = requestedTargetDirectory != null ? requestedTargetDirectory : defaultSavepointDir;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return gateway.triggerSavepoint(jobId, targetDirectory, cancelJob, RpcUtils.INF_TIMEOUT);

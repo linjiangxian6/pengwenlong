@@ -85,7 +85,7 @@ class TransientBlobCleanupTask extends TimerTask {
 		final long currentTimeMillis = System.currentTimeMillis();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 得到所有的 Job 的临时文件
 		 */
 		// iterate through all entries and remove those where the current time is past their expiry
@@ -98,7 +98,7 @@ class TransientBlobCleanupTask extends TimerTask {
 				BlobKey blobKey = entry.getKey().f1;
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 获取这个 jobID 对应的 job 的临时 blob 文件
 				 */
 				final File localFile = new File(BlobUtils.getStorageLocationPath(storageDir.getAbsolutePath(), jobId, blobKey));
@@ -112,7 +112,7 @@ class TransientBlobCleanupTask extends TimerTask {
 					try {
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO 
 						 *  注释： TaskManager 上的旧数据的删除
 						 */
 						Files.delete(localFile.toPath());

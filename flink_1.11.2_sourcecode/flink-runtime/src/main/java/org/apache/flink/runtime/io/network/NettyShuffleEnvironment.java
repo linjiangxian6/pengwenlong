@@ -192,7 +192,7 @@ public class NettyShuffleEnvironment implements ShuffleEnvironment<ResultPartiti
 			Preconditions.checkState(!isClosed, "The NettyShuffleEnvironment has already been shut down.");
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 先生成一个容器数组
 			 */
 			ResultPartition[] resultPartitions = new ResultPartition[resultPartitionDeploymentDescriptors.size()];
@@ -201,7 +201,7 @@ public class NettyShuffleEnvironment implements ShuffleEnvironment<ResultPartiti
 			for(int partitionIndex = 0; partitionIndex < resultPartitions.length; partitionIndex++) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				resultPartitions[partitionIndex] = resultPartitionFactory.create(
@@ -284,7 +284,7 @@ public class NettyShuffleEnvironment implements ShuffleEnvironment<ResultPartiti
 				LOG.debug("Starting network connection manager");
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 启动网络链接管理器
 				 */
 				//TODO ***** NettyConnectionManager

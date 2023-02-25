@@ -52,20 +52,20 @@ public class ResourceManagerRuntimeServices {
 		HighAvailabilityServices highAvailabilityServices, ScheduledExecutor scheduledExecutor, SlotManagerMetricGroup slotManagerMetricGroup) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 SlotManagerImpl
 		 */
 		final SlotManager slotManager = new SlotManagerImpl(scheduledExecutor, configuration.getSlotManagerConfiguration(), slotManagerMetricGroup);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 JobLeaderIdService
 		 */
 		final JobLeaderIdService jobLeaderIdService = new JobLeaderIdService(highAvailabilityServices, scheduledExecutor,
 			configuration.getJobTimeout());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 ResourceManagerRuntimeServices
 		 */
 		return new ResourceManagerRuntimeServices(slotManager, jobLeaderIdService);

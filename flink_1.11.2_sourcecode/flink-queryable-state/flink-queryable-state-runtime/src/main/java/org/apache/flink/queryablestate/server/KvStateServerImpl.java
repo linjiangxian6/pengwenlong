@@ -85,7 +85,7 @@ public class KvStateServerImpl extends AbstractServerBase<KvStateInternalRequest
 				new KvStateResponse.KvStateResponseDeserializer());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回一个 KvStateServerHandler
 		 */
 		return new KvStateServerHandler(this, kvStateRegistry, serializer, stats);

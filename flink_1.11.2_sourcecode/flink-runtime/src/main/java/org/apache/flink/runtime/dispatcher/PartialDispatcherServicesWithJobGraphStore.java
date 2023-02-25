@@ -74,7 +74,7 @@ public class PartialDispatcherServicesWithJobGraphStore extends PartialDispatche
 	public static PartialDispatcherServicesWithJobGraphStore from(PartialDispatcherServices partialDispatcherServices, JobGraphWriter jobGraphWriter) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构造一个 PartialDispatcherServicesWithJobGraphStore 对象
 		 */
 		return new PartialDispatcherServicesWithJobGraphStore(

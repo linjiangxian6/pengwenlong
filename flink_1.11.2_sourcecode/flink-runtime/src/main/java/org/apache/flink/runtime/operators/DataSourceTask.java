@@ -100,7 +100,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		// --------------------------------------------------------------------
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化 InputFormat
 		 */
 		initInputFormat();
@@ -108,7 +108,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		LOG.debug(getLogString("Start registering input and output"));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		try {
@@ -160,7 +160,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		LOG.debug("DataSourceTask object reuse: " + (objectReuseEnabled ? "ENABLED" : "DISABLED") + ".");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 得到序列化器
 		 */
 		final TypeSerializer<OT> serializer = this.serializerFactory.getSerializer();
@@ -168,14 +168,14 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 Task
 			 */
 			// start all chained tasks
 			BatchTask.openChainedTasks(this.chainedTasks, this);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			// get input splits to read
@@ -202,7 +202,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 						OT reuse = serializer.createInstance();
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释： 读数据
 						 */
 						// as long as there is data to read
@@ -211,7 +211,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 							if((returned = format.nextRecord(reuse)) != null) {
 
 								/*************************************************
-								 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+								 * TODO
 								 *  注释： 接收数据
 								 */
 								output.collect(returned);
@@ -299,14 +299,14 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		final Pair<OperatorID, InputFormat<OT, InputSplit>> operatorIdAndInputFormat;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		InputOutputFormatContainer formatContainer = new InputOutputFormatContainer(config, userCodeClassLoader);
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			operatorIdAndInputFormat = formatContainer.getUniqueInputFormat();
@@ -346,7 +346,7 @@ public class DataSourceTask<OT> extends AbstractInvokable {
 		this.eventualOutputs = new ArrayList<RecordWriter<?>>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化 输出
 		 */
 		this.output = BatchTask.initOutputs(this, cl, this.config, this.chainedTasks, this.eventualOutputs, getExecutionConfig(),

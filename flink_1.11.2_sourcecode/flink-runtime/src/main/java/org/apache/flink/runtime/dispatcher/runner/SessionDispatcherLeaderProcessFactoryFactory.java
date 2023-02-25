@@ -48,7 +48,7 @@ public class SessionDispatcherLeaderProcessFactoryFactory implements DispatcherL
 			FatalErrorHandler fatalErrorHandler) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		final AbstractDispatcherLeaderProcess.DispatcherGatewayServiceFactory dispatcherGatewayServiceFactory = new DefaultDispatcherGatewayServiceFactory(
@@ -57,7 +57,7 @@ public class SessionDispatcherLeaderProcessFactoryFactory implements DispatcherL
 			partialDispatcherServices);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new SessionDispatcherLeaderProcessFactory(
@@ -70,7 +70,7 @@ public class SessionDispatcherLeaderProcessFactoryFactory implements DispatcherL
 	public static SessionDispatcherLeaderProcessFactoryFactory create(DispatcherFactory dispatcherFactory) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new SessionDispatcherLeaderProcessFactoryFactory(dispatcherFactory);

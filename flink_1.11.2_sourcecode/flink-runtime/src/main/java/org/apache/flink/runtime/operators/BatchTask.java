@@ -1285,7 +1285,7 @@ public class BatchTask<S extends Function, OT> extends AbstractInvokable impleme
 		// else
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化输出，用于 Shuffle 或者直接输出
 		 */
 		// instantiate the output collector the default way from this configuration

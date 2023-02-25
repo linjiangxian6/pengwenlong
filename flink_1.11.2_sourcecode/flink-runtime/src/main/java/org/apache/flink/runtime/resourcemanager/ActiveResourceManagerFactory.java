@@ -49,7 +49,7 @@ public abstract class ActiveResourceManagerFactory<T extends ResourceIDRetrievab
 		ClusterInformation clusterInformation, @Nullable String webInterfaceUrl, MetricRegistry metricRegistry, String hostname) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return super.createResourceManager(createActiveResourceManagerConfiguration(configuration), resourceId, rpcService, highAvailabilityServices,

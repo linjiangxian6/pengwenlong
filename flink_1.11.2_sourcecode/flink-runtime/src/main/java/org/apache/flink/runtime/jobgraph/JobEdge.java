@@ -36,14 +36,14 @@ public class JobEdge implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 链接到下游的那个 JobVertex
 	 */
 	/** The vertex connected to this edge. */
 	private final JobVertex target;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 分布式模式，有两种：
 	 *  1、ALL_TO_ALL  上游每个 Task 跟下游每个 Task 都有链接
 	 *  2、POINTWISE   上游 Task 不一定跟下游每个 Task 都有链接
@@ -52,14 +52,14 @@ public class JobEdge implements java.io.Serializable {
 	private final DistributionPattern distributionPattern;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：  这个 JobEdge 的中间数据集
 	 */
 	/** The data set at the source of the edge, may be null if the edge is not yet connected*/
 	private IntermediateDataSet source;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 这个 JobEdge 的中间数据集 对应的 ID
 	 */
 	/** The id of the source intermediate data set */

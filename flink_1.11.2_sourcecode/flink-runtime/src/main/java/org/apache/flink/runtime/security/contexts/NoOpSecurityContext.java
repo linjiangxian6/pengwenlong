@@ -28,7 +28,7 @@ public class NoOpSecurityContext implements SecurityContext {
 	@Override
 	public <T> T runSecured(Callable<T> securedCallable) throws Exception {
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return securedCallable.call();

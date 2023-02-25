@@ -126,7 +126,7 @@ public class BootstrapTools {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释：
 				 */
 				return startRemoteActorSystem(configuration, actorSystemName, externalAddress, externalPort, bindAddress,
@@ -171,7 +171,7 @@ public class BootstrapTools {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			Config akkaConfig = AkkaUtils.getAkkaConfig(configuration, new Some<>(new Tuple2<>(externalAddress, externalPort)),
@@ -182,7 +182,7 @@ public class BootstrapTools {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			return startActorSystem(akkaConfig, actorSystemName, logger);
@@ -216,7 +216,7 @@ public class BootstrapTools {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 获取 Akka Config 对象
 			 */
 			Config akkaConfig = AkkaUtils
@@ -227,7 +227,7 @@ public class BootstrapTools {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动 LocalActorSystem
 			 */
 			return startActorSystem(akkaConfig, actorSystemName, logger);
@@ -248,7 +248,7 @@ public class BootstrapTools {
 		logger.debug("Using akka configuration\n {}", akkaConfig);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 Akka ActorSystem
 		 */
 		ActorSystem actorSystem = AkkaUtils.createActorSystem(actorSystemName, akkaConfig);
@@ -536,7 +536,7 @@ public class BootstrapTools {
 			final int maxParallelism = configuration.getInteger(AkkaOptions.FORK_JOIN_EXECUTOR_PARALLELISM_MAX);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 初始化 ForkJoinExecutorConfiguration
 			 */
 			return new ForkJoinExecutorConfiguration(parallelismFactor, minParallelism, maxParallelism);

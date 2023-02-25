@@ -335,7 +335,7 @@ public class YarnResourceManager extends ActiveResourceManager<YarnWorkerNode>
 	public boolean startNewWorker(WorkerResourceSpec workerResourceSpec) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 申请 YARN Container
 		 */
 		return requestYarnContainer(workerResourceSpec);
@@ -632,7 +632,7 @@ public class YarnResourceManager extends ActiveResourceManager<YarnWorkerNode>
 		if (containerResourceOptional.isPresent()) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 通过 ResourceManagerClient 向 ResourceManager 申请 Container
 			 */
 			resourceManagerClient.addContainerRequest(getContainerRequest(containerResourceOptional.get()));

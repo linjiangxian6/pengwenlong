@@ -166,7 +166,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	public RestClusterClient(Configuration config, T clusterId) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第三个参数： ZooKeeperClientHAServices
 		 */
 		this(config, clusterId, HighAvailabilityServicesUtils.createClientHAService(config));
@@ -175,7 +175,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	public RestClusterClient(Configuration config, T clusterId, ClientHighAvailabilityServices clientHAServices) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		this(config, null, clusterId, new ExponentialWaitStrategy(10L, 2000L), clientHAServices);
@@ -210,7 +210,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 		this.retryExecutorService = Executors.newSingleThreadScheduledExecutor(new ExecutorThreadFactory("Flink-RestClusterClient-Retry"));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动
 		 */
 		startLeaderRetrievers();
@@ -219,7 +219,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	private void startLeaderRetrievers() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动监听
 		 */
 		this.webMonitorRetrievalService.start(webMonitorLeaderRetriever);
@@ -292,7 +292,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	public CompletableFuture<JobID> submitJob(@Nonnull JobGraph jobGraph) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 先持久化： 把 JobGragh 持久化到磁盘文件形成 jobGraphFile
 		 *  1、持久化 JobGragh 的前缀：flink-jobgraph
 		 *  2、持久化 JobGragh 的后缀：.bin
@@ -314,7 +314,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 		}, executorService);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 等待持久化完成之后，然后加入带上传文件系列
 		 *  补充： thenApply 接收一个函数作为参数，使用该函数处理上一个 CompletableFuture 调用的结果，并返回一个具有处理结果的 Future 对象。
 		 */
@@ -352,7 +352,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 		});
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 发送请求
 		 *  requestFuture.thenCompos 的参数函数的参数，是 requestFuture 的返回结果，就是 Tuple2
 		 *  补充：thenCompose 的参数为一个返回 CompletableFuture 实例的函数，该函数的参数是先前计算步骤的结果。
@@ -365,7 +365,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 				requestAndFileUploads.f1, isConnectionProblemOrServiceUnavailable()));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  submissionFuture.thenAccept(） 只对结果执行Action，而不返回新的计算值。
 		 *  submissionFuture.thenCombine(） 合并两个线程任务的结果，并进一步处理
@@ -634,14 +634,14 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：
 	 */
 	private <M extends MessageHeaders<R, P, U>, U extends MessageParameters, R extends RequestBody, P extends ResponseBody> CompletableFuture<P> sendRetriableRequest(
 		M messageHeaders, U messageParameters, R request, Collection<FileUpload> filesToUpload, Predicate<Throwable> retryPredicate) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 通过 getWebMonitorBaseUrl() 获取 JobManager 的 web 服务
 		 */
 		return retry(
@@ -649,7 +649,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： restClient = RestClient
 				 *  注意这儿： 提交 Request 给 WebMonitorEndpoint， 最终由 JobSubmitHandler 来执行请求处理
 				 *  通过 Http Restful 方式提交
@@ -668,7 +668,7 @@ public class RestClusterClient<T> implements ClusterClient<T> {
 	private <C> CompletableFuture<C> retry(CheckedSupplier<CompletableFuture<C>> operation, Predicate<Throwable> retryPredicate) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重试
 		 */
 		return FutureUtils.retryWithDelay(CheckedSupplier.unchecked(operation), restClusterClientConfiguration.getRetryMaxAttempts(),

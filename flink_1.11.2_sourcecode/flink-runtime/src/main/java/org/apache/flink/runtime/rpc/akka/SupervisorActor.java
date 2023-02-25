@@ -159,14 +159,14 @@ class SupervisorActor extends AbstractActor {
 	public static ActorRef startSupervisorActor(ActorSystem actorSystem, Executor terminationFutureExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final Props supervisorProps = Props.create(SupervisorActor.class, terminationFutureExecutor)
 			.withDispatcher("akka.actor.supervisor-dispatcher");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 通过 ActorSystem 生成一个 Actor: SupervisorActor
 		 */
 		return actorSystem.actorOf(supervisorProps, getActorName());
@@ -175,7 +175,7 @@ class SupervisorActor extends AbstractActor {
 	public static StartAkkaRpcActorResponse startAkkaRpcActor(ActorRef supervisor, StartAkkaRpcActor.PropsFactory propsFactory, String endpointId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return Patterns.ask(supervisor, createStartAkkaRpcActorMessage(propsFactory, endpointId), RpcUtils.INF_DURATION)
@@ -187,7 +187,7 @@ class SupervisorActor extends AbstractActor {
 	public static StartAkkaRpcActor createStartAkkaRpcActorMessage(StartAkkaRpcActor.PropsFactory propsFactory, String endpointId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回： StartAkkaRpcActor
 		 */
 		return StartAkkaRpcActor.create(propsFactory, endpointId);
@@ -311,7 +311,7 @@ class SupervisorActor extends AbstractActor {
 		private static StartAkkaRpcActor create(PropsFactory propsFactory, String endpointId) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return new StartAkkaRpcActor(propsFactory, endpointId);

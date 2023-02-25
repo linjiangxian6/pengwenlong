@@ -67,7 +67,7 @@ public class EntrypointClusterConfigurationParserFactory implements ParserResult
 		final String hostname = commandLine.getOptionValue(HOST_OPTION.getOpt());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回一个 EntrypointClusterConfiguration 对象
 		 */
 		return new EntrypointClusterConfiguration(

@@ -124,7 +124,7 @@ public final class QueryableStateUtils {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 默认实现： KvStateServerImpl
 			 */
 			String classname = "org.apache.flink.queryablestate.server.KvStateServerImpl";

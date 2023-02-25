@@ -122,7 +122,7 @@ public class ConfigurationParserUtils {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 加载 mian 方法配置
 			 */
 			clusterConfiguration = commandLineParser.parse(args);
@@ -136,7 +136,7 @@ public class ConfigurationParserUtils {
 		final Configuration dynamicProperties = ConfigurationUtils.createConfiguration(clusterConfiguration.getDynamicProperties());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 解析 flink-conf.yaml 配置文件
 		 */
 		return GlobalConfiguration.loadConfiguration(clusterConfiguration.getConfigDir(), dynamicProperties);

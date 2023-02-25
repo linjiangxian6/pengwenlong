@@ -98,7 +98,7 @@ public class KvStateService {
 				try {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： kvStateServer = KvStateServerImpl
 					 */
 					kvStateServer.start();
@@ -114,7 +114,7 @@ public class KvStateService {
 				try {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： kvStateClientProxy = KvStateClientProxyImpl
 					 */
 					kvStateClientProxy.start();
@@ -207,7 +207,7 @@ public class KvStateService {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 KvStateService
 		 *  第一个参数： KvStateRegistry
 		 *  第二个参数： KvStateServerImpl

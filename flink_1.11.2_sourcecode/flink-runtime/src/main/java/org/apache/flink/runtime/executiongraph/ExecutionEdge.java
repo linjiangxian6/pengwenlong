@@ -19,7 +19,7 @@
 package org.apache.flink.runtime.executiongraph;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO
  *  注释： 表示ExecutionVertex的输入，source是IntermediateResultPartition，target是ExecutionVertex。source和target都只能是一个
  */
 public class ExecutionEdge {

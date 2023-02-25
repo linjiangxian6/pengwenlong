@@ -108,7 +108,7 @@ import static org.apache.flink.util.Preconditions.checkState;
 public class OperatorCoordinatorHolder implements OperatorCoordinator, OperatorCoordinatorCheckpointContext {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：
 	 */
 	private final OperatorCoordinator coordinator;
@@ -183,7 +183,7 @@ public class OperatorCoordinatorHolder implements OperatorCoordinator, OperatorC
 		checkState(context.isInitialized(), "Coordinator Context is not yet initialized");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： OperatorCoordinator 启动
 		 */
 		coordinator.start();

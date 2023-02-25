@@ -49,7 +49,7 @@ public class EagerSchedulingStrategy implements SchedulingStrategy {
 	public void startScheduling() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 从 ExecutionGraph 中获取 待调度的 ExecutionVertex
 		 *  allocateSlotsAndDeploy(totalSlot);  参数为总并行度，这样子就知晓总共需要申请多少 Slot 了
 		 */
@@ -72,13 +72,13 @@ public class EagerSchedulingStrategy implements SchedulingStrategy {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 从参数就能看出来，这些都是被封装好的，可以直接被调度执行的 DefaultExecutionVertex
 	 */
 	private void allocateSlotsAndDeploy(final Set<ExecutionVertexID> verticesToDeploy) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 将 verticesToDeploy 变成 List<ExecutionVertexDeploymentOption> 集合
 		 *  简单说：
 		 *  将 DefaultExecutionVertex 变成 ExecutionVertexDeploymentOption
@@ -87,7 +87,7 @@ public class EagerSchedulingStrategy implements SchedulingStrategy {
 			.createExecutionVertexDeploymentOptionsInTopologicalOrder(schedulingTopology, verticesToDeploy, id -> deploymentOption);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、schedulerOperations = DefaultScheduler
 		 */
@@ -103,7 +103,7 @@ public class EagerSchedulingStrategy implements SchedulingStrategy {
 		public SchedulingStrategy createInstance(SchedulerOperations schedulerOperations, SchedulingTopology schedulingTopology) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 调用构造开始
 			 */
 			return new EagerSchedulingStrategy(schedulerOperations, schedulingTopology);

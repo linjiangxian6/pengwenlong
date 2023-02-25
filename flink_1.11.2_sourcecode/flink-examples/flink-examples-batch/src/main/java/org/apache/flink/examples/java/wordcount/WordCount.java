@@ -52,7 +52,7 @@ public class WordCount {
 		final MultipleParameterTool params = MultipleParameterTool.fromArgs(args);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第一步： 构建　ExecutionEnvironment
 		 */
 		// set up the execution environment
@@ -68,7 +68,7 @@ public class WordCount {
 			for(String input : params.getMultiParameterRequired("input")) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 第二步： 通过 env 读取数据得到 数据抽象： DataSet
 				 */
 				if(text == null) {
@@ -86,7 +86,7 @@ public class WordCount {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第三步： 调用各种算子执行计算
 		 *  1、text.flatMap(new Tokenizer()) ==> FlatMapOperator
 		 *  2、.groupBy(0).sum(1);  ==> AggregateOperator
@@ -101,13 +101,13 @@ public class WordCount {
 		if(params.has("output")) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 第四步： 把计算得到的结果数据 写出
 			 */
 			counts.writeAsCsv(params.get("output"), "\n", " ");
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 到此为止，你其实能知道：
 			 *  1、首先通过 InputFormat 加载数据源得到数据抽象对象： DataSource
 			 *  2、针对 DataSource 调用 Transformation 操作执行计算，每个计算/算子 都是一个 Operator
@@ -116,7 +116,7 @@ public class WordCount {
 			 */
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 第五步： 提交应用程序执行
 			 */
 			// execute program

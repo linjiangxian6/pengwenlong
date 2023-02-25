@@ -144,7 +144,7 @@ public class ZooKeeperStateHandleStore<T extends Serializable> {
 			byte[] serializedStoreHandle = InstantiationUtil.serializeObject(storeHandle);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 写入 ZooKeeper 中
 			 */
 			// Write state handle (not the actual state) to ZooKeeper. This is expected to be

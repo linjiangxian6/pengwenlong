@@ -39,19 +39,19 @@ public class IntermediateDataSet implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 当前 IntermediateDataSetID ID
 	 */
 	private final IntermediateDataSetID id; 		// the identifier
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 这个 IntermediateDataSet 是哪个 JobVertex 产出的
 	 */
 	private final JobVertex producer;				// the operation that produced this data set
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 当前这个 JobVertex 对应的下一个 JobVertex 可能不止一个。则中间的 JobEdge 也可能不止一个。
 	 */
 	private final List<JobEdge> consumers = new ArrayList<JobEdge>();

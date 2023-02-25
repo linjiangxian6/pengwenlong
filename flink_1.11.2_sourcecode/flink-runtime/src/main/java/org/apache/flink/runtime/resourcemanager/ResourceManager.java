@@ -191,7 +191,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		ResourceManagerMetricGroup resourceManagerMetricGroup, Time rpcTimeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 当执行完毕这个构造方法的时候，会触发调用 onStart() 方法执行
 		 */
 		//TODO *****
@@ -229,7 +229,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	// ------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 如果代码执行到这儿，也就意味着： ResourceManager 的实例化已经完成了。
 	 *  接下来执行初始化：
 	 */
@@ -239,7 +239,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 开启 RM 服务
 			 */
 			//TODO *****
@@ -256,7 +256,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	private void startResourceManagerServices() throws Exception {
 		try {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： leaderElectionService = ZooKeeperLeaderElectionService
 			 */
 			leaderElectionService = highAvailabilityServices.getResourceManagerLeaderElectionService();
@@ -334,7 +334,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	// ------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 向 ResourceManager 注册一个 JobManager
 	 */
 	@Override
@@ -380,7 +380,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 				if(Objects.equals(leadingJobMasterId, jobMasterId)) {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： 注册 JobMaster
 					 */
 					//TODO *****
@@ -395,7 +395,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			}, getMainThreadExecutor());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： RegistrationResponse = JobMasterRegistrationSuccess
 		 */
 		// handle exceptions which might have occurred in one of the futures inputs of combine
@@ -414,7 +414,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： ResourceManager 注册 TaskExecutor
 	 *  处理注册！
 	 */
@@ -434,7 +434,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 					return new RegistrationResponse.Decline(throwable.getMessage());
 				} else {
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： 注册
 					 */
 					//TODO *****
@@ -491,7 +491,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	public CompletableFuture<Acknowledge> requestSlot(JobMasterId jobMasterId, SlotRequest slotRequest, final Time timeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 先获取 JobID， SlotRequest 中携带 JobID
 		 *  判断该 Job 是否已经注册过。
 		 */
@@ -508,7 +508,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 
 				try {
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： 调用 SlotManagerImpl 来申请 slot
 					 */
 					slotManager.registerSlotRequest(slotRequest);
@@ -721,7 +721,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		ResourceID jobManagerResourceId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 如果已经注册过
 		 */
 		if(jobManagerRegistrations.containsKey(jobId)) {
@@ -746,7 +746,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		// TODO 注释： 显然这才是核心逻辑
 		else {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 执行注册
 			 */
 			// new registration for the job
@@ -767,7 +767,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			public void requestHeartbeat(ResourceID resourceID, Void payload) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 维持 JobMaster 和 ResourceManager 之间的心跳
 				 */
 				jobMasterGateway.heartbeatFromResourceManager(resourceID);
@@ -775,7 +775,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		});
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回注册成功的消息
 		 */
 		return new JobMasterRegistrationSuccess(getFencingToken(), resourceId);
@@ -794,7 +794,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		ResourceID taskExecutorResourceId = taskExecutorRegistration.getResourceId();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 移除旧的注册对象
 		 */
 		WorkerRegistration<WorkerType> oldRegistration = taskExecutors.remove(taskExecutorResourceId);
@@ -818,7 +818,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 构造一个 WorkerRegistration
 			 *  TaskEXecutorRegistrition
 			 *	ResourceManagerRegistrition
@@ -832,7 +832,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 真正完成注册
 			 *  key = ResourceID
 			 *  value = WorkerRegistration
@@ -841,7 +841,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			taskExecutors.put(taskExecutorResourceId, registration);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：  不管是那种集群的注册：
 			 *  1、主节点启动注册服务
 			 *  2、从节点启动
@@ -852,7 +852,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			 */
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 维持心跳 = monitorTarget
 			 *  主节点主动！
 			 *  1、taskExecutorResourceId
@@ -871,7 +871,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 				public void requestHeartbeat(ResourceID resourceID, Void payload) {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： RPC 请求
 					 *  发送心跳， 回到 TaskExecutor
 					 */
@@ -881,7 +881,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			});
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 返回 TaskExecutor 注册成功消息
 			 */
 			return new TaskExecutorRegistrationSuccess(registration.getInstanceID(), resourceId, clusterInformation);
@@ -952,20 +952,20 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			log.info("Closing TaskExecutor connection {} because: {}", resourceID, cause.getMessage());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 执行 TaskManager 的注销
 			 */
 			// TODO :: suggest failed task executor to stop itself
 			slotManager.unregisterTaskManager(workerRegistration.getInstanceID(), cause);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 处理 TaskExecutor 的关闭
 			 */
 			clusterPartitionTracker.processTaskExecutorShutdown(resourceID);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 该 TaskExecutor 关闭 和 ResourceManager 的链接
 			 */
 			workerRegistration.getTaskExecutorGateway().disconnectResourceManager(cause);
@@ -1056,7 +1056,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	public void grantLeadership(final UUID newLeaderSessionID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调用： tryAcceptLeadership 方法
 		 */
 		final CompletableFuture<Boolean> acceptLeadershipFuture = clearStateFuture
@@ -1097,7 +1097,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			setFencingToken(newResourceManagerId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动服务
 			 *  1、启动心跳服务
 			 *  	启动两个定时任务
@@ -1116,14 +1116,14 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	protected void startServicesOnLeadership() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 开启心跳服务
 		 */
 		//TODO *****
 		startHeartbeatServices();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 SlotManagerImpl
 		 *  这个里面只是开启了两个定时任务而已
 		 */
@@ -1151,7 +1151,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 当前 ResourceManager  启动了两个心跳服务：
 	 *  1、taskManagerHeartbeatManager 这个心跳管理器 关心的是： taskManager 的死活
 	 *  2、jobManagerHeartbeatManager 这个心跳管理器 关心的是： jobManager 的死活
@@ -1166,7 +1166,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 	private void startHeartbeatServices() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 用来收听： TaskManager 的心跳
 		 */
 		taskManagerHeartbeatManager = heartbeatServices
@@ -1174,7 +1174,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			.createHeartbeatManagerSender(resourceId, new TaskManagerHeartbeatListener(), getMainThreadExecutor(), log);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 用来收听： JobManager 的心跳
 		 */
 		jobManagerHeartbeatManager = heartbeatServices
@@ -1293,7 +1293,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 		public boolean allocateResource(WorkerResourceSpec workerResourceSpec) {
 			validateRunsInMainThread();
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 开启新工作者
 			 */
 			return startNewWorker(workerResourceSpec);
@@ -1348,7 +1348,7 @@ public abstract class ResourceManager<WorkerType extends ResourceIDRetrievable> 
 			log.info("The heartbeat of TaskManager with id {} timed out.", resourceID);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 关闭和 TaskManager 的链接
 			 */
 			closeTaskManagerConnection(resourceID, new TimeoutException("The heartbeat of TaskManager with id " + resourceID + "  timed out."));

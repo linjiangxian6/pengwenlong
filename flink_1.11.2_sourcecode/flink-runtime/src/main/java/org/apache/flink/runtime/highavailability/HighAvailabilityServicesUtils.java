@@ -86,7 +86,7 @@ public class HighAvailabilityServicesUtils {
 		switch(highAvailabilityMode) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 根据 HA 模式来进行启动
 			 */
 			case NONE:
@@ -105,7 +105,7 @@ public class HighAvailabilityServicesUtils {
 
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 正常的 Flink 所采用的 HA 模式： ZooKeeper
 			 */
 			case ZOOKEEPER:
@@ -120,7 +120,7 @@ public class HighAvailabilityServicesUtils {
 
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			case FACTORY_CLASS:
@@ -128,7 +128,7 @@ public class HighAvailabilityServicesUtils {
 
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			default:
@@ -140,7 +140,7 @@ public class HighAvailabilityServicesUtils {
 		HighAvailabilityMode highAvailabilityMode = HighAvailabilityMode.fromConfig(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 根据 HA 模式来获取 HA 服务： ZooKeeperClientHAServices
 		 */
 		switch(highAvailabilityMode) {

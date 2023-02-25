@@ -66,7 +66,7 @@ public final class StreamOneInputProcessor<IN> implements StreamInputProcessor {
 	public InputStatus processInput() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		InputStatus status = input.emitNext(output);

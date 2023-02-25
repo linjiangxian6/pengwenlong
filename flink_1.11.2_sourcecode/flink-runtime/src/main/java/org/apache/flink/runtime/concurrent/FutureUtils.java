@@ -165,7 +165,7 @@ public class FutureUtils {
 		final CompletableFuture<T> resultFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		retryOperationWithDelay(resultFuture, operation, retries, retryDelay, retryPredicate, scheduledExecutor);
@@ -187,7 +187,7 @@ public class FutureUtils {
 		final ScheduledExecutor scheduledExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return retryWithDelay(operation, retries, retryDelay, (throwable) -> true, scheduledExecutor);
@@ -1016,7 +1016,7 @@ public class FutureUtils {
 	public static <T> void forward(CompletableFuture<T> source, CompletableFuture<T> target) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		source.whenComplete(forwardTo(target));

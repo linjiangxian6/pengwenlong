@@ -107,7 +107,7 @@ class ChannelStateCheckpointWriter {
 		this.onComplete = checkNotNull(onComplete);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		runWithChecks(() -> serializer.writeHeader(dataStream));

@@ -97,7 +97,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 		public void stateChanged(CuratorFramework client, ConnectionState newState) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 执行处理
 			 */
 			handleStateChange(newState);
@@ -136,7 +136,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 注意这个方法，因为当前这个类是 LeaderLatchListener 的子类，所以当该组件在进行选举如果成功的话
 	 *  则会自动调用 isLeader() 方法，否则调用 notLeader 方法。
 	 *  这是 ZooKeeper 的 API 框架 cruator 的机制
@@ -156,7 +156,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 			leaderContender = contender;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： Fink 的 选举，和 HBase 一样都是通过 ZooKeeper 的 API 框架 Curator 实现的
 			 *  1、leaderLatch.start(); 事实上就是举行选举
 			 *  2、当选举结束的时候：
@@ -170,7 +170,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 			leaderLatch.start();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 注册监听器，如果选举结束之后：
 			 *  1、自己成为 Leader, 则会回调 isLeader() 进行处理
 			 *  2、自己成为 Follower，则会回调 notLeader() 进行处理
@@ -236,7 +236,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 					if(leaderSessionID.equals(this.issuedLeaderSessionID)) {
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释： 获取 Leader 信息
 						 */
 						confirmLeaderInformation(leaderSessionID, leaderAddress);
@@ -276,7 +276,7 @@ public class ZooKeeperLeaderElectionService implements LeaderElectionService, Le
 				}
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 分配 LeaderShip
 				 *  leaderContender = JobManagerRunnerImpl
 				 *  leaderContender = ResourceManager

@@ -72,14 +72,14 @@ public class AkkaRpcServiceUtils {
 		@Nullable String bindAddress, @SuppressWarnings("OptionalUsedAsFieldOrParameterType") Optional<Integer> bindPort) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化一个 AkkaRpcServiceBuilder
 		 */
 		final AkkaRpcServiceBuilder akkaRpcServiceBuilder = AkkaRpcServiceUtils
 			.remoteServiceBuilder(configuration, externalAddress, externalPortRange);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 绑定主机名称和端口号
 		 */
 		if(bindAddress != null) {
@@ -88,7 +88,7 @@ public class AkkaRpcServiceUtils {
 		bindPort.ifPresent(akkaRpcServiceBuilder::withBindPort);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建和启动 AkkaRpcService
 		 */
 		//TODO *****
@@ -99,7 +99,7 @@ public class AkkaRpcServiceUtils {
 		String externalPortRange) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调用构造器构建一个 AkkaRpcServiceBuilder
 		 *  传入 Address 和 Port, 这个端口，是自动尝试获取可用的端口
 		 */
@@ -333,7 +333,7 @@ public class AkkaRpcServiceUtils {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 初始化 actorSystem
 			 */
 			final ActorSystem actorSystem;
@@ -348,7 +348,7 @@ public class AkkaRpcServiceUtils {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建一个 AkkaRpcService 实例返回， 在 AkkaRpcService 内部会初始化一个 SupervisorActor
 			 */
 			//TODO *****

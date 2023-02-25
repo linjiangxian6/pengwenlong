@@ -71,7 +71,7 @@ public class SourceOperatorFactory<OUT> extends AbstractStreamOperatorFactory<OU
 		final OperatorEventGateway gateway = parameters.getOperatorEventDispatcher().getOperatorEventGateway(operatorId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final SourceOperator<OUT, ?> sourceOperator = instantiateSourceOperator(
@@ -128,7 +128,7 @@ public class SourceOperatorFactory<OUT> extends AbstractStreamOperatorFactory<OU
 		final SimpleVersionedSerializer<SplitT> typedSplitSerializer = (SimpleVersionedSerializer<SplitT>) splitSerializer;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new SourceOperator<>(

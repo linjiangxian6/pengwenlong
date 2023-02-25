@@ -80,7 +80,7 @@ public class IOManagerAsync extends IOManager implements UncaughtExceptionHandle
 		super(tempDirs);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动一定数量的 WriterThread
 		 */
 		// start a write worker thread for each directory
@@ -95,7 +95,7 @@ public class IOManagerAsync extends IOManager implements UncaughtExceptionHandle
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动一定数量的 ReaderThread
 		 */
 		// start a reader worker thread for each directory

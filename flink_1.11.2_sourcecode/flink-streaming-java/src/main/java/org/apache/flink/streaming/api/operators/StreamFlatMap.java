@@ -35,7 +35,7 @@ public class StreamFlatMap<IN, OUT> extends AbstractUdfStreamOperator<OUT, FlatM
 		super(flatMapper);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： flatMap 算子的 chain 策略： alawys
 		 */
 		chainingStrategy = ChainingStrategy.ALWAYS;

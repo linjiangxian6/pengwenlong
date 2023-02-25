@@ -39,7 +39,7 @@ public final class FlinkPipelineTranslationUtil {
 		FlinkPipelineTranslator pipelineTranslator = getPipelineTranslator(pipeline);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：通过 FlinkPipelineTranslator 来转换获取到 JobGragh
 		 *  注意： pipeline = StreamGraph
 		 */
@@ -72,7 +72,7 @@ public final class FlinkPipelineTranslationUtil {
 	private static FlinkPipelineTranslator getPipelineTranslator(Pipeline pipeline) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取一个 Plan 翻译器
 		 */
 		PlanTranslator planTranslator = new PlanTranslator();
@@ -81,7 +81,7 @@ public final class FlinkPipelineTranslationUtil {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取一个 StreamGragh Translator
 		 */
 		StreamGraphTranslator streamGraphTranslator = new StreamGraphTranslator();
@@ -90,7 +90,7 @@ public final class FlinkPipelineTranslationUtil {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 当最后的 StreamGraphTranslator 也不支持的时候，就抛错！
 		 */
 		throw new RuntimeException("Translator " + streamGraphTranslator + " cannot translate " + "the given pipeline " + pipeline + ".");

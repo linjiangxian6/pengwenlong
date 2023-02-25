@@ -52,7 +52,7 @@ public class DefaultExecutorServiceLoader implements PipelineExecutorServiceLoad
 		checkNotNull(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 加载得到 ExecutorFactory
 		 */
 		final ServiceLoader<PipelineExecutorFactory> loader = ServiceLoader.load(PipelineExecutorFactory.class);
@@ -85,7 +85,7 @@ public class DefaultExecutorServiceLoader implements PipelineExecutorServiceLoad
 		}
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回
 		 */
 		return compatibleFactories.get(0);

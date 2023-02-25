@@ -99,7 +99,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 public abstract class Transformation<T> {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 代表了流的转换
 	 *  Transformation 代表了从一个或多个 DataStream 生成新 DataStream 的操作。
 	 *  顺便，DataStream 类在内部组合了一个 Transformation 类，实际的转换操作均通过该类完成。

@@ -53,7 +53,7 @@ public class LocalExecutor implements PipelineExecutor {
 	public static LocalExecutor create(Configuration configuration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new LocalExecutor(configuration, MiniCluster::new);
@@ -82,13 +82,13 @@ public class LocalExecutor implements PipelineExecutor {
 		checkState(configuration.getBoolean(DeploymentOptions.ATTACHED));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 JobGragh
 		 */
 		final JobGraph jobGraph = getJobGraph(pipeline, effectiveConfig);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 提交 JobGragh
 		 */
 		return PerJobMiniClusterFactory.createWithFactory(effectiveConfig, miniClusterFactory).submitJob(jobGraph);

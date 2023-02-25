@@ -210,7 +210,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	// ------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 转到 onStart() 生命周期方法
 	 */
 	public JobMaster(RpcService rpcService, JobMasterConfiguration jobMasterConfiguration, ResourceID resourceId, JobGraph jobGraph,
@@ -279,7 +279,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	private SchedulerNG createScheduler(final JobManagerJobMetricGroup jobManagerJobMetricGroup) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回一个 defaultScheduler
 		 */
 		return schedulerNGFactory
@@ -491,7 +491,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： JobMaster 收到 TaskManager 的 SlotOffer 回复
 	 */
 	@Override
@@ -499,7 +499,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		final Time timeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 去拿到 registeredTaskManagers 中该 TaskManagerID 对应的 TaskManagerID
 		 */
 		Tuple2<TaskManagerLocation, TaskExecutorGateway> taskManager = registeredTaskManagers.get(taskManagerId);
@@ -512,13 +512,13 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		final TaskExecutorGateway taskExecutorGateway = taskManager.f1;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：rpcTaskManagerGateway = RpcTaskManagerGateway
 		 */
 		final RpcTaskManagerGateway rpcTaskManagerGateway = new RpcTaskManagerGateway(taskExecutorGateway, getFencingToken());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 将申请到的 slot 放入 SlotPool 中
 		 *  1、第二个参数：RpcTaskManagerGateway
 		 *  将申请到的 SlotOffer 的集合返回！
@@ -576,7 +576,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 					}
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释：
 					 */
 					slotPool.registerTaskManager(taskManagerId);
@@ -594,7 +594,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 						public void requestHeartbeat(ResourceID resourceID, AllocatedSlotReport allocatedSlotReport) {
 
 							/*************************************************
-							 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+							 * TODO 
 							 *  注释： 心跳汇报
 							 */
 							taskExecutorGateway.heartbeatFromJobManager(resourceID, allocatedSlotReport);
@@ -627,7 +627,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	public void heartbeatFromResourceManager(final ResourceID resourceID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		resourceManagerHeartbeatManager.requestHeartbeat(resourceID, null);
@@ -652,7 +652,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	public CompletableFuture<String> triggerSavepoint(@Nullable final String targetDirectory, final boolean cancelJob, final Time timeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return schedulerNG.triggerSavepoint(targetDirectory, cancelJob);
@@ -732,7 +732,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		setNewFencingToken(newJobMasterId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化一些必要的服务组件
 		 *  JobMaster 的注册和心跳
 		 */
@@ -742,7 +742,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		log.info("Starting execution of job {} ({}) under job master id {}.", jobGraph.getName(), jobGraph.getJobID(), newJobMasterId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 开始调度执行
 		 *  JobMaster 调度 StreamTask 去运行
 		 */
@@ -754,14 +754,14 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	private void startJobMasterServices() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动心跳服务
 		 */
 		//TODO *****
 		startHeartbeatServices();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 SlotPool 和 Schduler 服务
 		 *  1、SlotPool 实现类是： SlotPoolImpl
 		 *  2、Scheduler 实现类是： schedulerImpl
@@ -773,7 +773,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		scheduler.start(getMainThreadExecutor());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： JobMaster 链接 ResourceManager
 		 *  主要的目的是为了： 向 ResourceManager 注册该 JobMaster
 		 *  申请 Slot
@@ -784,7 +784,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		reconnectToResourceManager(new FlinkException("Starting JobMaster component."));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 工作准备就绪，请尝试与资源管理器建立连接
 		 *  注册 start() 方法的参数：
 		 *  1、ResourceManagerLeaderListener 是 LeaderRetrievalListener 的子类
@@ -859,7 +859,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：  TaskManager 上已经启动好了一个 JobMaster
 	 *  1、JobMaster 需要向： ResourceManager 心跳汇报
 	 *  2、JobMaster 需要向： TaskManager 维持心跳
@@ -867,7 +867,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	private void startHeartbeatServices() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建心跳服务： taskManagerHeartbeatManager
 		 */
 		taskManagerHeartbeatManager = heartbeatServices
@@ -875,7 +875,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 			.createHeartbeatManagerSender(resourceId, new TaskManagerHeartbeatListener(), getMainThreadExecutor(), log);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建心跳服务： resourceManagerHeartbeatManager
 		 */
 		resourceManagerHeartbeatManager = heartbeatServices
@@ -918,7 +918,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 开始调度
 		 */
 		schedulerAssignedFuture.thenRun(this::startScheduling);
@@ -933,7 +933,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		schedulerNG.registerJobStatusListener(jobStatusListener);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 开始调度执行
 		 *  DefaultScheduler.startScheduling();
 		 */
@@ -989,13 +989,13 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	private void notifyOfNewResourceManagerLeader(final String newResourceManagerAddress, final ResourceManagerId resourceManagerId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建新的 ResourceManager 的地址信息
 		 */
 		resourceManagerAddress = createResourceManagerAddress(newResourceManagerAddress, resourceManagerId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 重新链接 ResourceManager
 		 */
 		reconnectToResourceManager(new FlinkException(String.format("ResourceManager leader changed to new address %s", resourceManagerAddress)));
@@ -1016,13 +1016,13 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 	private void reconnectToResourceManager(Exception cause) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 先关掉和 ResourceManager 的链接
 		 */
 		closeResourceManagerConnection(cause);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 重连
 		 */
 		//TODO *****
@@ -1033,7 +1033,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		if(resourceManagerAddress != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 连接到 ResourceManager
 			 */
 			//TODO *****
@@ -1049,14 +1049,14 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		log.info("Connecting to ResourceManager {}", resourceManagerAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 ResourceManagerConnection
 		 */
 		resourceManagerConnection = new ResourceManagerConnection(log, jobGraph.getJobID(), resourceId, getAddress(), getFencingToken(),
 			resourceManagerAddress.getAddress(), resourceManagerAddress.getResourceManagerId(), scheduledExecutorService);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 ResourceManagerConnection
 		 */
 		//TODO *****
@@ -1100,7 +1100,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		if(establishedResourceManagerConnection != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 关闭连接
 			 */
 			dissolveResourceManagerConnection(establishedResourceManagerConnection, cause);
@@ -1110,7 +1110,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		if(resourceManagerConnection != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 关闭连接
 			 */
 			// stop a potentially ongoing registration process
@@ -1154,7 +1154,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 		public void notifyLeaderAddress(final String leaderAddress, final UUID leaderSessionID) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 接收到新的 ResourceManager 的通知
 			 */
 			runAsync(() -> notifyOfNewResourceManagerLeader(leaderAddress, ResourceManagerId.fromUuidOrNull(leaderSessionID)));
@@ -1199,7 +1199,7 @@ public class JobMaster extends FencedRpcEndpoint<JobMasterId> implements JobMast
 					Time timeout = Time.milliseconds(timeoutMillis);
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释：
 					 *  1、之前创建的就是： RetryingRegistration
 					 *  2、调用 RetryingRegistration 的 invokeRegistration() 方法

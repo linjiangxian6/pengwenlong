@@ -128,7 +128,7 @@ public class PackagedProgram {
 			.buildUserCodeClassLoader(getJobJarAndDependencies(), classpaths, getClass().getClassLoader(), configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 加载得到 main Class
 		 */
 		// load the entry point class
@@ -137,7 +137,7 @@ public class PackagedProgram {
 			entryPointClassName != null ? entryPointClassName : getEntryPointClassNameFromJar(this.jarFile), userCodeClassLoader);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 main 方法实例
 		 */
 		if(!hasMainMethod(mainClass)) {
@@ -195,7 +195,7 @@ public class PackagedProgram {
 	public void invokeInteractiveModeForExecution() throws ProgramInvocationException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		//TODO *****
@@ -275,7 +275,7 @@ public class PackagedProgram {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 得到 运行主类的 main 方法实例
 			 *  entryClass 自己编写的应用程序
 			 */
@@ -298,7 +298,7 @@ public class PackagedProgram {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 调用运行主类的 main 方法
 			 *  跳转到运行主类的 main 方法
 			 */
@@ -335,7 +335,7 @@ public class PackagedProgram {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 获取 jar 文件
 			 */
 			jar = new JarFile(new File(jarFile.toURI()));
@@ -366,7 +366,7 @@ public class PackagedProgram {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 从 maifest 中进行解析得到jar的运行主类
 			 */
 			Attributes attributes = manifest.getMainAttributes();
@@ -582,7 +582,7 @@ public class PackagedProgram {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			return new PackagedProgram(jarFile, userClassPaths, entryPointClassName, configuration, savepointRestoreSettings, args);

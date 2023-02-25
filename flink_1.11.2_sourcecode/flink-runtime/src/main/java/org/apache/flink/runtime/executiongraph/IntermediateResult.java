@@ -30,7 +30,7 @@ import static org.apache.flink.util.Preconditions.checkArgument;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO
  *  注释： 该抽象概念表示的是： ExecutionGraph 中用来表示一个 ExecutionJobVertex 的输出的。
  *  他包含了多个 IntermediateResultPartition 
  */
@@ -41,7 +41,7 @@ public class IntermediateResult {
 	private final ExecutionJobVertex producer;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 表示ExecutionVertex的一个输出分区，producer是ExecutionVertex，consumer是若干个ExecutionEdge
 	 */
 	private final IntermediateResultPartition[] partitions;

@@ -55,7 +55,7 @@ public class DefaultExecutionTopology implements SchedulingTopology {
 	private final Map<ExecutionVertexID, DefaultExecutionVertex> executionVerticesById;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 待调度的 ExecutionVertex 集合
 	 */
 	private final List<DefaultExecutionVertex> executionVerticesList;
@@ -85,14 +85,14 @@ public class DefaultExecutionTopology implements SchedulingTopology {
 			producedPartitions.forEach(partition -> tmpResultPartitionsById.put(partition.getId(), partition));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 将 ExecutionVertex 生成 待调度的 DefaultExecutionVertex
 			 */
 			DefaultExecutionVertex schedulingVertex = generateSchedulingExecutionVertex(vertex, producedPartitions);
 			this.executionVerticesById.put(schedulingVertex.getId(), schedulingVertex);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 待调度的 ExecutionVertex 加入到带调度 DefaultExecutionVertex 集合中
 			 */
 			this.executionVerticesList.add(schedulingVertex);

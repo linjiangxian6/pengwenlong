@@ -109,7 +109,7 @@ public class TaskSlot<T extends TaskSlotPayload> implements AutoCloseableAsync {
 		this.allocationId = allocationId;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 MemoryManager
 		 */
 		this.memoryManager = createMemoryManager(resourceProfile, memoryPageSize);
@@ -275,7 +275,7 @@ public class TaskSlot<T extends TaskSlotPayload> implements AutoCloseableAsync {
 		Preconditions.checkState(allocationId != null, "The task slot are not allocated");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 生成一个 SlotOffer 返回给 JobMaster
 		 */
 		return new SlotOffer(allocationId, index, resourceProfile);
@@ -338,7 +338,7 @@ public class TaskSlot<T extends TaskSlotPayload> implements AutoCloseableAsync {
 	private static MemoryManager createMemoryManager(ResourceProfile resourceProfile, int pageSize) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 MemoryManager 实例
 		 */
 		return MemoryManager.create(resourceProfile.getManagedMemory().getBytes(), pageSize);

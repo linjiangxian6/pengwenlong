@@ -35,7 +35,7 @@ class SchedulingStrategyUtils {
 	static Set<ExecutionVertexID> getAllVertexIdsFromTopology(final SchedulingTopology topology) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： topology.getVertices()
 		 */
 		return IterableUtils.toStream(topology.getVertices()).map(SchedulingExecutionVertex::getId).collect(Collectors.toSet());

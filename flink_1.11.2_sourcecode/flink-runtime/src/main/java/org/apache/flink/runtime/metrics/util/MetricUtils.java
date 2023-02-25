@@ -136,7 +136,7 @@ public class MetricUtils {
 		final String portRange = configuration.getString(MetricOptions.QUERY_SERVICE_PORT);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return startMetricRpcService(configuration, AkkaRpcServiceUtils.remoteServiceBuilder(configuration, hostname, portRange));
@@ -151,7 +151,7 @@ public class MetricUtils {
 		final int threadPriority = configuration.getInteger(MetricOptions.QUERY_SERVICE_THREAD_PRIORITY);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return rpcServiceBuilder

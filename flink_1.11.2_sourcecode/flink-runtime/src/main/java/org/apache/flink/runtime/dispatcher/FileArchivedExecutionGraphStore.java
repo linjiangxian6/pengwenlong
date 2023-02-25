@@ -84,7 +84,7 @@ public class FileArchivedExecutionGraphStore implements ArchivedExecutionGraphSt
 		ScheduledExecutor scheduledExecutor, Ticker ticker) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化 ExecutionGraphStorageDirectory
 		 */
 		final File storageDirectory = initExecutionGraphStorageDirectory(rootDir);
@@ -111,7 +111,7 @@ public class FileArchivedExecutionGraphStore implements ArchivedExecutionGraphSt
 			});
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动定时任务
 		 */
 		this.cleanupFuture = scheduledExecutor

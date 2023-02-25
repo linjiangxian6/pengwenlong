@@ -69,7 +69,7 @@ public class TaskExecutorResourceUtils {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 检查资源是否配置，如果没有默认值，则必须配置
 			 */
 			checkTaskExecutorResourceConfigSet(config);
@@ -78,7 +78,7 @@ public class TaskExecutorResourceUtils {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 封装得到该 TaskManager 的资源信息： TaskExecutorResourceSpec
 		 */
 		return new TaskExecutorResourceSpec(
@@ -97,7 +97,7 @@ public class TaskExecutorResourceUtils {
 		CONFIG_OPTIONS.forEach(option -> checkConfigOptionIsSet(config, option));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 解析配置文件，获取到资源配置
 		 */
 		checkTaskExecutorNetworkConfigSet(config);
@@ -122,7 +122,7 @@ public class TaskExecutorResourceUtils {
 	static ResourceProfile generateDefaultSlotResourceProfile(TaskExecutorResourceSpec taskExecutorResourceSpec, int numberOfSlots) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 根据 TaskExecutorResourceSpec 生成 Slot Resource Profile
 		 */
 		return ResourceProfile.newBuilder()

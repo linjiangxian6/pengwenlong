@@ -140,7 +140,7 @@ public abstract class RpcEndpoint implements RpcGateway, AutoCloseableAsync {
 		this.endpointId = checkNotNull(endpointId, "endpointId");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 ResourceManager 的 RPCServer 服务
 		 *  这里启动的是 ResourceManager 的 Rpc 服务端。
 		 *  接收 TaskManager启动好了而之后，　进行注册和心跳，来汇报　Taskmanagaer 的资源情况
@@ -151,7 +151,7 @@ public abstract class RpcEndpoint implements RpcGateway, AutoCloseableAsync {
 
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 线程池的初始化
 		 */
 		this.mainThreadExecutor = new MainThreadExecutor(rpcServer, this::validateRunsInMainThread);
@@ -374,7 +374,7 @@ public abstract class RpcEndpoint implements RpcGateway, AutoCloseableAsync {
 	protected void scheduleRunAsync(Runnable runnable, Time delay) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 定时调度 runnable 运行
 		 */
 		scheduleRunAsync(runnable, delay.getSize(), delay.getUnit());
@@ -390,7 +390,7 @@ public abstract class RpcEndpoint implements RpcGateway, AutoCloseableAsync {
 	protected void scheduleRunAsync(Runnable runnable, long delay, TimeUnit unit) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		rpcServer.scheduleRunAsync(runnable, unit.toMillis(delay));

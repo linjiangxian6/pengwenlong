@@ -105,7 +105,7 @@ final class AsyncCheckpointRunnable implements Runnable, Closeable {
 			if(asyncCheckpointState.compareAndSet(AsyncCheckpointState.RUNNING, AsyncCheckpointState.COMPLETED)) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				reportCompletedSnapshotStates(jobManagerTaskOperatorSubtaskStates, localTaskOperatorSubtaskStates, asyncDurationMillis);

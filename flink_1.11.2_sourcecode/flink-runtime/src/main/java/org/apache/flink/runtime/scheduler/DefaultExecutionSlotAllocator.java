@@ -86,7 +86,7 @@ public class DefaultExecutionSlotAllocator implements ExecutionSlotAllocator {
 		Set<AllocationID> allPreviousAllocationIds = computeAllPriorAllocationIds(executionVertexSchedulingRequirements);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 遍历每个 ExecutionVertexSchedulingRequirements， 为每个 ExecutionVertex 申请 Slot
 		 */
 		for(ExecutionVertexSchedulingRequirements schedulingRequirements : executionVertexSchedulingRequirements) {
@@ -97,7 +97,7 @@ public class DefaultExecutionSlotAllocator implements ExecutionSlotAllocator {
 			LOG.debug("Allocate slot with id {} for execution {}", slotRequestId, executionVertexId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： calculatePreferredLocations 计算 slot 本地性
 			 */
 			CompletableFuture<LogicalSlot> slotFuture = calculatePreferredLocations(
@@ -105,7 +105,7 @@ public class DefaultExecutionSlotAllocator implements ExecutionSlotAllocator {
 				inputsLocationsRetriever).thenCompose((Collection<TaskManagerLocation> preferredLocations) ->
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： NormalSlotProviderStrategy
 				 */
 				slotProviderStrategy.allocateSlot(slotRequestId,
@@ -119,7 +119,7 @@ public class DefaultExecutionSlotAllocator implements ExecutionSlotAllocator {
 			);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 将申请到的 slot 和 executionVertex 对应起来
 			 */
 			SlotExecutionVertexAssignment slotExecutionVertexAssignment = new SlotExecutionVertexAssignment(executionVertexId, slotFuture);
@@ -134,7 +134,7 @@ public class DefaultExecutionSlotAllocator implements ExecutionSlotAllocator {
 			});
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 加入已申请到的 slot 抽象的集合中
 			 */
 			slotExecutionVertexAssignments.add(slotExecutionVertexAssignment);

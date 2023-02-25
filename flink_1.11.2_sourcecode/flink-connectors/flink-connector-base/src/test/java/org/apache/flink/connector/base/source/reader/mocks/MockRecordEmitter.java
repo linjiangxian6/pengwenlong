@@ -31,7 +31,7 @@ public class MockRecordEmitter implements RecordEmitter<int[], Integer, AtomicIn
 	public void emitRecord(int[] record, SourceOutput<Integer> output, AtomicInteger splitState) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		// The value is the first element.

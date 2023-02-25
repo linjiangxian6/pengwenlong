@@ -101,7 +101,7 @@ public class OperatorChain<OUT, OP extends StreamOperator<OUT>> implements Strea
 	private final StreamOperatorWrapper<?, ?> tailOperatorWrapper;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： StreamOperator 的个数
 	 */
 	private final int numOperators;
@@ -240,7 +240,7 @@ public class OperatorChain<OUT, OP extends StreamOperator<OUT>> implements Strea
 		for(RecordWriterOutput<?> streamOutput : streamOutputs) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			streamOutput.broadcastEvent(event, isPriorityEvent);
@@ -254,7 +254,7 @@ public class OperatorChain<OUT, OP extends StreamOperator<OUT>> implements Strea
 			if(!operatorWrapper.isClosed()) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释：
 				 */
 				operatorWrapper.getStreamOperator().prepareSnapshotPreBarrier(checkpointId);
@@ -284,7 +284,7 @@ public class OperatorChain<OUT, OP extends StreamOperator<OUT>> implements Strea
 			operator.initializeState(streamTaskStateInitializer);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			operator.open();

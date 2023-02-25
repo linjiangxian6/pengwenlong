@@ -47,7 +47,7 @@ public abstract class FencedRpcEndpoint<F extends Serializable> extends RpcEndpo
 	protected FencedRpcEndpoint(RpcService rpcService, String endpointId, @Nullable F fencingToken) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		//TODO *****

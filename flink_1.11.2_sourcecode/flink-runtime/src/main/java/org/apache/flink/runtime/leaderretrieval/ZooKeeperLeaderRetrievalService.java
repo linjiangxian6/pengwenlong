@@ -100,7 +100,7 @@ public class ZooKeeperLeaderRetrievalService implements LeaderRetrievalService, 
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 监听服务
 	 *  -
 	 *  在使用 ZK 的时候，一般可能这么写代码：
@@ -124,7 +124,7 @@ public class ZooKeeperLeaderRetrievalService implements LeaderRetrievalService, 
 		LOG.info("Starting ZooKeeperLeaderRetrievalService {}.", retrievalPath);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 监听 Leader 的变更， 如果变更发生，则对应的监听器，收到通知
 		 */
 		synchronized(lock) {
@@ -160,7 +160,7 @@ public class ZooKeeperLeaderRetrievalService implements LeaderRetrievalService, 
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 当监听响应的时候，就会自动调用 这个方法，等同于 zk 中的 watcher 中的 process 方法
 	 *  这是属于 curator 的知识
 	 *  如果 ResourceManager 发生变更过， 或者你是第一次启动
@@ -196,7 +196,7 @@ public class ZooKeeperLeaderRetrievalService implements LeaderRetrievalService, 
 					}
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 通过 RM 的变更
 					 *  leaderAddress ResourceManager 的地址：
 					 */
@@ -253,7 +253,7 @@ public class ZooKeeperLeaderRetrievalService implements LeaderRetrievalService, 
 			lastLeaderSessionID = newLeaderSessionID;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 通知 RM 的变更
 			 *  leaderListener = ResourceManagerLeaderLisnter
 			 */

@@ -35,7 +35,7 @@ final class DispatcherRunnerLeaderElectionLifecycleManager<T extends DispatcherR
 		this.leaderElectionService = leaderElectionService;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动选举
 		 *  参数：dispatcherRunner = DefaultDispatcherRunner
 		 *  调用对象：leaderElectionService = ZooKeeperLeaderElectionService
@@ -72,7 +72,7 @@ final class DispatcherRunnerLeaderElectionLifecycleManager<T extends DispatcherR
 	public static <T extends DispatcherRunner & LeaderContender> DispatcherRunner createFor(T dispatcherRunner, LeaderElectionService leaderElectionService) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  第一个参数： dispatcherRunner = DefaultDispatcherRunner
 		 *  第二个参数： leaderElectionService = ZooKeeperLeaderElectionService

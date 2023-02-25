@@ -69,7 +69,7 @@ public class JobGraph implements Serializable {
 	// --- job and configuration ---
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 包含多个 JobVertex
 	 */
 	/** List of task vertices included in this job graph. */

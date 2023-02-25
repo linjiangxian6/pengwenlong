@@ -152,7 +152,7 @@ public class StreamGraphGenerator {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： StreamGraph
 	 */
 	private StreamGraph streamGraph;
@@ -214,13 +214,13 @@ public class StreamGraphGenerator {
 	public StreamGraph generate() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建一个StreamGraph
 		 */
 		streamGraph = new StreamGraph(executionConfig, checkpointConfig, savepointRestoreSettings);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 设置各种属性
 		 *  当时在生成 StreamGraphGenerator 的时候，就已经把各种属性设置到 StreamGraphGenerator 中了
 		 *  现在把 StreamGraphGenerator 中的属性， 设置到 StreamGraph 中
@@ -237,7 +237,7 @@ public class StreamGraphGenerator {
 		alreadyTransformed = new HashMap<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行各种算子的 transformation： 由 算子 生成 Transformation 来构建 StreamGraph
 		 *  当时在执行各种算子的时候，就已经把算子转换成对应的 Transformation 放入 transformations 集合中了
 		 *  自底向上(先遍历 input transformations) 对转换树的每个 transformation 进行转换
@@ -251,7 +251,7 @@ public class StreamGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 把生成好的 StreamGragh 引用给返回对象，然后清空，保持当前这个 StreamGraphGenerator 依然是一个空的可再生利用的
 		 */
 		final StreamGraph builtStreamGraph = streamGraph;
@@ -293,7 +293,7 @@ public class StreamGraphGenerator {
 		transform.getOutputType();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 关键实现：根据 transform 的类型，做相应不同的转换
 		 *  将当前 Transformation 转换成 StreamNode 和 StreamEdge，便于构建 SreamGraph
 		 */
@@ -692,7 +692,7 @@ public class StreamGraphGenerator {
 		String slotSharingGroup = determineSlotSharingGroup(transform.getSlotSharingGroup(), inputIds);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 Operator（StreamGraph 端会添加一个 StreamNode）
 		 */
 		streamGraph
@@ -706,7 +706,7 @@ public class StreamGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 设置并行度
 		 */
 		int parallelism = transform.getParallelism() != ExecutionConfig.PARALLELISM_DEFAULT ? transform.getParallelism() : executionConfig.getParallelism();
@@ -714,14 +714,14 @@ public class StreamGraphGenerator {
 		streamGraph.setMaxParallelism(transform.getId(), transform.getMaxParallelism());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 定义该 StreamNode 的 入边
 		 *  当前StreamNode已经构建好了，就将StreamNode的所有父节点的id拿出来，建立StreamEdge
 		 */
 		for(Integer inputId : inputIds) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 设置当前 StreamNode 和 上游所有 StreamNode 之间的 StreamEdge
 			 *  将父id与当前StreamId之间建立Edge
 			 *  inputId应该是父节点Id
@@ -756,7 +756,7 @@ public class StreamGraphGenerator {
 		String slotSharingGroup = determineSlotSharingGroup(transform.getSlotSharingGroup(), allInputIds);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamNode
 		 */
 		streamGraph
@@ -773,7 +773,7 @@ public class StreamGraphGenerator {
 		streamGraph.setMaxParallelism(transform.getId(), transform.getMaxParallelism());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamEdge
 		 */
 		for(Integer inputId : inputIds1) {
@@ -781,7 +781,7 @@ public class StreamGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamEdge
 		 */
 		for(Integer inputId : inputIds2) {

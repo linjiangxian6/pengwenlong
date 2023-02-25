@@ -95,7 +95,7 @@ public class ResultPartition implements ResultPartitionWriter, BufferPoolOwner {
 	protected final ResultPartitionType partitionType;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：  是ResultPartition的一个子分区。每个ResultPartition包含多个ResultSubpartition，
 	 *  其数目要由下游消费 Task 数和 DistributionPattern 来决定
 	 */

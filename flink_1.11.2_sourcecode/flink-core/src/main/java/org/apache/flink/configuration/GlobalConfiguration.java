@@ -163,7 +163,7 @@ public final class GlobalConfiguration {
 		final Configuration config = new Configuration();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：  读取 flink-conf.yaml 文件
 		 */
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))){

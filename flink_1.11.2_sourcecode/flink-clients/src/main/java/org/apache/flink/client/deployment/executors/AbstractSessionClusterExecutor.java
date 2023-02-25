@@ -47,7 +47,7 @@ import static org.apache.flink.util.Preconditions.checkState;
 public class AbstractSessionClusterExecutor<ClusterID, ClientFactory extends ClusterClientFactory<ClusterID>> implements PipelineExecutor {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： StandaloneClientFactory = clusterClientFactory
 	 */
 	private final ClientFactory clusterClientFactory;
@@ -60,7 +60,7 @@ public class AbstractSessionClusterExecutor<ClusterID, ClientFactory extends Clu
 	public CompletableFuture<JobClient> execute(@Nonnull final Pipeline pipeline, @Nonnull final Configuration configuration) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 JobGraph
 		 *  pipeline 其实就是 StreamGraph
 		 */
@@ -68,7 +68,7 @@ public class AbstractSessionClusterExecutor<ClusterID, ClientFactory extends Clu
 		final JobGraph jobGraph = PipelineExecutorUtils.getJobGraph(pipeline, configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： clusterDescriptor = StandaloneClusterDescriptor
 		 */
 		try(final ClusterDescriptor<ClusterID> clusterDescriptor = clusterClientFactory.createClusterDescriptor(configuration)) {
@@ -82,7 +82,7 @@ public class AbstractSessionClusterExecutor<ClusterID, ClientFactory extends Clu
 			ClusterClient<ClusterID> clusterClient = clusterClientProvider.getClusterClient();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 提交执行
 			 *  1、MiniClusterClient 本地执行
 			 *  2、RestClusterClient 提交到 Flink Rest 服务接收处理

@@ -108,7 +108,7 @@ public abstract class AbstractAsynchronousOperationHandlers<K extends OperationK
 		public CompletableFuture<TriggerResponse> handleRequest(@Nonnull HandlerRequest<B, M> request, @Nonnull T gateway) throws RestHandlerException {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			final CompletableFuture<R> resultFuture = triggerOperation(request, gateway);

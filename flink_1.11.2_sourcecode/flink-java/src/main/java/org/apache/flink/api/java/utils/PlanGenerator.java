@@ -66,20 +66,20 @@ public class PlanGenerator {
 	public Plan generate() {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释：
 		 */
 		final Plan plan = createPlan();
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释：
 		 */
 		registerGenericTypeInfoIfConfigured(plan);
 		registerCachedFiles(plan);
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释：
 		 */
 		logTypeRegistrationDetails();
@@ -96,7 +96,7 @@ public class PlanGenerator {
 		final OperatorTranslation translator = new OperatorTranslation();
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释：
 		 */
 		final Plan plan = translator.translateToPlan(sinks, jobName);

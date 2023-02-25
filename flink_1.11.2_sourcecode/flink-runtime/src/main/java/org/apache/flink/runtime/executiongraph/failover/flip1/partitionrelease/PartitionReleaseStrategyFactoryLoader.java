@@ -34,7 +34,7 @@ public final class PartitionReleaseStrategyFactoryLoader {
 		if (partitionReleaseDuringJobExecution) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：RegionPartitionReleaseStrategy
 			 */
 			return new RegionPartitionReleaseStrategy.Factory();

@@ -105,14 +105,14 @@ public class SourceOutputWithWatermarks<T> implements SourceOutput<T> {
 			final long assignedTimestamp = timestampAssigner.extractTimestamp(record, timestamp);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			// IMPORTANT: The event must be emitted before the watermark generator is called.
 			recordsOutput.emitRecord(new StreamRecord<>(record, assignedTimestamp));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			watermarkGenerator.onEvent(record, assignedTimestamp, onEventWatermarkOutput);

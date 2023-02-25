@@ -273,7 +273,7 @@ public class Path implements IOReadableWritable, Serializable {
 	public FileSystem getFileSystem() throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return FileSystem.get(this.toUri());

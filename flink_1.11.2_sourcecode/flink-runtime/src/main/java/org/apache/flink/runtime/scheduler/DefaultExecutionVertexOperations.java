@@ -30,7 +30,7 @@ class DefaultExecutionVertexOperations implements ExecutionVertexOperations {
 	public void deploy(final ExecutionVertex executionVertex) throws JobException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 部署一个 ExecutionVertex
 		 */
 		executionVertex.deploy();

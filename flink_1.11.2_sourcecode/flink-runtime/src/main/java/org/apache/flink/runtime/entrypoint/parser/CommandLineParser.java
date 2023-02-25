@@ -50,7 +50,7 @@ public class CommandLineParser<T> {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 解析参数
 			 */
 			commandLine = parser.parse(options, args, true);

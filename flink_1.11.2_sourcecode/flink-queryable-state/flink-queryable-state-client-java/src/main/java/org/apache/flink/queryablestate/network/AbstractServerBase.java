@@ -208,7 +208,7 @@ public abstract class AbstractServerBase<REQ extends MessageBody, RESP extends M
 		Iterator<Integer> portIterator = bindPortRange.iterator();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调用 attemptToBind 绑定端口号
 		 */
 		while(portIterator.hasNext() && !attemptToBind(portIterator.next())) {
@@ -235,19 +235,19 @@ public abstract class AbstractServerBase<REQ extends MessageBody, RESP extends M
 		log.debug("Attempting to start {} on port {}.", serverName, port);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 QueryExecutor = FixedThreadPool 线程池，执行查询处理
 		 */
 		this.queryExecutor = createQueryExecutor();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 Handler = KvStateServerHandler
 		 */
 		this.handler = initializeHandler();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 NettyBufferPool
 		 *  内部创建： PooledByteBufAllocator
 		 */
@@ -258,7 +258,7 @@ public abstract class AbstractServerBase<REQ extends MessageBody, RESP extends M
 		final NioEventLoopGroup nioGroup = new NioEventLoopGroup(numEventLoopThreads, threadFactory);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 Netty Server 端引导程序
 		 */
 		this.bootstrap = new ServerBootstrap().localAddress(bindAddress, port).group(nioGroup).channel(NioServerSocketChannel.class)
@@ -278,7 +278,7 @@ public abstract class AbstractServerBase<REQ extends MessageBody, RESP extends M
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动 Netty 服务端
 			 */
 			final ChannelFuture future = bootstrap.bind().sync();

@@ -51,7 +51,7 @@ public class StandaloneClusterDescriptor implements ClusterDescriptor<Standalone
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 构建一个 RestClusterClient 实例
 				 */
 				return new RestClusterClient<>(config, standaloneClusterId);

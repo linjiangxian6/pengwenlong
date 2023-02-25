@@ -62,7 +62,7 @@ class DefaultDispatcherGatewayServiceFactory implements AbstractDispatcherLeader
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建 Dispatcher
 			 *  dispatcherFactory = SessionDispatcherFactory
 			 */
@@ -77,7 +77,7 @@ class DefaultDispatcherGatewayServiceFactory implements AbstractDispatcherLeader
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： Dispatcher 也是一个 RpcEndpoint 启动起来了之后，给自己发送一个 Hello 消息证明启动
 		 */
 		dispatcher.start();

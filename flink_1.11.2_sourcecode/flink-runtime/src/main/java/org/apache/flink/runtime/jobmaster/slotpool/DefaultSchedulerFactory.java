@@ -41,7 +41,7 @@ public class DefaultSchedulerFactory implements SchedulerFactory {
 	public Scheduler createScheduler(@Nonnull SlotPool slotPool) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new SchedulerImpl(slotSelectionStrategy, slotPool);

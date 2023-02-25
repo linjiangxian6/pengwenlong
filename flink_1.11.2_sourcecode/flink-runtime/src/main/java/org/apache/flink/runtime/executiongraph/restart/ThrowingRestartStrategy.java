@@ -51,7 +51,7 @@ public class ThrowingRestartStrategy implements RestartStrategy {
 		public RestartStrategy createRestartStrategy() {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return new ThrowingRestartStrategy();

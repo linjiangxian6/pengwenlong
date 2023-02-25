@@ -162,7 +162,7 @@ public class StreamExecutionEnvironment {
 	private final CheckpointConfig checkpointCfg = new CheckpointConfig();
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 一堆转换
 	 */
 	protected final List<Transformation<?>> transformations = new ArrayList<>();
@@ -317,7 +317,7 @@ public class StreamExecutionEnvironment {
 				+ KeyGroupRangeAssignment.UPPER_BOUND_MAX_PARALLELISM + ". Found: " + maxParallelism);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 设置并行度
 		 */
 		config.setMaxParallelism(maxParallelism);
@@ -335,7 +335,7 @@ public class StreamExecutionEnvironment {
 	public int getParallelism() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： get 并行度
 		 */
 		return config.getParallelism();
@@ -1290,7 +1290,7 @@ public class StreamExecutionEnvironment {
 	public DataStreamSource<String> socketTextStream(String hostname, int port, String delimiter, long maxRetry) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加了一个 Source 源
 		 */
 		//TODO ***** addSource
@@ -1328,7 +1328,7 @@ public class StreamExecutionEnvironment {
 	public DataStreamSource<String> socketTextStream(String hostname, int port, String delimiter) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		//TODO *****
@@ -1469,7 +1469,7 @@ public class StreamExecutionEnvironment {
 	public <OUT> DataStreamSource<OUT> addSource(SourceFunction<OUT> function, String sourceName) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加 SocketTextStreamFunction
 		 */
 		//TODO *****
@@ -1506,7 +1506,7 @@ public class StreamExecutionEnvironment {
 	public <OUT> DataStreamSource<OUT> addSource(SourceFunction<OUT> function, String sourceName, TypeInformation<OUT> typeInfo) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取输出数据类型
 		 */
 		TypeInformation<OUT> resolvedTypeInfo = getTypeInfo(function, sourceName, SourceFunction.class, typeInfo);
@@ -1517,14 +1517,14 @@ public class StreamExecutionEnvironment {
 		clean(function);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 SourceOperator
 		 *  它是 SourceFunction 的子类，也是  StreamOperator 的子类
 		 */
 		final StreamSource<OUT, ?> sourceOperator = new StreamSource<>(function);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回 DataStreamSource
 		 *  关于这个东西的抽象有四种：
 		 *  1、DataStream
@@ -1581,7 +1581,7 @@ public class StreamExecutionEnvironment {
 	public JobExecutionResult execute() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： Flink Job 的默认名称： Flink Streaming Job
 		 */
 		return execute(DEFAULT_JOB_NAME);
@@ -1602,7 +1602,7 @@ public class StreamExecutionEnvironment {
 		Preconditions.checkNotNull(jobName, "Streaming Job name should not be null.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、getStreamGraph(jobName) 获取 StreamGraph
 		 *  2、execute(Graph) 执行 StreamGraph
@@ -1629,7 +1629,7 @@ public class StreamExecutionEnvironment {
 	public JobExecutionResult execute(StreamGraph streamGraph) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释： 执行 StreamGragh
 		 *   异步提交
 		 */
@@ -1640,7 +1640,7 @@ public class StreamExecutionEnvironment {
 			final JobExecutionResult jobExecutionResult;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 获取执行结果
 			 */
 			if(configuration.getBoolean(DeploymentOptions.ATTACHED)) {
@@ -1728,7 +1728,7 @@ public class StreamExecutionEnvironment {
 		checkNotNull(configuration.get(DeploymentOptions.TARGET), "No execution.target specified in your configuration file.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、executorServiceLoader = DefaultExecutorServiceLoader
 		 */
@@ -1738,7 +1738,7 @@ public class StreamExecutionEnvironment {
 			configuration.get(DeploymentOptions.TARGET));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 异步提交执行 StreamGraph
 		 *  跳转到： AbstractSessionClusterExecutor 的 execute() 方法
 		 */
@@ -1747,7 +1747,7 @@ public class StreamExecutionEnvironment {
 			.execute(streamGraph, configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 阻塞获取 StreamGraph 的执行结果
 		 */
 		try {
@@ -1784,7 +1784,7 @@ public class StreamExecutionEnvironment {
 	public StreamGraph getStreamGraph(String jobName) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成 StreamGraph
 		 */
 		//TODO *****
@@ -1805,7 +1805,7 @@ public class StreamExecutionEnvironment {
 	public StreamGraph getStreamGraph(String jobName, boolean clearTransformations) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、getStreamGraphGenerator() = StreamGraphGenerator
 		 *  2、调用 generate() 方法 生成 StreamGragh
@@ -1814,7 +1814,7 @@ public class StreamExecutionEnvironment {
 		StreamGraph streamGraph = getStreamGraphGenerator().setJobName(jobName).generate();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 清空掉所有的 算子
 		 *  当 StreamGraph 生成好了，则之前各种算子转换得到的 DataStream 就没用了。
 		 */
@@ -1878,7 +1878,7 @@ public class StreamExecutionEnvironment {
 		Preconditions.checkNotNull(transformation, "transformation must not be null.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 将 Transformation 加入 transformations 集合
 		 */
 		this.transformations.add(transformation);
@@ -1899,7 +1899,7 @@ public class StreamExecutionEnvironment {
 	 */
 	public static StreamExecutionEnvironment getExecutionEnvironment() {
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return Utils.resolveFactory(threadLocalContextEnvironmentFactory, contextEnvironmentFactory)

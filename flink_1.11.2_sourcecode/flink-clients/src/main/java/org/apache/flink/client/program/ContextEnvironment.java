@@ -158,7 +158,7 @@ public class ContextEnvironment extends ExecutionEnvironment {
 			suppressSysout);
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释：
 		 */
 		initializeContextEnvironment(factory);

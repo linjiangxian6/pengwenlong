@@ -181,7 +181,7 @@ public class BlobServer extends Thread implements BlobService, BlobWriter, Perma
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动一个定时任务，执行 TransientBlobCleanupTask
 		 */
 		// Initializing the clean up task
@@ -216,7 +216,7 @@ public class BlobServer extends Thread implements BlobService, BlobWriter, Perma
 		final String bindHost = config.getOptional(JobManagerOptions.BIND_HOST).orElseGet(NetUtils::getWildcardIPAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 ServerSocket
 		 *  NetUtils.createSocketFromPorts(args1, args2) 的内部就是调用： args2
 		 */
@@ -284,7 +284,7 @@ public class BlobServer extends Thread implements BlobService, BlobWriter, Perma
 			while(!this.shutdownRequested.get()) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 接收到客户端的 Blob 链接请求，完成链接
 				 */
 				BlobServerConnection conn = new BlobServerConnection(serverSocket.accept(), this);
@@ -297,7 +297,7 @@ public class BlobServer extends Thread implements BlobService, BlobWriter, Perma
 					}
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： 开始工作
 					 */
 					conn.start();

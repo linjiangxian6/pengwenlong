@@ -130,7 +130,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 			this.jobLeaderListener = Preconditions.checkNotNull(initialJobLeaderListener);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 设置状态为：started
 			 */
 			state = DefaultJobLeaderService.State.STARTED;
@@ -187,13 +187,13 @@ public class DefaultJobLeaderService implements JobLeaderService {
 		LOG.info("Add job {} for job leader monitoring.", jobId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： ZooKeeperLeaderRetrievalService
 		 */
 		final LeaderRetrievalService leaderRetrievalService = highAvailabilityServices.getJobManagerLeaderRetriever(jobId, defaultTargetAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： JobManagerLeaderListener
 		 */
 		DefaultJobLeaderService.JobManagerLeaderListener jobManagerLeaderListener = new JobManagerLeaderListener(jobId);
@@ -207,7 +207,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启
 		 */
 		leaderRetrievalService.start(jobManagerLeaderListener);
@@ -222,7 +222,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 		if(jobLeaderService != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 重新建立连接
 			 */
 			jobLeaderService.f1.reconnect();
@@ -327,7 +327,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 							closeRpcConnection();
 
 							/*************************************************
-							 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+							 * TODO
 							 *  注释： 建立连接
 							 */
 							openRpcConnectionTo(leaderAddress, jobMasterId);
@@ -348,7 +348,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 			currentJobMasterId = jobMasterId;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： JobManager 注册对象
 			 */
 			rpcConnection = new JobManagerRegisteredRpcConnection(LOG, leaderAddress, jobMasterId, rpcService.getExecutor());
@@ -356,7 +356,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 			LOG.info("Try to register at job manager {} with leader id {}.", leaderAddress, jobMasterId.toUUID());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 开启 注册
 			 */
 			rpcConnection.start();
@@ -394,7 +394,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 			protected RetryingRegistration<JobMasterId, JobMasterGateway, JMTMRegistrationSuccess> generateRegistration() {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 生成一个像 JobManager 进行注册的 注册对象
 				 */
 				return new DefaultJobLeaderService.JobManagerRetryingRegistration(LOG, rpcService, "JobManager", JobMasterGateway.class,
@@ -450,7 +450,7 @@ public class DefaultJobLeaderService implements JobLeaderService {
 		protected CompletableFuture<RegistrationResponse> invokeRegistration(JobMasterGateway gateway, JobMasterId fencingToken, long timeoutMillis) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 注册 TaskManager
 			 */
 			return gateway.registerTaskManager(taskManagerRpcAddress, unresolvedTaskManagerLocation, Time.milliseconds(timeoutMillis));

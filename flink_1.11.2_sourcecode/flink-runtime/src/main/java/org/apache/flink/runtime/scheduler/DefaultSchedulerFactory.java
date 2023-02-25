@@ -57,14 +57,14 @@ public class DefaultSchedulerFactory implements SchedulerNGFactory {
 		final ShuffleMaster<?> shuffleMaster, final JobMasterPartitionTracker partitionTracker) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建调度策略工厂实例
 		 *  返回值： EagerSchedulingStrategy
 		 */
 		final SchedulingStrategyFactory schedulingStrategyFactory = createSchedulingStrategyFactory(jobGraph.getScheduleMode());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： Flink Job 重启策略
 		 */
 		final RestartBackoffTimeStrategy restartBackoffTimeStrategy = RestartBackoffTimeStrategyFactoryLoader
@@ -73,13 +73,13 @@ public class DefaultSchedulerFactory implements SchedulerNGFactory {
 		log.info("Using restart back off time strategy {} for {} ({}).", restartBackoffTimeStrategy, jobGraph.getName(), jobGraph.getJobID());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构造一个 SlotProviderStrategy = NormalSlotProviderStrategy
 		 */
 		final SlotProviderStrategy slotProviderStrategy = SlotProviderStrategy.from(jobGraph.getScheduleMode(), slotProvider, slotRequestTimeout);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回一个 DefaultScheduler
 		 */
 		//TODO *****
@@ -104,7 +104,7 @@ public class DefaultSchedulerFactory implements SchedulerNGFactory {
 			case EAGER:
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 默认
 				 */
 				return new EagerSchedulingStrategy.Factory();

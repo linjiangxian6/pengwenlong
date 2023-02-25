@@ -44,7 +44,7 @@ public class DefaultDispatcherBootstrap extends AbstractDispatcherBootstrap {
 	public void initialize(final Dispatcher dispatcher, ScheduledExecutor scheduledExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 恢复 JobGraghs
 		 */
 		//TODO *****

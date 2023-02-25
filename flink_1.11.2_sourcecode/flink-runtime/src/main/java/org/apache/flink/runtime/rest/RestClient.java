@@ -114,7 +114,7 @@ public class RestClient implements AutoCloseableAsync {
 	private final AtomicBoolean isRunning = new AtomicBoolean(true);
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 初始化一个 Netty 客户端程序，用来执行 应用程序的 提交
 	 */
 	public RestClient(RestClientConfiguration configuration, Executor executor) {
@@ -123,7 +123,7 @@ public class RestClient implements AutoCloseableAsync {
 		this.terminationFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 Netty 客户端程序！
 		 */
 		final SSLHandlerFactory sslHandlerFactory = configuration.getSslHandlerFactory();
@@ -149,7 +149,7 @@ public class RestClient implements AutoCloseableAsync {
 		NioEventLoopGroup group = new NioEventLoopGroup(1, new ExecutorThreadFactory("flink-rest-client-netty"));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动引导程序
 		 */
 		bootstrap = new Bootstrap();
@@ -211,7 +211,7 @@ public class RestClient implements AutoCloseableAsync {
 		Collection<FileUpload> fileUploads) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 继续提交
 		 */
 		//TODO *****
@@ -248,7 +248,7 @@ public class RestClient implements AutoCloseableAsync {
 
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 Request
 		 */
 		Request httpRequest = createRequest(targetAddress + ':' + targetPort, targetUrl,
@@ -266,7 +266,7 @@ public class RestClient implements AutoCloseableAsync {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 提交请求
 		 */
 		//TODO *****
@@ -286,7 +286,7 @@ public class RestClient implements AutoCloseableAsync {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 构建一个 DefaultFullHttpRequest
 			 */
 			HttpRequest httpRequest = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, httpMethod, targetUrl);
@@ -335,7 +335,7 @@ public class RestClient implements AutoCloseableAsync {
 		JavaType responseType) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 通过 Netty 客户端发送请求给 Netty 服务端
 		 */
 		final ChannelFuture connectFuture = bootstrap.connect(targetAddress, targetPort);
@@ -362,7 +362,7 @@ public class RestClient implements AutoCloseableAsync {
 				} else {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO 
 					 *  注释： 发送请求 到 WebMonitorEndpoint 的 Netty 服务端
 					 *  最终由： JobSubmitHandler 来执行处理
 					 */
@@ -380,7 +380,7 @@ public class RestClient implements AutoCloseableAsync {
 			return future;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 解析响应：parseResponse
 			 */
 		}, executor).thenComposeAsync((JsonResponse rawResponse) -> parseResponse(rawResponse, responseType), executor);
@@ -426,7 +426,7 @@ public class RestClient implements AutoCloseableAsync {
 		public void writeTo(Channel channel) {
 
 			/**
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *   注释：
 			 */
 			channel.writeAndFlush(httpRequest);
@@ -446,7 +446,7 @@ public class RestClient implements AutoCloseableAsync {
 		public void writeTo(Channel channel) {
 
 			/**
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *   注释：
 			 */
 			ChannelFuture future = channel.writeAndFlush(httpRequest);

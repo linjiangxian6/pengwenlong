@@ -215,7 +215,7 @@ public class TaskManagerConfiguration implements TaskManagerRuntimeInfo {
 			.fromConfiguration(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构造 TaskManagerConfiguration 返回
 		 */
 		return new TaskManagerConfiguration(numberSlots,

@@ -43,7 +43,7 @@ public class SocketWindowWordCount {
 	public static void main(String[] args) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 解析 host 和 port
 		 */
 		// the host and the port to connect to
@@ -61,7 +61,7 @@ public class SocketWindowWordCount {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 StreamExecutionEnvironment
 		 *  它呢，还是 跟 Spark 中的 SparkContext 还是有区别的！
 		 */
@@ -69,7 +69,7 @@ public class SocketWindowWordCount {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 加载数据源得到数据抽象：DataStream
 		 *  其实最终，只是创建了一个 DataStreamSource 对象，然后把 SourceFunction（StreamOperator）和 StreamExecutionEnvironment
 		 *  设置到了 DataStreamSource 中， DataStreamSource 是 DataStream 的子类
@@ -119,7 +119,7 @@ public class SocketWindowWordCount {
 		windowCounts.print().setParallelism(1);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 提交执行
 		 */
 		//TODO *****

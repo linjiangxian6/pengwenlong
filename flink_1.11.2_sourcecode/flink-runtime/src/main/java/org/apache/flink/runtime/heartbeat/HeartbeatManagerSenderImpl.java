@@ -51,7 +51,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 		this.heartbeatPeriod = heartbeatPeriod;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  启动定时任务
 		 *  注释： 调度当前的类实例的 run() 方法的执行
 		 *  执行的就是当前类的 run() 方法
@@ -64,7 +64,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 	public void run() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 在 Flink 的心跳机制中，跟其他的 集群不一样：
 		 *  1、ResourceManager 发送心跳给 从节点 Taskmanager
 		 *  2、从节点接收到心跳之后，返回响应
@@ -74,7 +74,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 		if(!stopped) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 遍历每一个 TaskExecutor 出来，然后发送 心跳请求
 			 *  每一次 TaskExecutor 来 RM 注册的时候， 在注册成功之后，就会给这个 TaskExecutor 生成一个
 			 *  Target， 最终，这个 Target 被封装在 ： Monitor，
@@ -96,7 +96,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 实现循环发送心跳的效果
 			 *  1、心跳时间：10s钟
 			 *  2、心跳超时时间：50s钟
@@ -106,7 +106,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： HeartbeatMonitor 如果有  从节点返回心跳响应，则会被加入到 HeartbeatMonitor
 	 *  管理了所有的心跳目标对象
 	 */
@@ -117,7 +117,7 @@ public class HeartbeatManagerSenderImpl<I, O> extends HeartbeatManagerImpl<I, O>
 		final HeartbeatTarget<O> heartbeatTarget = heartbeatMonitor.getHeartbeatTarget();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 发送心跳
 		 *  其实就是 集群中启动的从节点
 		 */

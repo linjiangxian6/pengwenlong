@@ -66,7 +66,7 @@ class NettyClient {
 		final long start = System.nanoTime();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 引导程序
 		 */
 		bootstrap = new Bootstrap();
@@ -76,7 +76,7 @@ class NettyClient {
 		// --------------------------------------------------------------------
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 默认是： auto， 自动根据环境选择： epoll 或者 nio
 		 */
 		switch(config.getTransportType()) {

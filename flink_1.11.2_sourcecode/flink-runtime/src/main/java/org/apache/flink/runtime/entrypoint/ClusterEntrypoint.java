@@ -130,7 +130,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		this.terminationFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  所谓 shutdown hook 就是已经初始化但尚未开始执行的线程对象。在Runtime 注册后，如果JVM要停止前，
 		 * 	这些 shutdown hook 便开始执行。也就是在你的程序结束前，执行一些清理工作，尤其是没有用户界面的程序。
@@ -157,14 +157,14 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		try {
 			replaceGracefulExitWithHaltIfConfigured(configuration);
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： PluginManager 是新版支持提供通用的插件机制
 			 *  负责管理集群插件，这些插件是使用单独的类加载器加载的，以便它们的依赖关系，不要干扰 Flink 的依赖关系。
 			 */
 			PluginManager pluginManager = PluginUtils.createPluginManagerFromRootFolder(configuration);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 根据配置初始化文件系统
 			 *  三种东西；
 			 *  1、本地	Local  客户端的时候会用  JobGragh ===> JobGraghFile
@@ -177,13 +177,13 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			SecurityContext securityContext = installSecurityContext(configuration);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 通过一个线程来运行
 			 */
 			securityContext.runSecured((Callable<Void>) () -> {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 集群启动入口
 				 */
 				//TODO *****
@@ -223,7 +223,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：这个方法主要是做两件事情：
 	 *  1、initializeServices() 初始化相关服务
 	 *  2、dispatcherResourceManagerComponentFactory.create() 启动 Dispatcher 和 ResourceManager 服务。
@@ -232,7 +232,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		synchronized(lock) {
 
 			/**
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 初始化服务，如 JobManager 的 Akka RPC 服务，HA 服务，心跳检查服务，metric service
 			 *  这些服务都是 Master 节点要使用到的一些服务
 			 *  1、commonRpcService: 	基于 Akka 的 RpcService 实现。RPC 服务启动 Akka 参与者来接收从 RpcGateway 调用 RPC
@@ -251,7 +251,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			configuration.setInteger(JobManagerOptions.PORT, commonRpcService.getPort());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 初始化一个 DefaultDispatcherResourceManagerComponentFactory 工厂实例
 			 *  内部初始化了四大工厂实例
 			 *  1、DispatcherRunnerFactory = DefaultDispatcherRunnerFactory
@@ -268,7 +268,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 				createDispatcherResourceManagerComponentFactory(configuration);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *   注释：启动关键组件：Dispatcher 和 ResourceManager。
 			 *   1、Dispatcher: 负责用于接收作业提交，持久化它们，生成要执行的作业管理器任务，并在主任务失败时恢复它们。
 			 *   				此外, 它知道关于 Flink 会话集群的状态。负责为这个新提交的作业拉起一个新的 JobManager 服务
@@ -287,7 +287,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 					this);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：集群关闭时的回调
 			 */
 			clusterComponent.getShutDownFuture().whenComplete((ApplicationStatus applicationStatus, Throwable throwable) -> {
@@ -304,7 +304,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 初始化各种服务组件
 	 */
 	protected void initializeServices(Configuration configuration, PluginManager pluginManager) throws Exception {
@@ -314,7 +314,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		synchronized(lock) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第一步
 			 *  创建一个 Akka rpc 服务 commonRpcService： 基于 Akka 的 RpcService 实现。
 			 *  RPC 服务启动 Akka 参与者来接收从 RpcGateway 调用 RPC
@@ -333,7 +333,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			configuration.setInteger(JobManagerOptions.PORT, commonRpcService.getPort());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第二步
 			 *  初始化一个 ioExecutor
 			 *  如果你当前节点有 32 个 cpu ,那么当前这个 ioExecutor 启动的线程的数量为 ： 128
@@ -343,7 +343,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			ioExecutor = Executors.newFixedThreadPool(ClusterEntrypointUtils.getPoolSize(configuration), new ExecutorThreadFactory("cluster-io"));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第三步
 			 *  HA service 相关的实现，它的作用有很多，到底使用哪种根据用户的需求来定义
 			 *  比如：处理 ResourceManager 的 leader 选举、JobManager leader 的选举等；
@@ -353,7 +353,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			haServices = createHaServices(configuration, ioExecutor);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第四步： 初始化一个 BlobServer
 			 *  主要管理一些大文件的上传等，比如用户作业的 jar 包、TM 上传 log 文件等
 			 *  Blob 是指二进制大对象也就是英文 Binary Large Object 的缩写
@@ -362,7 +362,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			blobServer.start();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第五步
 			 *  初始化一个心跳服务
 			 *  在主节点中，其实有很多角色都有心跳服务。 那些这些角色的心跳服务，都是在这个 heartbeatServices 的基础之上创建的
@@ -372,7 +372,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 			heartbeatServices = createHeartbeatServices(configuration);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第六步： metrics（性能监控） 相关的服务
 			 *  1、metricQueryServiceRpcService 也是一个 ActorySystem
 			 *  2、用来跟踪所有已注册的Metric
@@ -385,7 +385,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 				.instantiateProcessMetricGroup(metricRegistry, hostname, ConfigurationUtils.getSystemResourceMetricsProbingInterval(configuration));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第七步： ArchivedExecutionGraphStore: 存储 execution graph 的服务， 默认有两种实现，
 			 *  1、MemoryArchivedExecutionGraphStore 主要是在内存中缓存，
 			 *  2、FileArchivedExecutionGraphStore 会持久化到文件系统，也会在内存中缓存。
@@ -413,7 +413,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 	protected HighAvailabilityServices createHaServices(Configuration configuration, Executor executor) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 HA 服务
 		 */
 		return HighAvailabilityServicesUtils
@@ -424,7 +424,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 	protected HeartbeatServices createHeartbeatServices(Configuration configuration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return HeartbeatServices.fromConfiguration(configuration);
@@ -433,7 +433,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 	protected MetricRegistryImpl createMetricRegistry(Configuration configuration, PluginManager pluginManager) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new MetricRegistryImpl(MetricRegistryConfiguration.fromConfiguration(configuration),
@@ -594,7 +594,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		Configuration configuration) throws IOException;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *   注释：
 	 */
 	protected abstract ArchivedExecutionGraphStore createSerializableExecutionGraphStore(Configuration configuration,
@@ -637,7 +637,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动 Flink 主节点： JobManager
 			 */
 			//TODO *****
@@ -649,7 +649,7 @@ public abstract class ClusterEntrypoint implements AutoCloseableAsync, FatalErro
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取结果
 		 */
 		clusterEntrypoint.getTerminationFuture().whenComplete((applicationStatus, throwable) -> {

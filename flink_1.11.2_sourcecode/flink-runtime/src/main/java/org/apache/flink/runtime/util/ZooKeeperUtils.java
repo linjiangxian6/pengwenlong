@@ -131,7 +131,7 @@ public class ZooKeeperUtils {
 		LOG.info("Using '{}' as Zookeeper namespace.", rootWithNamespace);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		CuratorFramework cf = CuratorFrameworkFactory.builder().connectString(zkQuorum).sessionTimeoutMs(sessionTimeout)
@@ -141,7 +141,7 @@ public class ZooKeeperUtils {
 			.namespace(rootWithNamespace.startsWith("/") ? rootWithNamespace.substring(1) : rootWithNamespace).aclProvider(aclProvider).build();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		cf.start();
@@ -199,7 +199,7 @@ public class ZooKeeperUtils {
 		String leaderPath = configuration.getString(HighAvailabilityOptions.HA_ZOOKEEPER_LEADER_PATH) + pathSuffix;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： ZooKeeperLeaderRetrievalService
 		 */
 		return new ZooKeeperLeaderRetrievalService(client, leaderPath);
@@ -231,7 +231,7 @@ public class ZooKeeperUtils {
 		final String leaderPath = configuration.getString(HighAvailabilityOptions.HA_ZOOKEEPER_LEADER_PATH) + pathSuffix;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 ZooKeeperLeaderElectionService 实例
 		 */
 		return new ZooKeeperLeaderElectionService(client, latchPath, leaderPath);
@@ -263,7 +263,7 @@ public class ZooKeeperUtils {
 		final String zooKeeperFullJobsPath = client.getNamespace() + zooKeeperJobsPath;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： ZooKeeperStateHandleStore
 		 */
 		final ZooKeeperStateHandleStore<JobGraph> zooKeeperStateHandleStore = new ZooKeeperStateHandleStore<>(facade, stateStorage);
@@ -271,7 +271,7 @@ public class ZooKeeperUtils {
 		final PathChildrenCache pathCache = new PathChildrenCache(facade, "/", false);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 最终构建的是： ZooKeeperJobGraphStore
 		 */
 		return new ZooKeeperJobGraphStore(zooKeeperFullJobsPath, zooKeeperStateHandleStore, pathCache);

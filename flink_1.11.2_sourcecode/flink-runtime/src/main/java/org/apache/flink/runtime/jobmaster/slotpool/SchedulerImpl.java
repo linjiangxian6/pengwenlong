@@ -112,7 +112,7 @@ public class SchedulerImpl implements Scheduler {
 		Time allocationTimeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用内部实现
 		 */
 		return allocateSlotInternal(slotRequestId, scheduledUnit, slotProfile, allocationTimeout);
@@ -133,7 +133,7 @@ public class SchedulerImpl implements Scheduler {
 		final CompletableFuture<LogicalSlot> allocationResultFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用内部实现
 		 */
 		internalAllocateSlot(allocationResultFuture, slotRequestId, scheduledUnit, slotProfile, allocationTimeout);
@@ -147,13 +147,13 @@ public class SchedulerImpl implements Scheduler {
 		CompletableFuture<LogicalSlot> allocationFuture = scheduledUnit.getSlotSharingGroupId() == null ?
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请 SingleSlot
 			 */
 			allocateSingleSlot(slotRequestId, slotProfile, allocationTimeout) :
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请 SharedSlot
 			 */
 			allocateSharedSlot(slotRequestId, scheduledUnit, slotProfile, allocationTimeout);
@@ -191,13 +191,13 @@ public class SchedulerImpl implements Scheduler {
 	//---------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 申请 SingleSlot
 	 */
 	private CompletableFuture<LogicalSlot> allocateSingleSlot(SlotRequestId slotRequestId, SlotProfile slotProfile, @Nullable Time allocationTimeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第一步： 先尝试从可用的 slot 中去申请
 		 */
 		Optional<SlotAndLocality> slotAndLocality = tryAllocateFromAvailable(slotRequestId, slotProfile);
@@ -212,7 +212,7 @@ public class SchedulerImpl implements Scheduler {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 如果尝试从可用申请不到
 			 *  调用： requestNewAllocatedSlot()
 			 */
@@ -233,7 +233,7 @@ public class SchedulerImpl implements Scheduler {
 		if(allocationTimeout == null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 调用 SlotPoolImpl 来申请 slot
 			 */
 			return slotPool.requestNewAllocatedBatchSlot(slotRequestId, slotProfile.getPhysicalSlotResourceProfile());
@@ -249,7 +249,7 @@ public class SchedulerImpl implements Scheduler {
 		final PhysicalSlot allocatedSlot = slotAndLocality.getSlot();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 申请到了，则封装一个 SingleLogicalSlot 返回
 		 */
 		final SingleLogicalSlot singleTaskSlot = new SingleLogicalSlot(slotRequestId, allocatedSlot, null, slotAndLocality.getLocality(), this);
@@ -273,13 +273,13 @@ public class SchedulerImpl implements Scheduler {
 		return selectedAvailableSlot.flatMap(slotInfoAndLocality -> {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请一个 Slot
 			 */
 			Optional<PhysicalSlot> optionalAllocatedSlot = slotPool.allocateAvailableSlot(slotRequestId, slotInfoAndLocality.getSlotInfo().getAllocationId());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 返回 SlotAndLocality
 			 */
 			return optionalAllocatedSlot.map(allocatedSlot -> new SlotAndLocality(allocatedSlot, slotInfoAndLocality.getLocality()));
@@ -340,7 +340,7 @@ public class SchedulerImpl implements Scheduler {
 				SlotSharingManager.MultiTaskSlot multiTaskSlot = (SlotSharingManager.MultiTaskSlot) taskSlot;
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				if(multiTaskSlot.mayHaveEnoughResourcesToFulfill(slotProfile.getTaskResourceProfile())) {

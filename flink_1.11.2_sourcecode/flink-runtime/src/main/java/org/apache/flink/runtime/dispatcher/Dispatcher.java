@@ -97,7 +97,7 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /**
  * /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO 
  *  注释：  Dispatcher 主要是用于作业的提交、并把它们持久化、为作业创建对应的 JobManager 等
  *  Client 端提交的 JobGraph 就是提交给了 Dispatcher 服务
 
@@ -124,7 +124,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 	private final FatalErrorHandler fatalErrorHandler;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 存放 JobManagerRunner 的容器
 	 *  正常情况下： 一个 Job 会有一个 JobManagerRunner 对象
 	 */
@@ -148,7 +148,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 	protected final CompletableFuture<ApplicationStatus> shutDownFuture;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 当这儿执行完毕的时候，需要执行他的 onStart() 方法
 	 */
 	//TODO ***** 搜索onStart()
@@ -166,7 +166,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		this.fatalErrorHandler = dispatcherServices.getFatalErrorHandler();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： ZooKeeperJobGraphStore
 		 */
 		this.jobGraphWriter = dispatcherServices.getJobGraphWriter();
@@ -211,7 +211,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动 Dispatcher 服务
 			 */
 			startDispatcherServices();
@@ -223,7 +223,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：  引导程序初始化
 		 *  把所有中断的 job 恢复执行
 		 */
@@ -235,7 +235,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 性能监控的
 			 */
 			//TODO *****
@@ -249,7 +249,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		checkNotNull(recoveredJob);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调用 runJob 运行一个任务
 		 */
 		//TODO ***** runJob
@@ -321,7 +321,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 提交
 				 */
 				//TODO *****
@@ -374,7 +374,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		log.info("Submitting job {} ({}).", jobGraph.getJobID(), jobGraph.getName());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 提交执行
 		 */
 		final CompletableFuture<Acknowledge> persistAndRunFuture = waitForTerminatingJobManager(
@@ -406,14 +406,14 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		jobGraphWriter.putJobGraph(jobGraph);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 运行 job
 		 */
 		//TODO *****
 		final CompletableFuture<Void> runJobFuture = runJob(jobGraph);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 运行完毕该 job　就从 jobGraphWriter 移除
 		 */
 		return runJobFuture.whenComplete(BiConsumerWithException.unchecked((Object ignored, Throwable throwable) -> {
@@ -424,14 +424,14 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 客户端正常提交一个 job 的时候，最终由 集群主节点中的 Dispatcher 接收到来继续提交执行
 	 */
 	private CompletableFuture<Void> runJob(JobGraph jobGraph) {
 		Preconditions.checkState(!jobManagerRunnerFutures.containsKey(jobGraph.getJobID()));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 JobManagerRunner
 		 *  在这里面会做一件重要的事情：
 		 *  1、创建 JobMaster 实例
@@ -448,13 +448,13 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		jobManagerRunnerFutures.put(jobGraph.getJobID(), jobManagerRunnerFuture);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 JobManagerRunner
 		 */
 		return jobManagerRunnerFuture.thenApply(
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 提交任务 == start JobManagerRunner
 			 */
 			//TODO ***** startJobManagerRunner
@@ -477,7 +477,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： createJobManagerRunner 方法返回 JobManagerRunnerImpl
 				 *  在 JobManagerRunnerImpl 初始化的时候，初始化了一个 JobMaster 对象
 				 */
@@ -520,7 +520,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 			}, getMainThreadExecutor()));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动 jobManagerRunner
 		 */
 		//TODO ***** 实现类JobManagerRunnerImpl
@@ -687,7 +687,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 		final CompletableFuture<JobMasterGateway> jobMasterGatewayFuture = getJobMasterGatewayFuture(jobId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 触发 triggerSavepoint() 执行 SavePoint
 		 */
 		return jobMasterGatewayFuture
@@ -932,7 +932,7 @@ public abstract class Dispatcher extends PermanentlyFencedRpcEndpoint<Dispatcher
 	private void registerDispatcherMetrics(MetricGroup jobManagerMetricGroup) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		jobManagerMetricGroup.gauge(MetricNames.NUM_RUNNING_JOBS, () -> (long) jobManagerRunnerFutures.size());

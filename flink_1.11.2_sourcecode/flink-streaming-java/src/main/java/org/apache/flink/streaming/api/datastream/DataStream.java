@@ -93,13 +93,13 @@ import java.util.List;
 public class DataStream<T> {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 存储 environment
 	 */
 	protected final StreamExecutionEnvironment environment;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 存储 转换逻辑 Transformation
 	 */
 	protected final Transformation<T> transformation;
@@ -113,7 +113,7 @@ public class DataStream<T> {
 	public DataStream(StreamExecutionEnvironment environment, Transformation<T> transformation) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 到最后，只是 创建了一个 DataStream 对象，
 		 *  然后设置了 StreamExecutionEnvironment 和 Transformation
 		 */
@@ -276,7 +276,7 @@ public class DataStream<T> {
 		Preconditions.checkNotNull(key);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 把普通的 DataStream 变成了 KeyedStream
 		 */
 		return new KeyedStream<>(this, clean(key));
@@ -607,13 +607,13 @@ public class DataStream<T> {
 	public <R> SingleOutputStreamOperator<R> flatMap(FlatMapFunction<T, R> flatMapper) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 通过反射拿到 算子的类型
 		 */
 		TypeInformation<R> outType = TypeExtractor.getFlatMapReturnTypes(clean(flatMapper), getType(), Utils.getCallLocationName(), true);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 算子执行的真正操作逻辑是： 将算子构建成 Transformation 加入 Env 中的 transformation 中的
 		 *  transformations 集合中。将来执行 StreamGraph 生成的时候，会将 Transformation 变成 Operator
 		 *  -
@@ -641,7 +641,7 @@ public class DataStream<T> {
 	public <R> SingleOutputStreamOperator<R> flatMap(FlatMapFunction<T, R> flatMapper, TypeInformation<R> outputType) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： flink把每一个算子transform成一个对流的转换
 		 *  并且注册到执行环境中，用于生成StreamGraph
 		 *  -
@@ -941,7 +941,7 @@ public class DataStream<T> {
 		PrintSinkFunction<T> printFunction = new PrintSinkFunction<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return addSink(printFunction).name("Print to Std. Out");
@@ -1153,7 +1153,7 @@ public class DataStream<T> {
 	public <R> SingleOutputStreamOperator<R> transform(String operatorName, TypeInformation<R> outTypeInfo, OneInputStreamOperator<T, R> operator) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  一是用反射拿到了flatMap算子的输出类型
 		 *  二是生成了一个Operator
@@ -1187,7 +1187,7 @@ public class DataStream<T> {
 		transformation.getOutputType();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建： OneInputTransformation
 		 *  由于 flatMap 这个操作只接受一个输入，所以再被进一步包装为 OneInputTransformation
 		 */
@@ -1195,13 +1195,13 @@ public class DataStream<T> {
 			environment.getParallelism());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建： SingleOutputStreamOperator
 		 */
 		@SuppressWarnings({"unchecked", "rawtypes"}) SingleOutputStreamOperator<R> returnStream = new SingleOutputStreamOperator(environment, resultTransform);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 把 Operator 注册到执行环境中，用于生成 StreamGraph
 		 *  最后，将该 transformation 注册到执行环境中，当执行 generate 方法时，生成 StreamGraph 图结构。
 		 */
@@ -1209,7 +1209,7 @@ public class DataStream<T> {
 		getExecutionEnvironment().addOperator(resultTransform);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  SingleOutputStreamOperator 也是 DataStream 的子类，也就是返回了一个新的 DataStream
 		 * 	然后调用新的 DataStream 的某一个算子，又生成新的 StreamTransformation，
@@ -1250,13 +1250,13 @@ public class DataStream<T> {
 		StreamSink<T> sinkOperator = new StreamSink<>(clean(sinkFunction));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构造一个 DataStreamSink 流对象
 		 */
 		DataStreamSink<T> sink = new DataStreamSink<>(this, sinkOperator);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 将算子加入到 ExecutionEnvironment 中的 transformations 集合中
 		 */
 		getExecutionEnvironment().addOperator(sink.getTransformation());

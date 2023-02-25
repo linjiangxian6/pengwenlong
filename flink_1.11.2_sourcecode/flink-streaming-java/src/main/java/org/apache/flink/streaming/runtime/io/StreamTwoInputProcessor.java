@@ -56,7 +56,7 @@ public final class StreamTwoInputProcessor<IN1, IN2> implements StreamInputProce
 	private final TwoInputSelectionHandler inputSelectionHandler;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 下面的变量有两组
 	 */
 

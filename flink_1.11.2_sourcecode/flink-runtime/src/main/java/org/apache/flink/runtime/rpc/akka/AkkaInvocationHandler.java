@@ -148,7 +148,7 @@ class AkkaInvocationHandler implements InvocationHandler, AkkaBasedEndpoint, Rpc
 			long atTimeNanos = delayMillis == 0 ? 0 : System.nanoTime() + (delayMillis * 1_000_000);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 注册
 			 */
 			tell(new RunAsync(runnable, atTimeNanos));
@@ -172,7 +172,7 @@ class AkkaInvocationHandler implements InvocationHandler, AkkaBasedEndpoint, Rpc
 	public void start() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 发送 START 消息
 		 *  只要发送了 START 这个消息，也就意味着： ResourceManager 已经成功启动好了。 ！
 		 */

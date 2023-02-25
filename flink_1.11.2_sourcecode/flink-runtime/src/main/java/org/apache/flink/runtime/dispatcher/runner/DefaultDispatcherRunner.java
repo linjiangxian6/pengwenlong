@@ -104,7 +104,7 @@ public final class DefaultDispatcherRunner implements DispatcherRunner, LeaderCo
 	public void grantLeadership(UUID leaderSessionID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启 Dispatcher 服务
 		 */
 		//TODO ***** startNewDispatcherLeaderProcess
@@ -124,7 +124,7 @@ public final class DefaultDispatcherRunner implements DispatcherRunner, LeaderCo
 		final DispatcherLeaderProcess newDispatcherLeaderProcess = dispatcherLeaderProcess;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 再启动一个新的
 		 *  调用： SessionDispatcherLeaderProcess.start()
 		 */
@@ -142,7 +142,7 @@ public final class DefaultDispatcherRunner implements DispatcherRunner, LeaderCo
 		LOG.debug("Create new {} with leader session id {}.", DispatcherLeaderProcess.class.getSimpleName(), leaderSessionID);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建一个 DispatcherLeaderProcess
 		 *  调用对象： SessionDispatcherLeaderProcess
 		 *  返回值：SessionDispatcherLeaderProcess
@@ -204,7 +204,7 @@ public final class DefaultDispatcherRunner implements DispatcherRunner, LeaderCo
 		DispatcherLeaderProcessFactory dispatcherLeaderProcessFactory) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  第一个参数： ZooKeeperLeaderElectionService
 		 *  第三个参数： SessionDispatcherLeaderProcessFactoryFactory
@@ -213,7 +213,7 @@ public final class DefaultDispatcherRunner implements DispatcherRunner, LeaderCo
 			dispatcherLeaderProcessFactory);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启 DispatcherRunner 的声明周期
 		 *  第一个参数： dispatcherRunner = DefaultDispatcherRunner
 		 *  第二个参数： leaderElectionService = ZooKeeperLeaderElectionService

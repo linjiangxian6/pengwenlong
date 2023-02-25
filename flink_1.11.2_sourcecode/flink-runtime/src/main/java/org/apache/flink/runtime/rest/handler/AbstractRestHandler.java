@@ -72,7 +72,7 @@ public abstract class AbstractRestHandler<T extends RestfulGateway, R extends Re
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 调用 handleRequest 方法来处理请求，得到响应
 			 */
 			response = handleRequest(handlerRequest, gateway);
@@ -82,7 +82,7 @@ public abstract class AbstractRestHandler<T extends RestfulGateway, R extends Re
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回客户端响应
 		 */
 		return response.thenAccept(resp -> HandlerUtils.sendResponse(ctx, httpRequest, resp, messageHeaders.getResponseStatusCode(), responseHeaders));

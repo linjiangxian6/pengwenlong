@@ -50,7 +50,7 @@ public interface RestEndpointFactory<T extends RestfulGateway> {
 	static ExecutionGraphCache createExecutionGraphCache(RestHandlerConfiguration restConfiguration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new DefaultExecutionGraphCache(restConfiguration.getTimeout(), Time.milliseconds(restConfiguration.getRefreshInterval()));

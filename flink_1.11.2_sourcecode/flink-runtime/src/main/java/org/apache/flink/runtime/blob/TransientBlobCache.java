@@ -75,7 +75,7 @@ public class TransientBlobCache extends AbstractBlobCache implements TransientBl
 		super(blobClientConfig, new VoidBlobStore(), LoggerFactory.getLogger(TransientBlobCache.class), serverAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 启动一个定时服务
 		 */
 		// Initializing the clean up task
@@ -85,7 +85,7 @@ public class TransientBlobCache extends AbstractBlobCache implements TransientBl
 		this.cleanupInterval = blobClientConfig.getLong(BlobServerOptions.CLEANUP_INTERVAL) * 1000;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 调度定时任务执行 TransientBlobCleanupTask
 		 */
 		this.cleanupTimer

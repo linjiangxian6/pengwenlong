@@ -632,7 +632,7 @@ public class MiniCluster implements JobExecutorService, AutoCloseableAsync {
 		final CompletableFuture<Void> jarUploadFuture = uploadAndSetJobFiles(blobServerAddressFuture, jobGraph);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：dispatcherGateway.submitJob(jobGraph, rpcTimeout) 提交 jobGragh
 		 */
 		final CompletableFuture<Acknowledge> acknowledgeCompletableFuture = jarUploadFuture.thenCombine(dispatcherGatewayFuture,

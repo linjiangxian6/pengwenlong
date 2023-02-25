@@ -112,7 +112,7 @@ public class StreamingJobGraphGenerator {
 	public static JobGraph createJobGraph(StreamGraph streamGraph, @Nullable JobID jobID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 JobGragh 返回
 		 *  1、new StreamingJobGraphGenerator(streamGraph, jobID) 的时候，先构建一个 JobGragh 对象
 		 *  2、createJobGraph() 然后填充属性值
@@ -160,14 +160,14 @@ public class StreamingJobGraphGenerator {
 		this.physicalEdgesInOrder = new ArrayList<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 这地方是构建一个 JobGragh 对象
 		 */
 		jobGraph = new JobGraph(jobID, streamGraph.getJobName());
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 这个方法，完成所谓的 StreamGraph 到 JobGraph 的转换
 	 */
 	private JobGraph createJobGraph() {
@@ -189,7 +189,7 @@ public class StreamingJobGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重点： 设置 Chaining, 将可以 Chain 到一起的 StreamNode Chain 在一起，
 		 *  这里会生成相应的 JobVertex 、JobEdge 、 IntermediateDataSet 对象
 		 *  把能 chain 在一起的 Operator 都合并了，变成了 OperatorChain
@@ -302,7 +302,7 @@ public class StreamingJobGraphGenerator {
 	private void setChaining(Map<Integer, byte[]> hashes, List<Map<Integer, byte[]>> legacyHashes) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、一个 StreamNode　也可以认为是　做了 chain 动作  StreamNode -> JobVertex
 		 *  2、两个 StreamNode　做了 chain 动作  StreamNode + StreamNode -> JobVertex
@@ -311,7 +311,7 @@ public class StreamingJobGraphGenerator {
 		for(Integer sourceNodeId : streamGraph.getSourceIDs()) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 把能 chain 在一起的 StreamNode 都 chain 在一起
 			 */
 			//TODO *****
@@ -320,7 +320,7 @@ public class StreamingJobGraphGenerator {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 是个递归方法，当一个 SteamEdge chain 在一起了之后，也有可能继续与前一个 Operator 或者 后一个 Operator chain 在一起
 	 */
 	private List<StreamEdge> createChain(Integer currentNodeId, int chainIndex, OperatorChainInfo chainInfo) {
@@ -340,14 +340,14 @@ public class StreamingJobGraphGenerator {
 			StreamNode currentNode = streamGraph.getStreamNode(currentNodeId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 判断是否可以 chain 在一起！
 			 *  当前这个地方做的事情，只是当前这个 StreamNode 和它的直接下游 StreamNode
 			 */
 			for(StreamEdge outEdge : currentNode.getOutEdges()) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 判断一个 StreamGraph 中的一个 StreamEdge 链接的上下游 Operator（StreamNode） 是否可以 chain 在一起
 				 */
 				//TODO *****
@@ -390,7 +390,7 @@ public class StreamingJobGraphGenerator {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 把chain在一起的多个 Operator 创建成一个 JobVertex
 			 *  如果当前节点是 chain 的起始节点, 则直接创建 JobVertex 并返回 StreamConfig, 否则先创建一个空的 StreamConfig
 			 *  这里实际上，如果节点不能 chain 在一起，那么 currentNodeId 跟 startNodeId 肯定是不相等的
@@ -504,7 +504,7 @@ public class StreamingJobGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： JobVertex 初始化
 		 */
 		if(chainedInputOutputFormats.containsKey(streamNodeId)) {
@@ -530,7 +530,7 @@ public class StreamingJobGraphGenerator {
 		jobVertex.setInvokableClass(streamNode.getJobVertexClass());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 JobVertex 的并行度
 		 */
 		int parallelism = streamNode.getParallelism();
@@ -554,7 +554,7 @@ public class StreamingJobGraphGenerator {
 		builtVertices.add(streamNodeId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 将生成好的 JobVertex 加入到： JobGraph
 		 */
 		jobGraph.addVertex(jobVertex);
@@ -719,7 +719,7 @@ public class StreamingJobGraphGenerator {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 用于判断 两个 JobVertex 是否可以 chain 在一起
 	 *  条件： 9个条件
 	 *  // 1、下游节点的入度为1 （也就是说下游节点没有来自其他节点的输入）
@@ -758,7 +758,7 @@ public class StreamingJobGraphGenerator {
 		StreamNode downStreamVertex = streamGraph.getTargetVertex(edge);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 判断是否能 chain 在一起
 		 *  九个条件都要满足
 		 */
@@ -799,7 +799,7 @@ public class StreamingJobGraphGenerator {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、上游算子的链接策略是 always 或者 head（head:只能与下游连接，不能与上游连接，Source默认是head）
 		 *  2、下游算子的链接策略必须是 always（可以与上下游连接，map,flatmap,filter等默认是always）

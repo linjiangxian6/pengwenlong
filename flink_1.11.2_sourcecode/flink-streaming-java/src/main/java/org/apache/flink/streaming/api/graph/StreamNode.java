@@ -70,7 +70,7 @@ public class StreamNode implements Serializable {
 	private long bufferTimeout;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 对应到的 Operator
 	 */
 	private final String operatorName;
@@ -83,7 +83,7 @@ public class StreamNode implements Serializable {
 	private TypeSerializer<?> stateKeySerializer;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： Operator Factory
 	 */
 	private transient StreamOperatorFactory<?> operatorFactory;
@@ -93,13 +93,13 @@ public class StreamNode implements Serializable {
 	private TypeSerializer<?> typeSerializerOut;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 该 StreamNode 的入边
 	 */
 	private List<StreamEdge> inEdges = new ArrayList<StreamEdge>();
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 该 StreamNode 的出边
 	 */
 	private List<StreamEdge> outEdges = new ArrayList<StreamEdge>();
@@ -119,7 +119,7 @@ public class StreamNode implements Serializable {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：
 	 */
 	public StreamNode(Integer id, @Nullable String slotSharingGroup, @Nullable String coLocationGroup, StreamOperatorFactory<?> operatorFactory,

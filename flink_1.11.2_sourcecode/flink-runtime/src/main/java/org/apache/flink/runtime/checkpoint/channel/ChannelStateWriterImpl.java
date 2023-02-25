@@ -104,7 +104,7 @@ public class ChannelStateWriterImpl implements ChannelStateWriter {
 			Preconditions.checkState(results.size() < maxCheckpoints, String.format("%s can't start %d, results.size() > maxCheckpoints: %d > %d", taskName, checkpointId, results.size(), maxCheckpoints));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 创建一个 CheckpointStartRequest 加入队列
 			 */
 			enqueue(new CheckpointStartRequest(checkpointId, result, checkpointOptions.getTargetLocation()), false);
@@ -185,7 +185,7 @@ public class ChannelStateWriterImpl implements ChannelStateWriter {
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 提交 Checkpoint 请求
 				 */
 				executor.submit(request);

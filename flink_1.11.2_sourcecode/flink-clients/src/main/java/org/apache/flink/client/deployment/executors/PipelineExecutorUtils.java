@@ -53,7 +53,7 @@ public class PipelineExecutorUtils {
 		final ExecutionConfigAccessor executionConfigAccessor = ExecutionConfigAccessor.fromConfiguration(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 JobGragh
 		 *  内部通过：Translator 来实现 StreamGraph 到 JobGragh 的翻译
 		 */

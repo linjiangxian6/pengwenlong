@@ -118,7 +118,7 @@ public class StreamGraph implements Pipeline {
 	private boolean allVerticesInSameSlotSharingGroupByDefault = true;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 重点
 	 *  StreamGraph 由两个概念组成：
 	 *  1、StreamNode : 顶点
@@ -284,7 +284,7 @@ public class StreamGraph implements Pipeline {
 		Class<? extends AbstractInvokable> invokableClass = operatorFactory.isStreamSource() ? SourceStreamTask.class : OneInputStreamTask.class;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamNode
 		 */
 		//TODO *****
@@ -296,7 +296,7 @@ public class StreamGraph implements Pipeline {
 		Class<? extends AbstractInvokable> invokableClass) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamNode
 		 */
 		//TODO *****
@@ -367,14 +367,14 @@ public class StreamGraph implements Pipeline {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成一个 StreamNode
 		 */
 		StreamNode vertex = new StreamNode(vertexID, slotSharingGroup, coLocationGroup, operatorFactory, operatorName, new ArrayList<OutputSelector<?>>(),
 			vertexClass);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加一个 StreamNode
 		 */
 		streamNodes.put(vertexID, vertex);
@@ -479,7 +479,7 @@ public class StreamGraph implements Pipeline {
 	public void addEdge(Integer upStreamVertexID, Integer downStreamVertexID, int typeNumber) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 添加边
 		 *  upStreamVertexID = upStreamNodeID
 		 */
@@ -516,7 +516,7 @@ public class StreamGraph implements Pipeline {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 StreamGraph
 		 */
 		else {
@@ -528,7 +528,7 @@ public class StreamGraph implements Pipeline {
 			StreamNode downstreamNode = getStreamNode(downStreamVertexID);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 如果没有设置 partitioner
 			 *  1、如果上游 StreamNode 和 下游 StreamNode 的并行度一样，则使用： ForwardPartitioner 数据分发策略
 			 *  2、如果上游 StreamNode 和 下游 StreamNode 的并行度不一样，则使用： RebalancePartitioner 数据分发策略
@@ -556,7 +556,7 @@ public class StreamGraph implements Pipeline {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 构建 StreamNode 之间的 边（StreamEdge） 对象
 			 */
 			StreamEdge edge = new StreamEdge(upstreamNode, downstreamNode, typeNumber, outputNames, partitioner, outputTag, shuffleMode);
@@ -819,7 +819,7 @@ public class StreamGraph implements Pipeline {
 	public JobGraph getJobGraph(@Nullable JobID jobID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 根据 StreamGraph 通过 StreamingJobGraphGenerator 来创建一个 JobGragh
 		 */
 		//TODO *****

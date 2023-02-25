@@ -79,7 +79,7 @@ public class LazyFromSourcesSchedulingStrategy implements SchedulingStrategy {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 申请 Slot 并且开始 部署 ExecutionVertices
 		 */
 		allocateSlotsAndDeployExecutionVertices(schedulingTopology.getVertices());
@@ -127,7 +127,7 @@ public class LazyFromSourcesSchedulingStrategy implements SchedulingStrategy {
 			.collect(Collectors.toSet());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final List<ExecutionVertexDeploymentOption> vertexDeploymentOptions = SchedulingStrategyUtils
@@ -136,7 +136,7 @@ public class LazyFromSourcesSchedulingStrategy implements SchedulingStrategy {
 		for(ExecutionVertexDeploymentOption deploymentOption : vertexDeploymentOptions) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请 slot 和 部署
 			 *  schedulerOperations = DefaultScheduler
 			 */
@@ -156,7 +156,7 @@ public class LazyFromSourcesSchedulingStrategy implements SchedulingStrategy {
 		public SchedulingStrategy createInstance(SchedulerOperations schedulerOperations, SchedulingTopology schedulingTopology) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： LazyFromSourcesSchedulingStrategy
 			 *  第一个参数： DefaultScheduler
 			 */

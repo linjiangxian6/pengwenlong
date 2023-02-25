@@ -55,7 +55,7 @@ public class StandaloneResourceManager extends ResourceManager<ResourceID> {
 		ResourceManagerMetricGroup resourceManagerMetricGroup, Time startupPeriodTime, Time rpcTimeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 注意该父类方法
 		 */
 		//TODO *****

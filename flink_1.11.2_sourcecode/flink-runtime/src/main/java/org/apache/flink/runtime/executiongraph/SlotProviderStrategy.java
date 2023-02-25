@@ -108,7 +108,7 @@ public abstract class SlotProviderStrategy {
 		public CompletableFuture<LogicalSlot> allocateSlot(SlotRequestId slotRequestId, ScheduledUnit scheduledUnit, SlotProfile slotProfile) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 调用 SchedulerImpl 来申请 Slot
 			 */
 			return slotProvider.allocateSlot(slotRequestId, scheduledUnit, slotProfile, allocationTimeout);

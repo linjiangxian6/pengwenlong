@@ -77,7 +77,7 @@ public class Mail {
 	public void run() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		actionExecutor.runThrowing(runnable);

@@ -54,7 +54,7 @@ public class WordCount {
 		final MultipleParameterTool params = MultipleParameterTool.fromArgs(args);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第一步： 构建　StreamExecutionEnvironment
 		 *  -
 		 *  这行代码会返回一个可用的执行环境。执行环境是整个flink程序执行的上下文，记录了相关配置（如并行度等），
@@ -73,7 +73,7 @@ public class WordCount {
 			for(String input : params.getMultiParameterRequired("input")) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 第二步： 通过 env 读取数据得到 数据抽象： DataStream
 				 */
 				if(text == null) {
@@ -91,7 +91,7 @@ public class WordCount {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第三步： 调用各种算子执行计算
 		 *  1、text.flatMap(new Tokenizer()) ==> FlatMapOperator
 		 *  2、.groupBy(0).sum(1);  ==> AggregateOperator
@@ -103,7 +103,7 @@ public class WordCount {
 				.keyBy(value -> value.f0).sum(1);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第四步： 把计算得到的结果数据 写出
 		 */
 		// emit result
@@ -115,7 +115,7 @@ public class WordCount {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 到此为止，你其实能知道：
 		 *  1、首先通过 InputFormat 加载数据源得到数据抽象对象： DataSource
 		 *  2、针对 DataSource 调用 Transformation 操作执行计算，每个计算/算子 都是一个 Operator
@@ -132,7 +132,7 @@ public class WordCount {
 		System.out.println(executionPlan);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 第五步： 提交执行
 		 *  1、生成 StreamGraph。代表程序的拓扑结构，是从用户代码直接生成的图。
 		 *  2、生成 JobGraph。这个图是要交给 flink 去生成 task 的图。

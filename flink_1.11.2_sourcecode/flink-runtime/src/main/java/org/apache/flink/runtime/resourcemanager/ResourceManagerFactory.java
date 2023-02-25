@@ -48,14 +48,14 @@ public abstract class ResourceManagerFactory<T extends ResourceIDRetrievable> {
 		final SlotManagerMetricGroup slotManagerMetricGroup = SlotManagerMetricGroup.create(metricRegistry, hostname);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 ResourceManagerRuntimeServices 实例
 		 */
 		final ResourceManagerRuntimeServices resourceManagerRuntimeServices = createResourceManagerRuntimeServices(configuration, rpcService,
 			highAvailabilityServices, slotManagerMetricGroup);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 ResourceManager 实例
 		 */
 		//TODO ***** 实现类StandaloneResourceManagerFactory
@@ -72,7 +72,7 @@ public abstract class ResourceManagerFactory<T extends ResourceIDRetrievable> {
 		HighAvailabilityServices highAvailabilityServices, SlotManagerMetricGroup slotManagerMetricGroup) throws ConfigurationException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 ResourceManagerRuntimeServices 实例
 		 */
 		return ResourceManagerRuntimeServices

@@ -49,7 +49,7 @@ public enum SessionRestEndpointFactory implements RestEndpointFactory<Dispatcher
 		final RestHandlerConfiguration restHandlerConfiguration = RestHandlerConfiguration.fromConfiguration(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  1、RestEndpointFactory.createExecutionGraphCache(restHandlerConfiguration) = DefaultExecutionGraphCache
 		 */

@@ -56,7 +56,7 @@ public class BlobCacheService implements BlobService {
 		@Nullable final InetSocketAddress serverAddress) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化两个组件
 		 *  1、PermanentBlobCache
 		 *  2、TransientBlobCache

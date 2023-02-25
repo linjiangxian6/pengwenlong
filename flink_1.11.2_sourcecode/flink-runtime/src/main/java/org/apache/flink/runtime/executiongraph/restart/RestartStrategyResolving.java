@@ -49,7 +49,7 @@ public final class RestartStrategyResolving {
 		checkNotNull(serverStrategyFactory);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 客户端重启策略
 		 */
 		final RestartStrategy clientSideRestartStrategy = RestartStrategyFactory.createRestartStrategy(clientConfiguration);
@@ -62,7 +62,7 @@ public final class RestartStrategyResolving {
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： ThrowingRestartStrategyFactory
 				 */
 				return serverStrategyFactory.createRestartStrategy();

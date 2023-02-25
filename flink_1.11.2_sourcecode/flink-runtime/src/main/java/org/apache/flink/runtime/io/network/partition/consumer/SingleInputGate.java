@@ -144,7 +144,7 @@ public class SingleInputGate extends IndexedInputGate {
 	private final Map<IntermediateResultPartitionID, InputChannel> inputChannels;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 输入 Channel 集合
 	 */
 	@GuardedBy("requestLock")

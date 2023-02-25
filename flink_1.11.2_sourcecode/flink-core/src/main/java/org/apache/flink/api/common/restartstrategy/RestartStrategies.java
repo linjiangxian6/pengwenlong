@@ -61,7 +61,7 @@ public class RestartStrategies {
 	public static RestartStrategyConfiguration fixedDelayRestart(int restartAttempts, long delayBetweenAttempts) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return fixedDelayRestart(restartAttempts, Time.of(delayBetweenAttempts, TimeUnit.MILLISECONDS));
@@ -77,7 +77,7 @@ public class RestartStrategies {
 	public static RestartStrategyConfiguration fixedDelayRestart(int restartAttempts, Time delayInterval) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return new FixedDelayRestartStrategyConfiguration(restartAttempts, delayInterval);

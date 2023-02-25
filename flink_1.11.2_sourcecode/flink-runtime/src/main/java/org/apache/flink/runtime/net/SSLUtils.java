@@ -106,13 +106,13 @@ public class SSLUtils {
 		String[] cipherSuites = getEnabledCipherSuites(config);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： factory = SSLServerSocketFactoryImpl
 		 */
 		SSLServerSocketFactory factory = sslContext.getServerSocketFactory();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 最终返回
 		 */
 		return new ConfiguringSSLServerSocketFactory(factory, protocols, cipherSuites);
@@ -427,7 +427,7 @@ public class SSLUtils {
 		public ServerSocket createServerSocket(int port, int backlog, InetAddress ifAddress) throws IOException {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建 ServerSocket 对象
 			 *  sslServerSocketFactory = SSLServerSocketFactoryImpl
 			 */

@@ -67,7 +67,7 @@ public final class MailboxExecutorImpl implements MailboxExecutor {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			mailbox.put(new Mail(command, priority, actionExecutor, descriptionFormat, descriptionArgs));

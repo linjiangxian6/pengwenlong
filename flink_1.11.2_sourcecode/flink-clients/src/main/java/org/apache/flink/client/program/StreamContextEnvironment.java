@@ -59,14 +59,14 @@ public class StreamContextEnvironment extends StreamExecutionEnvironment {
 	private int jobCounter;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释：
 	 */
 	public StreamContextEnvironment(final PipelineExecutorServiceLoader executorServiceLoader, final Configuration configuration,
 		final ClassLoader userCodeClassLoader, final boolean enforceSingleJobExecution, final boolean suppressSysout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 StreamExecutionEnvironment
 		 */
 		super(executorServiceLoader, configuration, userCodeClassLoader);
@@ -145,14 +145,14 @@ public class StreamContextEnvironment extends StreamExecutionEnvironment {
 		final ClassLoader userCodeClassLoader, final boolean enforceSingleJobExecution, final boolean suppressSysout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： StreamContextEnvironment 是 StreamExecutionEnvironment 的子类
 		 */
 		StreamExecutionEnvironmentFactory factory = () -> new StreamContextEnvironment(executorServiceLoader, configuration, userCodeClassLoader,
 			enforceSingleJobExecution, suppressSysout);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		initializeContextEnvironment(factory);

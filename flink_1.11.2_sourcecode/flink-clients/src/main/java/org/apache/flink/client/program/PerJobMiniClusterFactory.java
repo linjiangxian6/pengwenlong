@@ -85,7 +85,7 @@ public final class PerJobMiniClusterFactory {
 		miniCluster.start();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 提交
 		 */
 		return miniCluster.submitJob(jobGraph).thenApply(result -> new PerJobMiniClusterJobClient(result.getJobID(), miniCluster))

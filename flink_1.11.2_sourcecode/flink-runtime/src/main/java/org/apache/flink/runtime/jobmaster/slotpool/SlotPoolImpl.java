@@ -237,13 +237,13 @@ public class SlotPoolImpl implements SlotPool {
 		this.componentMainThreadExecutor = componentMainThreadExecutor;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行 checkIdleSlot() 方法
 		 */
 		scheduleRunAsync(this::checkIdleSlot, idleSlotTimeout);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行 checkBatchSlotTimeout() 方法
 		 */
 		scheduleRunAsync(this::checkBatchSlotTimeout, batchSlotTimeout);
@@ -342,7 +342,7 @@ public class SlotPoolImpl implements SlotPool {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 向 ResourceManager 申请 slot
 			 */
 			requestSlotFromResourceManager(resourceManagerGateway, pendingRequest);
@@ -352,7 +352,7 @@ public class SlotPoolImpl implements SlotPool {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 准备将 Slot 申请请求发送给 ResourceManager
 	 */
 	private void requestSlotFromResourceManager(final ResourceManagerGateway resourceManagerGateway, final PendingRequest pendingRequest) {
@@ -375,7 +375,7 @@ public class SlotPoolImpl implements SlotPool {
 		});
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用 ResourceManager 的代理对象，来申请 Slot
 		 */
 		CompletableFuture<Acknowledge> rmResponse = resourceManagerGateway.requestSlot(jobMasterId,
@@ -432,7 +432,7 @@ public class SlotPoolImpl implements SlotPool {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 真正完成一个 Slot 的申请
 	 */
 	@Override
@@ -476,13 +476,13 @@ public class SlotPoolImpl implements SlotPool {
 		componentMainThreadExecutor.assertRunningInMainThread();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建一个请求对象
 		 */
 		final PendingRequest pendingRequest = PendingRequest.createBatchRequest(slotRequestId, resourceProfile);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 发送请求，申请slot
 		 */
 		return requestNewAllocatedSlotInternal(pendingRequest).thenApply(Function.identity());
@@ -562,7 +562,7 @@ public class SlotPoolImpl implements SlotPool {
 		Preconditions.checkState(!allocatedSlot.isUsed(), "Provided slot is still in use.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final PendingRequest pendingRequest = pollMatchingPendingRequest(allocatedSlot);
@@ -606,7 +606,7 @@ public class SlotPoolImpl implements SlotPool {
 		ArrayList<SlotOffer> result = new ArrayList<>(offers.size());
 		for(SlotOffer offer : offers) {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 将申请到的 Slot 放入 SlotPool 中。 OK
 			 *  第二个参数：RpcTaskManagerGateway
 			 */
@@ -669,7 +669,7 @@ public class SlotPoolImpl implements SlotPool {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 最后一个参数： RpcTaskManagerGateway
 		 */
 		final AllocatedSlot allocatedSlot = new AllocatedSlot(allocationID, taskManagerLocation, slotOffer.getSlotIndex(), slotOffer.getResourceProfile(),
@@ -691,7 +691,7 @@ public class SlotPoolImpl implements SlotPool {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请可用的 Slot
 			 */
 			// we were actually not waiting for this:

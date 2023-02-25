@@ -170,7 +170,7 @@ public class BlobLibraryCacheManager implements LibraryCacheManager {
 		String[] alwaysParentFirstPatterns, @Nullable FatalErrorHandler fatalErrorHandlerJvmMetaspaceOomError) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建一个 DefaultClassLoaderFactory
 		 */
 		return new DefaultClassLoaderFactory(classLoaderResolveOrder, alwaysParentFirstPatterns,

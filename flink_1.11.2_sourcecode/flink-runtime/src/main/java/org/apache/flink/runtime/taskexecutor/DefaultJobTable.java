@@ -43,13 +43,13 @@ import java.util.Optional;
 public final class DefaultJobTable implements JobTable {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：
 	 */
 	private final Map<JobID, JobOrConnection> jobs;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：
 	 */
 	private final Map<ResourceID, JobID> resourceIdJobIdIndex;
@@ -109,7 +109,7 @@ public final class DefaultJobTable implements JobTable {
 	public static DefaultJobTable create() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new DefaultJobTable();

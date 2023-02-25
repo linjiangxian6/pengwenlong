@@ -61,7 +61,7 @@ public class DispatcherRestEndpoint extends WebMonitorEndpoint<DispatcherGateway
 		ExecutionGraphCache executionGraphCache, FatalErrorHandler fatalErrorHandler) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、leaderElectionService = ZooKeeperLeaderElectionService
 		 *  2、executionGraphCache = DefaultExecutionGraphCache
@@ -76,7 +76,7 @@ public class DispatcherRestEndpoint extends WebMonitorEndpoint<DispatcherGateway
 	protected List<Tuple2<RestHandlerSpecification, ChannelInboundHandler>> initializeHandlers(final CompletableFuture<String> localAddressFuture) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 父类中，初始化超级多一大堆 处理器
 		 *  DispatcherRestEndpoint  extends WebMonitorEndpoint
 		 */
@@ -88,7 +88,7 @@ public class DispatcherRestEndpoint extends WebMonitorEndpoint<DispatcherGateway
 		final Time timeout = restConfiguration.getTimeout();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： JobSubmit Handler 任务提交处理器
 		 *  将来客户端提交应用程序上来，由 JobManager 中的 Netty 服务端的 JobSubmitHandler 来执行处理
 		 */

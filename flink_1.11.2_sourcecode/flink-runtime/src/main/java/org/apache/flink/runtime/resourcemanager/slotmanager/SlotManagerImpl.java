@@ -190,7 +190,7 @@ public class SlotManagerImpl implements SlotManager {
 		this.numSlotsPerWorker = slotManagerConfiguration.getNumSlotsPerWorker();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		this.defaultSlotResourceProfile = generateDefaultSlotResourceProfile(defaultWorkerResourceSpec, numSlotsPerWorker);
@@ -317,7 +317,7 @@ public class SlotManagerImpl implements SlotManager {
 		started = true;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启第一个定时任务： checkTaskManagerTimeouts， 检查 TaskManager 的心跳
 		 *  taskManagerTimeout = resourcemanager.taskmanager-timeout = 30000
 		 *  每隔30秒检查一下有没有TaskManager是死掉的
@@ -327,7 +327,7 @@ public class SlotManagerImpl implements SlotManager {
 				TimeUnit.MILLISECONDS);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启第二个定时任务： checkSlotRequestTimeouts， 检查 SlotRequest 超时处理
 		 *  slotRequestTimeout = slot.request.timeout = 5L * 60L * 1000L
 		 */
@@ -419,7 +419,7 @@ public class SlotManagerImpl implements SlotManager {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 调用内部实现
 				 */
 				internalRequestSlot(pendingSlotRequest);
@@ -875,14 +875,14 @@ public class SlotManagerImpl implements SlotManager {
 		OptionalConsumer.of(findMatchingSlot(resourceProfile)).ifPresent(
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 向 TaskManager 申请 Slot
 			 */
 			taskManagerSlot -> allocateSlot(taskManagerSlot, pendingSlotRequest)
 		).ifNotPresent(
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 使用待处理的任务管理器插槽满足待处理的插槽请求
 			 */
 			() -> fulfillPendingSlotRequestWithPendingTaskManagerSlot(pendingSlotRequest)
@@ -896,7 +896,7 @@ public class SlotManagerImpl implements SlotManager {
 		if(!pendingTaskManagerSlotOptional.isPresent()) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 申请资源
 			 */
 			pendingTaskManagerSlotOptional = allocateResource(resourceProfile);
@@ -958,7 +958,7 @@ public class SlotManagerImpl implements SlotManager {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 申请资源
 		 */
 		if(!resourceActions.allocateResource(defaultWorkerResourceSpec)) {
@@ -991,7 +991,7 @@ public class SlotManagerImpl implements SlotManager {
 		Preconditions.checkState(taskManagerSlot.getState() == TaskManagerSlot.State.FREE);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取和 TaskManager 的链接
 		 */
 		TaskExecutorConnection taskExecutorConnection = taskManagerSlot.getTaskManagerConnection();
@@ -1008,7 +1008,7 @@ public class SlotManagerImpl implements SlotManager {
 		returnPendingTaskManagerSlotIfAssigned(pendingSlotRequest);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 TaskManager 的注册信息
 		 */
 		TaskManagerRegistration taskManagerRegistration = taskManagerRegistrations.get(instanceID);
@@ -1020,7 +1020,7 @@ public class SlotManagerImpl implements SlotManager {
 		taskManagerRegistration.markUsed();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 申请 slot
 		 */
 		// RPC call to the task manager

@@ -93,7 +93,7 @@ public interface MailboxExecutor {
 	default void execute(ThrowingRunnable<? extends Exception> command, String description) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		execute(command, description, EMPTY_ARGS);

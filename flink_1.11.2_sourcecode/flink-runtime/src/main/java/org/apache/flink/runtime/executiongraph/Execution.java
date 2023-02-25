@@ -314,7 +314,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 				assignedResource = logicalSlot;
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释：
 				 */
 				if(logicalSlot.tryAssignPayload(this)) {
@@ -580,7 +580,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 		return FutureUtils.thenApplyAsyncIfNotDone(
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 注册输入分区
 			 */
 			registerProducedPartitions(vertex, location, attemptId, sendScheduleOrUpdateConsumersMessage),
@@ -701,7 +701,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建 DeploymentDescriptor
 			 *  调用 TaskDeploymentDescriptorFactory.createDeploymentDescriptor() 创建 DeploymentDescriptor 对象
 			 */
@@ -712,7 +712,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 			taskRestore = null;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 获取一个 TaskManagerGateway
 			 *  slot = SingleLogicSlot
 			 *  taskManagerGateway = RPCTaskManagerGateway
@@ -722,7 +722,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 			final ComponentMainThreadExecutor jobMasterMainThreadExecutor = vertex.getExecutionGraph().getJobMasterMainThreadExecutor();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 提交 Task
 			 *  taskManagerGateway = RPCTaskManagerGateway
 			 */
@@ -997,7 +997,7 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 	public void triggerSynchronousSavepoint(long checkpointId, long timestamp, CheckpointOptions checkpointOptions, boolean advanceToEndOfEventTime) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		triggerCheckpointHelper(checkpointId, timestamp, checkpointOptions, advanceToEndOfEventTime);
@@ -1015,13 +1015,13 @@ public class Execution implements AccessExecution, Archiveable<ArchivedExecution
 		if(slot != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			final TaskManagerGateway taskManagerGateway = slot.getTaskManagerGateway();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			taskManagerGateway.triggerCheckpoint(attemptId, getVertex().getJobId(), checkpointId, timestamp, checkpointOptions, advanceToEndOfEventTime);

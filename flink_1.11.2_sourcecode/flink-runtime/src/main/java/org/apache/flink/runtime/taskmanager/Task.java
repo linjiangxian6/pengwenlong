@@ -387,7 +387,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 		Preconditions.checkArgument(0 <= targetSlotNumber, "The target slot number must be positive.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 当前任务的 Task 信息
 		 */
 		this.taskInfo = new TaskInfo(taskInformation.getTaskName(), taskInformation.getMaxNumberOfSubtasks(), subtaskIndex,
@@ -441,7 +441,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			.createShuffleIOOwnerContext(taskNameWithSubtaskAndId, executionId, metrics.getIOMetricGroup());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 ResultPartitionerWriter
 		 */
 		// produced intermediate result partitions
@@ -452,7 +452,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			.decorate(resultPartitionDeploymentDescriptors, resultPartitionWriters, this, jobId, resultPartitionConsumableNotifier);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 InputGate
 		 */
 		// consumed intermediate result partitions
@@ -473,7 +473,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 		invokableHasBeenCanceled = new AtomicBoolean(false);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 执行 Task 的线程
 		 *  转到 Task 的 run() 方法
 		 */
@@ -604,7 +604,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 	public void startTaskThread() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 这个线程，在创建 Task 对象的时候，就已经会初始化好了
 		 *  经过转换，最终，就是调用当前类的 run() 方法
 		 */
@@ -619,7 +619,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 执行任务
 			 */
 			doRun();
@@ -738,7 +738,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			TaskKvStateRegistry kvStateRegistry = kvStateService.createKvStateTaskRegistry(jobId, getJobVertexId());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 构建一个环境对象
 			 */
 			Environment env = new RuntimeEnvironment(jobId, vertexId, executionId, executionConfig, taskInfo, jobConfiguration, taskConfiguration,
@@ -752,7 +752,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			executingThread.setContextClassLoader(userCodeClassLoader);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 获取到代码运行主类
 			 *  AbstractInvokable = invokable
 			 */
@@ -768,7 +768,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			this.invokable = invokable;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 由 DEPLOYING 状态改成： RUNNING
 			 */
 			// switch to the RUNNING state, if that fails, we have been canceled/failed in the meantime
@@ -783,7 +783,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			executingThread.setContextClassLoader(userCodeClassLoader);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 运行任务
 			 *  1、DataSourceTask
 			 *  2、Operator
@@ -810,7 +810,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 由 RUNNING 状态改成： FINISHED 状态
 			 */
 			// try to mark the task as finished
@@ -1201,14 +1201,14 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 		final CheckpointMetaData checkpointMetaData = new CheckpointMetaData(checkpointID, checkpointTimestamp);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 如果是 Task 正在运行
 		 */
 		if(executionState == ExecutionState.RUNNING && invokable != null) {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 执行异步 Checkpoint
 				 */
 				invokable.triggerCheckpointAsync(checkpointMetaData, checkpointOptions, advanceToEndOfEventTime);
@@ -1228,7 +1228,7 @@ public class Task implements Runnable, TaskSlotPayload, TaskActions, PartitionPr
 			LOG.debug("Declining checkpoint request for non-running task {} ({}).", taskNameWithSubtask, executionId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 如果任务没在运行，则直接回复 DeclineCheckpoint（拒绝Checkpoint）
 			 */
 			// send back a message that we did not do the checkpoint

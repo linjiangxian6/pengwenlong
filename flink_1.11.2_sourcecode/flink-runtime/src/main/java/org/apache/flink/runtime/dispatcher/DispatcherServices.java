@@ -170,7 +170,7 @@ public class DispatcherServices {
 			@Nonnull JobManagerRunnerFactory jobManagerRunnerFactory) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new DispatcherServices(

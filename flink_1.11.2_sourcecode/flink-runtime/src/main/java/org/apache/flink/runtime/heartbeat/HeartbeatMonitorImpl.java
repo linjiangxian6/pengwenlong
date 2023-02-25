@@ -97,14 +97,14 @@ public class HeartbeatMonitorImpl<O> implements HeartbeatMonitor<O>, Runnable {
 		lastHeartbeat = System.currentTimeMillis();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重设心跳超时相关的 时间 和 延迟调度任务
 		 */
 		//TODO *****
 		resetHeartbeatTimeout(heartbeatTimeoutIntervalMs);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 最开始启动了一个注册超时检查！
 		 */
 	}
@@ -123,7 +123,7 @@ public class HeartbeatMonitorImpl<O> implements HeartbeatMonitor<O>, Runnable {
 		if (state.compareAndSet(State.RUNNING, State.TIMEOUT)) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 调度 TaskManager 的下线
 			 *  heartbeatListener = ResourceManagerHeartbeatListener
 			 *  如果代码真正的能执行到这儿，就证明连续 5 次 ResourceManager 发送过来的心跳请求
@@ -139,7 +139,7 @@ public class HeartbeatMonitorImpl<O> implements HeartbeatMonitor<O>, Runnable {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 关于Flink 的主从节点的心跳：
 	 *  1、首先启动 RM， 启动 HeartbeatManager， 每10s中，针对哪个注册的 TaskExecutor（遍历Map）
 	 *     执行 发送心跳请求
@@ -155,7 +155,7 @@ public class HeartbeatMonitorImpl<O> implements HeartbeatMonitor<O>, Runnable {
 			cancelTimeout();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 重新调度
 			 *  其实这个逻辑就是： 如果你不取消，那么 50s 后就执行这个延迟调度任务，执行 TaskManager 的下线操作
 			 */
@@ -198,7 +198,7 @@ public class HeartbeatMonitorImpl<O> implements HeartbeatMonitor<O>, Runnable {
 			long heartbeatTimeoutIntervalMs) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 心跳管理器 实现类
 			 */
 			return new HeartbeatMonitorImpl<>(

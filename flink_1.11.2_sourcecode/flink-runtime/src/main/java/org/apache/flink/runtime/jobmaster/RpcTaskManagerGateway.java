@@ -71,7 +71,7 @@ public class RpcTaskManagerGateway implements TaskManagerGateway {
 	public CompletableFuture<Acknowledge> submitTask(TaskDeploymentDescriptor tdd, Time timeout) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： TaskExecutor
 		 *  提交到对应的 slot 所在节点的 TaskExecutor 中来执行该 ExecutionVertex，其实已经变成： Task
 		 *  关于 Client 提交 Job 到最后变成分布式 Task 物理执行图的所有细节到此为止，结束了。
@@ -109,7 +109,7 @@ public class RpcTaskManagerGateway implements TaskManagerGateway {
 	public void triggerCheckpoint(ExecutionAttemptID executionAttemptID, JobID jobId, long checkpointId, long timestamp, CheckpointOptions checkpointOptions, boolean advanceToEndOfEventTime) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		taskExecutorGateway.triggerCheckpoint(

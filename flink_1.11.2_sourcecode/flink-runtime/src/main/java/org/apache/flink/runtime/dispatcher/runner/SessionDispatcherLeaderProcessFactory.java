@@ -50,7 +50,7 @@ public class SessionDispatcherLeaderProcessFactory implements DispatcherLeaderPr
 	public DispatcherLeaderProcess create(UUID leaderSessionID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 SessionDispatcherLeaderProcess
 		 *  返回值：SessionDispatcherLeaderProcess
 		 *  第三个参数的调用对象： jobGraphStoreFactory = HaServicesJobGraphStoreFactory

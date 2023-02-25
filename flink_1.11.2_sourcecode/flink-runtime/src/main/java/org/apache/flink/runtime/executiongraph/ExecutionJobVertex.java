@@ -97,13 +97,13 @@ public class ExecutionJobVertex implements AccessExecutionJobVertex, Archiveable
 	private final JobVertex jobVertex;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 表示ExecutionJobVertex的其中一个并发子任务，输入是ExecutionEdge，输出是IntermediateResultPartition
 	 */
 	private final ExecutionVertex[] taskVertices;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 和JobGraph中的IntermediateDataSet一一对应。一个IntermediateResult包含多个IntermediateResultPartition，其个数等于该operator的并发度
 	 */
 	private final IntermediateResult[] producedDataSets;
@@ -152,7 +152,7 @@ public class ExecutionJobVertex implements AccessExecutionJobVertex, Archiveable
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 当前 ExecutionJobVertex 对应的 ExecutionGraph 和 对应的 JobGraph 中的 JobVertex
 		 */
 		this.graph = graph;
@@ -410,7 +410,7 @@ public class ExecutionJobVertex implements AccessExecutionJobVertex, Archiveable
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 遍历每个 JobEdge
 		 */
 		for(int num = 0; num < inputs.size(); num++) {
@@ -446,7 +446,7 @@ public class ExecutionJobVertex implements AccessExecutionJobVertex, Archiveable
 			int consumerIndex = ires.registerConsumer();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 根据并行度来设置 ExecutionVertex
 			 */
 			for(int i = 0; i < parallelism; i++) {
@@ -455,7 +455,7 @@ public class ExecutionJobVertex implements AccessExecutionJobVertex, Archiveable
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 一个 ExecutionVertex 就对应到 到时候真正执行的 StreamTask 一个
 			 *  正常来说，一个StrewamTask 也需要申请得到一个 Slot
 			 */

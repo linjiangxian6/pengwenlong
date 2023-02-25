@@ -142,7 +142,7 @@ public class TaskDeploymentDescriptorFactory {
 		ExecutionGraph executionGraph = executionVertex.getExecutionGraph();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new TaskDeploymentDescriptorFactory(

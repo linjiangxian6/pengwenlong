@@ -211,7 +211,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释：
 	 *  ChannelInboundHandler  channelRead0()  方法，这个方法会自动被 Netty 去调用执行
 	 *  不管是这里初始化的那个 Handler， 里面都有一个 handleRequest 的方法
@@ -223,7 +223,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 	protected List<Tuple2<RestHandlerSpecification, ChannelInboundHandler>> initializeHandlers(final CompletableFuture<String> localAddressFuture) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： Handler 容器初始化
 		 */
 		ArrayList<Tuple2<RestHandlerSpecification, ChannelInboundHandler>> handlers = new ArrayList<>(30);
@@ -354,7 +354,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 		final String defaultSavepointDir = clusterConfiguration.getString(CheckpointingOptions.SAVEPOINT_DIRECTORY);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： SavepointHandlers
 		 */
 		final SavepointHandlers savepointHandlers = new SavepointHandlers(defaultSavepointDir);
@@ -427,7 +427,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 			resourceManagerRetriever);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： ClusterDataSetDeleteHandlers
 		 *  1、ClusterDataSetDeleteTriggerHandler
 		 *  2、ClusterDataSetDeleteStatusHandler
@@ -593,7 +593,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 			.forEachOrdered(handler -> archivingHandlers.add((JsonArchivist) handler));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回一堆庞大的 Handlers
 		 *  这些 Handler 的作用，其实就对应到 Flink web 业务的 rest 服务, Handler == Servlet
 		 *  bigdata02:port/list
@@ -607,7 +607,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 主节点中的三个重要的组件：
 	 *  1、ResourceManager
 	 *  2、Dispatcher
@@ -618,7 +618,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 	public void startInternal() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 选举 ZooKeeperLeaderElectionService
 		 *  不管你在那个地方见到这种格式的代码：leaderElectionService.start(this);
 		 *  一定要记住，最终，
@@ -629,7 +629,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 		leaderElectionService.start(this);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启定时任务
 		 */
 		//TODO *****
@@ -646,7 +646,7 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 		final long cleanupInterval = 2 * restConfiguration.getRefreshInterval();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启定时任务： executionGraphCache.cleanup()
 		 *  1、executionGraphCache = DefaultExecutionGraphCache
 		 */
@@ -698,13 +698,13 @@ public class WebMonitorEndpoint<T extends RestfulGateway> extends RestServerEndp
 		log.info("{} was granted leadership with leaderSessionID={}", getRestBaseUrl(), leaderSessionID);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 确认 Leader
 		 */
 		leaderElectionService.confirmLeadership(leaderSessionID, getRestBaseUrl());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 其实 WebMonitorEndpoint 启动好了，并没有做什么
 		 */
 	}

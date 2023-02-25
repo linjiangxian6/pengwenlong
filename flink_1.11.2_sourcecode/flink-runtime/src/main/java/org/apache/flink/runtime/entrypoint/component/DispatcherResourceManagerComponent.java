@@ -88,7 +88,7 @@ public class DispatcherResourceManagerComponent implements AutoCloseableAsync {
 		this.shutDownFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 注册关闭钩子
 		 */
 		registerShutDownFuture();
@@ -97,7 +97,7 @@ public class DispatcherResourceManagerComponent implements AutoCloseableAsync {
 	private void registerShutDownFuture() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		FutureUtils.forward(dispatcherRunner.getShutDownFuture(), shutDownFuture);

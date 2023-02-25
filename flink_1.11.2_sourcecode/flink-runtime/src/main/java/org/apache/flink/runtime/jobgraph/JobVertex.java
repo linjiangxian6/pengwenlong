@@ -72,14 +72,14 @@ public class JobVertex implements java.io.Serializable {
 	private final List<OperatorIDPair> operatorIDs;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 该 JobVertex 的中间结果输出 数据集 集合
 	 */
 	/** List of produced data sets, one per writer. */
 	private final ArrayList<IntermediateDataSet> results = new ArrayList<>();
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： JobGragh 的入边 JobEdge 集合
 	 */
 	/** List of edges with incoming data. One per Reader. */

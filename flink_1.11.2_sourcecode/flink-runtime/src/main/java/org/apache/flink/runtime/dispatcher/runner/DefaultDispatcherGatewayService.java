@@ -63,7 +63,7 @@ public class DefaultDispatcherGatewayService implements AbstractDispatcherLeader
 	public static DefaultDispatcherGatewayService from(Dispatcher dispatcher) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回一个： DefaultDispatcherGatewayService
 		 */
 		return new DefaultDispatcherGatewayService(dispatcher);

@@ -104,7 +104,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： dispatcherResourceManagerComponent，包含6个服务：
 	 *  1. Dispatcher: 负责用于接收作业提交，持久化它们，生成要执行的作业管理器任务，并在主任务失败时恢复它们。此外,它知道关于 Flink 会话集群的状态。
 	 *  2. ResourceManager: 负责资源的分配和记帐。
@@ -161,7 +161,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 				.fromConfiguration(configuration, metricQueryServiceRetriever, dispatcherGatewayRetriever, executor);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 创建 WebMonitorEndpoint 实例， 在 Standalone模式下：DispatcherRestEndpoint
 			 *  1、restEndpointFactory = SessionRestEndpointFactory
 			 *  2、webMonitorEndpoint = DispatcherRestEndpoint
@@ -173,7 +173,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 					highAvailabilityServices.getClusterRestEndpointLeaderElectionService(), fatalErrorHandler);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 DispatcherRestEndpoint
 			 *  1、启动 Netty 服务端
 			 *  2、选举
@@ -186,7 +186,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 			final String hostname = RpcUtils.getHostname(rpcService);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 创建 StandaloneResourceManager 实例对象
 			 *  1、resourceManager = StandaloneResourceManager
 			 *  2、resourceManagerFactory = StandaloneResourceManagerFactory
@@ -206,7 +206,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 				historyServerArchivist, metricRegistry.getMetricQueryServiceGatewayRpcAddress());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 创建 并启动 Dispatcher
 			 *  1、dispatcherRunner = DispatcherRunnerLeaderElectionLifecycleManager
 			 *  2、dispatcherRunnerFactory = DefaultDispatcherRunnerFactory
@@ -224,7 +224,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 					new HaServicesJobGraphStoreFactory(highAvailabilityServices), ioExecutor, rpcService, partialDispatcherServices);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： resourceManager 启动
 			 */
 			log.debug("Starting ResourceManager.");
@@ -232,19 +232,19 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 			resourceManager.start();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： resourceManagerRetrievalService 启动
 			 */
 			resourceManagerRetrievalService.start(resourceManagerGatewayRetriever);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： ZooKeeperHaServices 启动
 			 */
 			dispatcherLeaderRetrievalService.start(dispatcherGatewayRetriever);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 构建 DispatcherResourceManagerComponent
 			 */
 			return new DispatcherResourceManagerComponent(dispatcherRunner, resourceManager, dispatcherLeaderRetrievalService,
@@ -297,7 +297,7 @@ public class DefaultDispatcherResourceManagerComponentFactory implements Dispatc
 	public static DefaultDispatcherResourceManagerComponentFactory createSessionComponentFactory(ResourceManagerFactory<?> resourceManagerFactory) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  1、resourceManagerFactory = StandaloneResourceManagerFactory
 		 *  2、dispatcherRunnerFactory = DefaultDispatcherRunnerFactory

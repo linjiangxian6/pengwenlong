@@ -61,7 +61,7 @@ public class ZooKeeperRunningJobsRegistry implements RunningJobsRegistry {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 将 Job 状态写入 ZK
 			 */
 			writeEnumToZooKeeper(jobID, JobSchedulingStatus.RUNNING);

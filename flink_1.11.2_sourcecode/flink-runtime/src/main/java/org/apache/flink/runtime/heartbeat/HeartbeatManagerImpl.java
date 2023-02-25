@@ -80,7 +80,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 		ScheduledExecutor mainThreadExecutor, Logger log) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		this(heartbeatTimeoutIntervalMs, ownResourceID, heartbeatListener, mainThreadExecutor, log, new HeartbeatMonitorImpl.Factory<>());
@@ -115,7 +115,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 重点找到谁调用了这个方法
 	 */
 	Map<ResourceID, HeartbeatMonitor<O>> getHeartbeatTargets() {
@@ -134,7 +134,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 创建一个 心跳管理器 HeartbeatMonitorImpl
 				 */
 				HeartbeatMonitor<O> heartbeatMonitor = heartbeatMonitorFactory.createHeartbeatMonitor(
@@ -146,7 +146,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 				);
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 一个 ResourceManager 对应一个 HeartbeatMonitor，被保管在 heartbeatTargets 中
 				 *  注意： heartbeatMonitor 会被 HeartbeatManagerImpl 周期性的调度
 				 *  -
@@ -228,7 +228,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 			log.debug("Received heartbeat request from {}.", requestOrigin);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 执行心跳汇报
 			 */
 			//TODO *****
@@ -251,7 +251,7 @@ public class HeartbeatManagerImpl<I, O> implements HeartbeatManager<I, O> {
 			HeartbeatMonitor<O> heartbeatMonitor = heartbeatTargets.get(resourceID);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 发送心跳
 			 */
 			//TODO ***** HeartbeatMonitorImpl

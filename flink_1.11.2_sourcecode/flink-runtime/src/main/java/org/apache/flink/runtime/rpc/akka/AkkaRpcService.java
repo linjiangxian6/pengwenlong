@@ -97,7 +97,7 @@ public class AkkaRpcService implements RpcService {
 	private final Object lock = new Object();
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： ActorSystem 是 AkkaRpcService 的成员变量
 	 *  由此可见： AkkaRpcService 是 RpcService 的唯一实现类
 	 *  AkkaRpcService 是对 ActorSystem 的封装
@@ -146,7 +146,7 @@ public class AkkaRpcService implements RpcService {
 		captureAskCallstacks = configuration.captureAskCallStack();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成一个： ActorSystemScheduledExecutorAdapter
 		 */
 		internalScheduledExecutor = new ActorSystemScheduledExecutorAdapter(actorSystem);
@@ -156,7 +156,7 @@ public class AkkaRpcService implements RpcService {
 		stopped = false;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动 SupervisorActor
 		 */
 		//TODO *****
@@ -164,27 +164,27 @@ public class AkkaRpcService implements RpcService {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： Supervisor 是一个 Actor
 	 *  最终总结是这样的： 我们启动一个 commonRpcServices 内部启动一个 ActorSystem， 这个 ActorySystem 启动一个 ActorSystem
 	 */
 	private Supervisor startSupervisorActor() {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final ExecutorService terminationFutureExecutor = Executors
 			.newSingleThreadExecutor(new ExecutorThreadFactory("AkkaRpcService-Supervisor-Termination-Future-Executor"));
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		final ActorRef actorRef = SupervisorActor.startSupervisorActor(actorSystem, terminationFutureExecutor);
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建一个 SupervisorActor
 		 */
 		return Supervisor.create(actorRef, terminationFutureExecutor);
@@ -213,7 +213,7 @@ public class AkkaRpcService implements RpcService {
 	public <C extends RpcGateway> CompletableFuture<C> connect(final String address, final Class<C> clazz) {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return connectInternal(address, clazz, (ActorRef actorRef) -> {
@@ -229,7 +229,7 @@ public class AkkaRpcService implements RpcService {
 	public <F extends Serializable, C extends FencedRpcGateway<F>> CompletableFuture<C> connect(String address, F fencingToken, Class<C> clazz) {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return connectInternal(address, clazz, (ActorRef actorRef) -> {
@@ -269,7 +269,7 @@ public class AkkaRpcService implements RpcService {
 		final InvocationHandler akkaInvocationHandler;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 通过代理的方式来获取一个 ActorRef 对象
 		 */
 		if(rpcEndpoint instanceof FencedRpcEndpoint) {
@@ -282,7 +282,7 @@ public class AkkaRpcService implements RpcService {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： RpcServer 实现类
 			 *  JDK 提供的动态代理： Proxy InvocationHandler
 			 */
@@ -296,7 +296,7 @@ public class AkkaRpcService implements RpcService {
 		ClassLoader classLoader = getClass().getClassLoader();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 RpcServer 对象, 启动 RpcServer
 		 */
 		@SuppressWarnings("unchecked") RpcServer server = (RpcServer) Proxy
@@ -336,7 +336,7 @@ public class AkkaRpcService implements RpcService {
 		if(rpcServer instanceof AkkaBasedEndpoint) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 得到 InvocationHandler 对象
 			 */
 			InvocationHandler fencedInvocationHandler = new FencedAkkaInvocationHandler<>(rpcServer.getAddress(), rpcServer.getHostname(),
@@ -349,7 +349,7 @@ public class AkkaRpcService implements RpcService {
 			ClassLoader classLoader = getClass().getClassLoader();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 构建代理对象返回
 			 */
 			return (RpcServer) Proxy.newProxyInstance(classLoader, new Class<?>[]{RpcServer.class, AkkaBasedEndpoint.class}, fencedInvocationHandler);
@@ -543,7 +543,7 @@ public class AkkaRpcService implements RpcService {
 		private static Supervisor create(ActorRef actorRef, ExecutorService terminationFutureExecutor) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return new Supervisor(actorRef, terminationFutureExecutor);

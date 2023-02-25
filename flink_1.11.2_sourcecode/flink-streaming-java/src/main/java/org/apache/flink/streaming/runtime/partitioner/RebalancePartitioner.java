@@ -46,7 +46,7 @@ public class RebalancePartitioner<T> extends StreamPartitioner<T> {
 	public int selectChannel(SerializationDelegate<StreamRecord<T>> record) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 轮询策略
 		 *  一个节点的计算数据，会被分发到其他所有节点。通过轮询的方式来确定！
 		 */

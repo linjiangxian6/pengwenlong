@@ -130,7 +130,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 		this.configuration = checkNotNull(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 给成员变量赋值：ZooKeeperRunningJobsRegistry
 		 */
 		this.runningJobsRegistry = new ZooKeeperRunningJobsRegistry(client, configuration);
@@ -146,7 +146,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public LeaderRetrievalService getResourceManagerLeaderRetriever() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释： ZooKeeperLeaderRetrievalService
 		 */
 		//TODO *****
@@ -157,7 +157,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public LeaderRetrievalService getDispatcherLeaderRetriever() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释： ZooKeeperLeaderRetrievalService
 		 */
 		return ZooKeeperUtils.createLeaderRetrievalService(client, configuration, DISPATCHER_LEADER_PATH);
@@ -182,7 +182,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public LeaderElectionService getResourceManagerLeaderElectionService() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 ZooKeeperLeaderElectionService
 		 */
 		return ZooKeeperUtils.createLeaderElectionService(client, configuration, RESOURCE_MANAGER_LEADER_PATH);
@@ -199,7 +199,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public LeaderElectionService getJobManagerLeaderElectionService(JobID jobID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回：ZooKeeperLeaderElectionService
 		 */
 		return ZooKeeperUtils.createLeaderElectionService(client, configuration, getPathForJobManager(jobID));
@@ -209,7 +209,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public LeaderElectionService getClusterRestEndpointLeaderElectionService() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： ZooKeeperLeaderElectionService
 		 */
 		return ZooKeeperUtils.createLeaderElectionService(client, configuration, REST_SERVER_LEADER_PATH);
@@ -224,7 +224,7 @@ public class ZooKeeperHaServices implements HighAvailabilityServices {
 	public JobGraphStore getJobGraphStore() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 ZooKeeperJobGraphStore 实例
 		 */
 		return ZooKeeperUtils.createJobGraphs(client, configuration);

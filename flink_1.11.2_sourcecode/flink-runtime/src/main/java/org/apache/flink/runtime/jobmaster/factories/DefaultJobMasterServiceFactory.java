@@ -84,7 +84,7 @@ public class DefaultJobMasterServiceFactory implements JobMasterServiceFactory {
 		ClassLoader userCodeClassloader) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成和启动一个 JobMaster
 		 */
 		//TODO *****
@@ -94,7 +94,7 @@ public class DefaultJobMasterServiceFactory implements JobMasterServiceFactory {
 			lookup -> new JobMasterPartitionTrackerImpl(jobGraph.getJobID(), shuffleMaster, lookup));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 跳转到 JobMaster 的 onStart()
 		 */
 	}

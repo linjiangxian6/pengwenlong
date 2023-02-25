@@ -139,7 +139,7 @@ public abstract class SourceReaderBase<E, T, SplitT extends SourceSplit, SplitSt
 				final SourceOutput<T> splitOutput = splitContext.getOrCreateSplitOutput(output);
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				recordEmitter.emitRecord(record, splitOutput, splitContext.state);

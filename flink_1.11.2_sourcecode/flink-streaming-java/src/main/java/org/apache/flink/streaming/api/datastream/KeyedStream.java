@@ -117,7 +117,7 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 	public KeyedStream(DataStream<T> dataStream, KeySelector<T, KEY> keySelector) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		this(dataStream, keySelector, TypeExtractor.getKeySelectorTypes(keySelector, dataStream.getType()));
@@ -261,7 +261,7 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 		final StreamOperatorFactory<R> operatorFactory) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		SingleOutputStreamOperator<R> returnStream = super.doTransform(operatorName, outTypeInfo, operatorFactory);
@@ -277,7 +277,7 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 	@Override
 	public DataStreamSink<T> addSink(SinkFunction<T> sinkFunction) {
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		DataStreamSink<T> result = super.addSink(sinkFunction);
@@ -668,7 +668,7 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 	public SingleOutputStreamOperator<T> sum(int positionToSum) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 调用 KeyedStream 的 aggregate 执行汇总
 		 *  参数是： 汇总类型
 		 */
@@ -912,13 +912,13 @@ public class KeyedStream<T, KEY> extends DataStream<T> {
 	protected SingleOutputStreamOperator<T> aggregate(AggregationFunction<T> aggregate) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 StreamGroupedReduce
 		 */
 		StreamGroupedReduce<T> operator = new StreamGroupedReduce<T>(clean(aggregate), getType().createSerializer(getExecutionConfig()));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行 transform， 聚合也是一种转换
 		 */
 		return transform("Keyed Aggregation", getType(), operator);

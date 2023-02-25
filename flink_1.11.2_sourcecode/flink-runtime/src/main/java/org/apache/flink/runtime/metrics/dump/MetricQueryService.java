@@ -238,7 +238,7 @@ public class MetricQueryService extends RpcEndpoint implements MetricQueryServic
 		String endpointId = resourceID == null ? METRIC_QUERY_SERVICE_NAME : METRIC_QUERY_SERVICE_NAME + "_" + resourceID.getResourceIdString();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new MetricQueryService(rpcService, endpointId, maximumFrameSize);

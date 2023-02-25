@@ -42,7 +42,7 @@ public abstract class AbstractDispatcherBootstrap implements DispatcherBootstrap
 		for (JobGraph recoveredJob : recoveredJobGraphs) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 恢复执行 待恢复的 Job
 			 */
 			//TODO *****

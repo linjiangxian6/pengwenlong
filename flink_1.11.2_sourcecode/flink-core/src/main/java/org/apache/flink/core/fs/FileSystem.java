@@ -484,7 +484,7 @@ public abstract class FileSystem {
 				try {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 通过 HadoopFsFactory 工厂实例来创建文件系统实例
 					 */
 					fs = FALLBACK_FACTORY.create(uri);

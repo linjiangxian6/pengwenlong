@@ -135,14 +135,14 @@ public abstract class SchedulerBase implements SchedulerNG {
 	private final Logger log;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： JobGraph
 	 *  在构造 DefaultScheduler 的时候，会把 JobGraph 传入进来
 	 */
 	private final JobGraph jobGraph;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： ExecutionGraph
 	 *  之后，马上调用 createAndRestoreExecutionGraph() 方法来从 JobGraph 去创建 ExecutionGraph
 	 */
@@ -196,7 +196,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		this.log = checkNotNull(log);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 当前这个构造方法的第二个参数： jobGraph
 		 */
 		this.jobGraph = checkNotNull(jobGraph);
@@ -214,7 +214,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 			.deserializeValue(userCodeLoader).getRestartStrategy();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重启策略
 		 *  ThrowingRestartStrategyFactory ThrowingRestartStrategy
 		 */
@@ -232,7 +232,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		this.legacyScheduling = legacyScheduling;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 ExecutionGraph（成员变量）
 		 *  读取 JobGraph 转换成 ExecutionGraph
 		 */
@@ -240,7 +240,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		this.executionGraph = createAndRestoreExecutionGraph(jobManagerJobMetricGroup, checkNotNull(shuffleMaster), checkNotNull(partitionTracker));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 默认实现：DefaultExecutionTopology
 		 */
 		this.schedulingTopology = executionGraph.getSchedulingTopology();
@@ -248,7 +248,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		this.inputsLocationsRetriever = new ExecutionGraphToInputsLocationsRetrieverAdapter(executionGraph);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： OperatorCoordinator 初始化
 		 */
 		this.coordinatorMap = createCoordinatorMap();
@@ -258,14 +258,14 @@ public abstract class SchedulerBase implements SchedulerNG {
 		JobMasterPartitionTracker partitionTracker) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 ExecutionGraph
 		 */
 		//TODO *****
 		ExecutionGraph newExecutionGraph = createExecutionGraph(currentJobManagerJobMetricGroup, shuffleMaster, partitionTracker);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 检查是否有 CheckpointCoordinator
 		 */
 		final CheckpointCoordinator checkpointCoordinator = newExecutionGraph.getCheckpointCoordinator();
@@ -289,7 +289,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 			.loadFailoverStrategy(jobMasterConfiguration, log) : new NoOpFailoverStrategy.Factory();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建 ExecutionGraph
 		 *  注意第一个参数：null
 		 */
@@ -314,7 +314,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 			if(checkpointCoordinator != null) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				checkpointCoordinator.restoreSavepoint(savepointRestoreSettings.getRestorePath(), savepointRestoreSettings.allowNonRestoredState(),
@@ -422,7 +422,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 	public ExecutionVertex getExecutionVertex(final ExecutionVertexID executionVertexId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 ExecutionGraph 中的 ExecutionVertex
 		 */
 		return executionGraph.getAllVertices().get(executionVertexId.getJobVertexId()).getTaskVertices()[executionVertexId.getSubtaskIndex()];
@@ -474,13 +474,13 @@ public abstract class SchedulerBase implements SchedulerNG {
 		registerJobMetrics();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动所有的服务协调组件
 		 */
 		startAllOperatorCoordinators();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开始调度
 		 */
 		startSchedulingInternal();
@@ -766,7 +766,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return checkpointCoordinator.triggerSavepoint(targetDirectory).thenApply(CompletedCheckpoint::getExternalPointer)
@@ -775,7 +775,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 					if(cancelJob) {
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释：
 						 */
 						startCheckpointScheduler(checkpointCoordinator);
@@ -796,7 +796,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释：
 				 */
 				checkpointCoordinator.startCheckpointScheduler();
@@ -993,7 +993,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 	private void startAllOperatorCoordinators() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取当前 JobGragh 的所有 OperatorCoordinator
 		 */
 		final Collection<OperatorCoordinatorHolder> coordinators = getAllCoordinators();
@@ -1001,7 +1001,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 			for(OperatorCoordinatorHolder coordinator : coordinators) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： OperatorCoordinator 启动
 				 */
 				coordinator.start();
@@ -1025,7 +1025,7 @@ public abstract class SchedulerBase implements SchedulerNG {
 		Map<OperatorID, OperatorCoordinatorHolder> coordinatorMap = new HashMap<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 关于 ExecutionJobVertex 中的 OperatorCoordinatorHolder 的初始化
 		 */
 		for(ExecutionJobVertex vertex : executionGraph.getAllVertices().values()) {

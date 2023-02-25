@@ -171,7 +171,7 @@ public class ExecutionEnvironment {
 	public ExecutionEnvironment(final Configuration configuration, final ClassLoader userClassloader) {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释： executorServiceLoader = DefaultExecutorServiceLoader 是 PipelineExecutorServiceLoader 的子类
 		 */
 		this(new DefaultExecutorServiceLoader(), configuration, userClassloader);
@@ -189,7 +189,7 @@ public class ExecutionEnvironment {
 		final ClassLoader userClassloader) {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释：executorServiceLoader = PipelineExecutorServiceLoader
 		 */
 		this.executorServiceLoader = checkNotNull(executorServiceLoader);
@@ -466,7 +466,7 @@ public class ExecutionEnvironment {
 		Preconditions.checkNotNull(filePath, "The file path may not be null.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建一个 DataSource 返回，其实内部，还是通过 TextInputFormat 去读取数据
 		 *  默认使用 TextInputFormat 从 HDFS 里面读取普通文本数据
 		 */
@@ -898,7 +898,7 @@ public class ExecutionEnvironment {
 	public JobExecutionResult execute(String jobName) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建一个 JobClient 对象
 		 */
 		final JobClient jobClient = executeAsync(jobName);
@@ -909,7 +909,7 @@ public class ExecutionEnvironment {
 			} else {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 执行
 				 */
 				lastJobExecutionResult = new DetachedJobExecutionResult(jobClient.getJobID());
@@ -979,13 +979,13 @@ public class ExecutionEnvironment {
 		checkNotNull(configuration.get(DeploymentOptions.TARGET), "No execution.target specified in your configuration file.");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		final Plan plan = createProgramPlan(jobName);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： executorServiceLoader = DefaultExecutorServiceLoader
 		 */
 		final PipelineExecutorFactory executorFactory = executorServiceLoader.getExecutorFactory(configuration);
@@ -994,7 +994,7 @@ public class ExecutionEnvironment {
 			configuration.get(DeploymentOptions.TARGET));
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 执行
 		 */
 		CompletableFuture<JobClient> jobClientFuture = executorFactory.getExecutor(configuration).execute(plan, configuration);
@@ -1002,7 +1002,7 @@ public class ExecutionEnvironment {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 阻塞等待获取结果
 			 */
 			JobClient jobClient = jobClientFuture.get();
@@ -1096,7 +1096,7 @@ public class ExecutionEnvironment {
 	public Plan createProgramPlan(String jobName) {
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释：
 		 */
 		return createProgramPlan(jobName, true);
@@ -1128,7 +1128,7 @@ public class ExecutionEnvironment {
 		}
 
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释：
 		 */
 		final PlanGenerator generator = new PlanGenerator(sinks, config, getParallelism(), cacheFile, jobName);
@@ -1177,7 +1177,7 @@ public class ExecutionEnvironment {
 	 */
 	public static ExecutionEnvironment getExecutionEnvironment() {
 		/**
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *   注释：
 		 *   1、standalone = createLocalEnvironment
 		 */
@@ -1224,7 +1224,7 @@ public class ExecutionEnvironment {
 	public static LocalEnvironment createLocalEnvironment(int parallelism) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return createLocalEnvironment(new Configuration(), parallelism);
@@ -1275,7 +1275,7 @@ public class ExecutionEnvironment {
 	private static LocalEnvironment createLocalEnvironment(Configuration configuration, int defaultParallelism) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：  构造 LocalEnvironment 对象
 		 */
 		final LocalEnvironment localEnvironment = new LocalEnvironment(configuration);

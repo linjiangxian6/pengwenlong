@@ -279,7 +279,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	private Map<JobID, Collection<CompletableFuture<ExecutionState>>> taskResultPartitionCleanupFuturesPerJob = new HashMap<>(8);
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 当前构造方法执行完了之后，执行 onStart() 方法，因为 TaskExecutor 是一个 RpcEndpoint
 	 */
 	public TaskExecutor(RpcService rpcService, TaskManagerConfiguration taskManagerConfiguration, HighAvailabilityServices haServices,
@@ -314,7 +314,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		this.ioExecutor = taskExecutorServices.getIOExecutor();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 实例化
 		 *  1、haServices 基于 ZK 的实现的
 		 */
@@ -322,7 +322,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		this.resourceManagerLeaderRetriever = haServices.getResourceManagerLeaderRetriever();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： HardwareDescription  硬件抽象对象
 		 */
 		this.hardwareDescription = HardwareDescription.extractFromSystem(taskExecutorServices.getManagedMemorySize());
@@ -334,13 +334,13 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		final ResourceID resourceId = taskExecutorServices.getUnresolvedTaskManagerLocation().getResourceID();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： HeartbeatManagerImpl jobManagerHeartbeatManager
 		 */
 		this.jobManagerHeartbeatManager = createJobManagerHeartbeatManager(heartbeatServices, resourceId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： HeartbeatManagerImpl resourceManagerHeartbeatManager
 		 */
 		this.resourceManagerHeartbeatManager = createResourceManagerHeartbeatManager(heartbeatServices, resourceId);
@@ -355,7 +355,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		ResourceID resourceId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： HeartbeatManagerImpl  ResourceManagerHeartbeatManager
 		 */
 		return heartbeatServices.createHeartbeatManager(resourceId, new ResourceManagerHeartbeatListener(), getMainThreadExecutor(), log);
@@ -365,7 +365,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		ResourceID resourceId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return heartbeatServices.createHeartbeatManager(resourceId, new JobManagerHeartbeatListener(), getMainThreadExecutor(), log);
@@ -403,7 +403,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 开启服务
 			 *  重要的四件事情：
 			 *  1、监控 ResourceManager
@@ -425,7 +425,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开始注册
 		 */
 		//TODO 启动注册超时检查
@@ -436,7 +436,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 与 ResourceManager 建立连接，然后添加监听：ResourceManagerLeaderListener 监听 RM 的变更
 			 *  启动 ResourceManagerLeaderListener， 监听 ResourceManager 的变更
 			 *  TaskManger 向 ResourceManager 注册是通过 ResourceManagerLeaderListener 来完成的，
@@ -452,7 +452,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			resourceManagerLeaderRetriever.start(new ResourceManagerLeaderListener());
 			//TODO ***** 全局搜索NodeCacheListener
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 记住这种代码结构：
 			 *  1、ResourceManagerLeaderListener 是 LeaderRetrievalListener 的子类
 			 *  2、NodeCacheListener 是 curator 提供的监听器，当指定的 zookeeper znode 节点数据发生改变，则会接收到通知
@@ -464,14 +464,14 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			 */
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 TaskSlotTable
 			 */
 			// tell the task slot table who's responsible for the task slot actions
 			taskSlotTable.start(new SlotActionsImpl(), getMainThreadExecutor());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 JobLeaderService
 			 *  作用： 如果已经启动的某个 JobMaster 发生节点迁移，，原来运行在 T1， 现在T1 宕机了。
 			 */
@@ -479,7 +479,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			jobLeaderService.start(getAddress(), getRpcService(), haServices, new JobLeaderListenerImpl());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 FileCache
 			 */
 			fileCache = new FileCache(taskManagerConfiguration.getTmpDirectories(), blobCacheService.getPermanentBlobService());
@@ -600,7 +600,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	// ----------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 提交 Task 让 TaskManager 启动
 	 *  第一个参数： TaskDeploymentDescriptor 包含启动当前这个 Task 所需要的一切信息
 	 */
@@ -643,7 +643,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 获取 Job 和 Task 信息
 			 */
 			// deserialize the pre-serialized information
@@ -667,14 +667,14 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 					taskInformation.getTaskName(), tdd.getSubtaskIndex(), tdd.getAttemptNumber());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 RpcInputSplitProvider
 			 */
 			InputSplitProvider inputSplitProvider = new RpcInputSplitProvider(jobManagerConnection.getJobManagerGateway(), taskInformation.getJobVertexId(),
 				tdd.getExecutionAttemptId(), taskManagerConfiguration.getTimeout());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 RpcTaskOperatorEventGateway
 			 */
 			final TaskOperatorEventGateway taskOperatorEventGateway = new RpcTaskOperatorEventGateway(jobManagerConnection.getJobManagerGateway(),
@@ -695,14 +695,14 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			final JobManagerTaskRestore taskRestore = tdd.getTaskRestore();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 TaskStateManagerImpl
 			 */
 			final TaskStateManager taskStateManager = new TaskStateManagerImpl(jobId, tdd.getExecutionAttemptId(), localStateStore, taskRestore,
 				checkpointResponder);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 获取 MemoryManager
 			 */
 			MemoryManager memoryManager;
@@ -713,7 +713,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 构建 Task
 			 *  内部会初始化一个执行线程。一个Task 是线程级别的执行粒度
 			 */
@@ -733,7 +733,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 注册 Task
 				 */
 				taskAdded = taskSlotTable.addTask(task);
@@ -744,13 +744,13 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			if(taskAdded) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 如果注册成功，则通过一个线程来运行 Task
 				 */
 				task.startTaskThread();
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 初始化 ResultPartition
 				 */
 				setupResultPartitionBookkeeping(tdd.getJobId(), tdd.getProducedPartitions(), task.getTerminationFuture());
@@ -881,7 +881,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	public void heartbeatFromResourceManager(ResourceID resourceID) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： TaskExecutor 接收到 ResourceManager 的心跳请求
 		 */
 		//TODO ***** HeartbeatManagerImpl
@@ -903,7 +903,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 从 taskSlotTable 中通过 executionAttemptID 获取到一个 Task 对象
 		 */
 		final Task task = taskSlotTable.getTask(executionAttemptID);
@@ -911,7 +911,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		if(task != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： Task 触发 Checkpoint
 			 */
 			task.triggerCheckpointBarrier(checkpointId, checkpointTimestamp, checkpointOptions, advanceToEndOfEventTime);
@@ -986,7 +986,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 分配 Slot
 			 *  简单来说： ResourceManager 告诉 TaskExecutor 说，你应该把 slotid 的 Slot 分配给 JobID 的 Job 去使用
 			 *  先在 TaskExecutor 上，自己先登记，该 Slot 已经被使用
@@ -998,7 +998,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动 Job， 并不是一个真正的 Job，而是一个代表是否有链接存在
 		 */
 		final JobTable.Job job;
@@ -1028,7 +1028,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		if(job.isConnected()) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 提供一个 Slot 给 JobManager（JobMaster）
 			 */
 			offerSlotsToJobManager(jobId);
@@ -1125,7 +1125,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	public void disconnectResourceManager(Exception cause) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 如果发现 TaskExecutor 依然是运行状态，则重新链接 ResourceManager
 		 */
 		if(isRunning()) {
@@ -1179,7 +1179,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		resourceManagerAddress = createResourceManagerAddress(newLeaderAddress, newResourceManagerId);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重连
 		 */
 		//TODO ***** reconnectToResourceManager
@@ -1202,7 +1202,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		closeResourceManagerConnection(cause);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 注册
 		 *  从现在开始计时，如果倒计时 5min 中，到了，还没有注册成功，则意味着注册超时
 		 *  延时调度： 5min 调度执行
@@ -1211,7 +1211,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		startRegistrationTimeout();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 链接新的 ResourceManager
 		 */
 		//TODO *****
@@ -1222,7 +1222,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		if(resourceManagerAddress != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 链接 ResourceManager
 			 */
 			//TODO *****
@@ -1238,7 +1238,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		log.info("Connecting to ResourceManager {}.", resourceManagerAddress);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 TaskExecutorRegistration 对象, 用于注册
 		 *  封装了当前 TaskEXecutor 的各种信息，到时候，会通过注册发送给 RM
 		 */
@@ -1247,7 +1247,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			taskManagerConfiguration.getTotalResourceProfile());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： TaskExecutor 和 ResourceManager 之间的链接对象
 		 */
 		resourceManagerConnection = new TaskExecutorToResourceManagerConnection(log, getRpcService(),
@@ -1333,7 +1333,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 启动注册超时的检测，默认是 5min，如果超过这个时间还没注册完成，就会抛出异常退出进程，启动失败。
 	 */
 	private void startRegistrationTimeout() {
@@ -1346,7 +1346,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			currentRegistrationTimeoutId = newRegistrationTimeoutId;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 完成注册
 			 *  延迟 五分钟，执行 registrationTimeout() 检查是否超时
 			 */
@@ -1375,7 +1375,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	private void offerSlotsToJobManager(final JobID jobId) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 分派 Slot 给 JobMaster
 		 */
 		jobTable.getConnection(jobId).ifPresent(this::internalOfferSlotsToJobManager);
@@ -1390,7 +1390,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			log.info("Offer reserved slots to the leader of job {}.", jobId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 获取 JobMaster 地址
 			 */
 			final JobMasterGateway jobMasterGateway = jobManagerConnection.getJobManagerGateway();
@@ -1408,7 +1408,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 将自己的 Slot 分配给 JobManager（JobMaster）
 			 */
 			CompletableFuture<Collection<SlotOffer>> acceptedSlotsFuture = jobMasterGateway
@@ -1471,7 +1471,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 建立连接
 	 */
 	private void establishJobManagerConnection(JobTable.Job job, final JobMasterGateway jobMasterGateway, JMTMRegistrationSuccess registrationSuccess) {
@@ -1499,13 +1499,13 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		ResourceID jobManagerResourceID = registrationSuccess.getResourceID();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重新链接
 		 */
 		final JobTable.Connection establishedConnection = associateWithJobManager(job, jobManagerResourceID, jobMasterGateway);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 然后维持心跳
 		 */
 		// monitor the job manager as heartbeat target
@@ -1522,7 +1522,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		});
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 将自己的 Slot 汇报给 JobManager
 		 */
 		internalOfferSlotsToJobManager(establishedConnection);
@@ -1711,7 +1711,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 			final JobID jobId = taskSlotTable.getOwningJob(allocationId);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 释放 Slot
 			 */
 			final int slotIndex = taskSlotTable.freeSlot(allocationId, cause);
@@ -1756,7 +1756,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		if(taskSlotTable.isValidTimeout(allocationId, ticket)) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 释放 Slot
 			 */
 			freeSlotInternal(allocationId, new Exception("The slot " + allocationId + " has timed out."));
@@ -1911,7 +1911,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		public void notifyLeaderAddress(final String leaderAddress, final UUID leaderSessionID) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 当 RM 变更的时候，执行 RM 的重连
 			 */
 			//TODO ***** notifyOfNewResourceManagerLeader
@@ -1927,21 +1927,21 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	private final class JobLeaderListenerImpl implements JobLeaderListener {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 建立新的 JobManager 链接
 		 */
 		@Override
 		public void jobManagerGainedLeadership(final JobID jobId, final JobMasterGateway jobManagerGateway, final JMTMRegistrationSuccess registrationMessage) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 完成链接
 			 */
 			runAsync(() -> jobTable.getJob(jobId).ifPresent(job -> establishJobManagerConnection(job, jobManagerGateway, registrationMessage)));
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 失去 JobManager 的链接
 		 */
 		@Override
@@ -2022,7 +2022,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 	private class SlotActionsImpl implements SlotActions {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 释放 Slot
 		 */
 		@Override
@@ -2031,7 +2031,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： Slot 超时
 		 *  监控的手段是：操作前先注册一个 timeout 监控，操作完成后再取消这个监控，如果在这个期间 timeout 了，就会调用这个方法
 		 */
@@ -2089,7 +2089,7 @@ public class TaskExecutor extends RpcEndpoint implements TaskExecutorGateway {
 				log.info("The heartbeat of ResourceManager with id {} timed out.", resourceId);
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 超时，就意味着，链接不到 ResourceManager 了， 所以重连即可
 				 */
 				reconnectToResourceManager(new TaskManagerException(String.format("The heartbeat of ResourceManager with id %s timed out.", resourceId)));

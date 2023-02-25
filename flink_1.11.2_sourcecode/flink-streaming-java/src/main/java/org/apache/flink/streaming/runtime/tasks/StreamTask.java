@@ -302,7 +302,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		this.actionExecutor = Preconditions.checkNotNull(actionExecutor);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 初始化 StreamTask 的时候，初始化 MailboxProcessor， 同时，执行 StreamTask 的 processInput() 方法
 		 */
 		this.mailboxProcessor = new MailboxProcessor(this::processInput, mailbox, actionExecutor);
@@ -365,7 +365,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 	protected void processInput(MailboxDefaultAction.Controller controller) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		InputStatus status = inputProcessor.processInput();
@@ -459,7 +459,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 	public StreamTaskStateInitializer createStreamTaskStateInitializer() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return new StreamTaskStateInitializerImpl(getEnvironment(), stateBackend);
@@ -479,7 +479,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		LOG.debug("Initializing {}.", getName());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		operatorChain = new OperatorChain<>(this, recordWriter);
@@ -488,7 +488,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		headOperator = operatorChain.getHeadOperator();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行 SourceStreamTask 的初始化
 		 */
 		// task specific initialization
@@ -507,7 +507,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		actionExecutor.runThrowing(() -> {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			// both the following operations are protected by the lock
@@ -516,7 +516,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			operatorChain.initializeStateAndOpenOperators(createStreamTaskStateInitializer());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 Mail
 			 */
 			readRecoveredChannelState();
@@ -549,7 +549,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			// Note that we must request partition after all the single gates finished recovery.
@@ -571,7 +571,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 第一步：
 			 */
 			beforeInvoke();
@@ -582,7 +582,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			// let the task do its work
@@ -595,7 +595,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			afterInvoke();
@@ -620,7 +620,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 	private void runMailboxLoop() throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		mailboxProcessor.runMailboxLoop();
@@ -867,7 +867,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			try {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 执行 Checkpoint
 				 */
 				result.complete(triggerCheckpoint(checkpointMetaData, checkpointOptions, advanceToEndOfEventTime));
@@ -888,13 +888,13 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 			CheckpointMetrics checkpointMetrics = new CheckpointMetrics().setAlignmentDurationNanos(0L);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 执行 Checkpoint 的初始化
 			 */
 			subtaskCheckpointCoordinator.initCheckpoint(checkpointMetaData.getCheckpointId(), checkpointOptions);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 执行 Checkpoint 的执行
 			 */
 			boolean success = performCheckpoint(checkpointMetaData, checkpointOptions, checkpointMetrics, advanceToEndOfEventTime);
@@ -954,7 +954,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 		LOG.debug("Starting checkpoint ({}) {} on task {}", checkpointMetaData.getCheckpointId(), checkpointOptions.getCheckpointType(), getName());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 如果是正在运行中，则进行 Checkpoint
 		 */
 		if(isRunning) {
@@ -969,7 +969,7 @@ public abstract class StreamTask<OUT, OP extends StreamOperator<OUT>> extends Ab
 				}
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO
 				 *  注释： 执行 State 的 Checkpoint
 				 */
 				subtaskCheckpointCoordinator.checkpointState(checkpointMetaData, checkpointOptions, checkpointMetrics, operatorChain, this::isCanceled);

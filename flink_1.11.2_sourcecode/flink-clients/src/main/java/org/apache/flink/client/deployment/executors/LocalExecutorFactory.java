@@ -44,7 +44,7 @@ public class LocalExecutorFactory implements PipelineExecutorFactory {
 	public PipelineExecutor getExecutor(final Configuration configuration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return LocalExecutor.create(configuration);

@@ -64,7 +64,7 @@ public enum DefaultJobManagerRunnerFactory implements JobManagerRunnerFactory {
 		final ShuffleMaster<?> shuffleMaster = ShuffleServiceLoader.loadShuffleServiceFactory(configuration).createShuffleMaster(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成 DefaultJobMasterServiceFactory
 		 */
 		final JobMasterServiceFactory jobMasterFactory = new DefaultJobMasterServiceFactory(
@@ -81,7 +81,7 @@ public enum DefaultJobManagerRunnerFactory implements JobManagerRunnerFactory {
 			shuffleMaster);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 返回 JobManagerRunnerImpl
 		 *  负责启动 JobMaster
 		 */

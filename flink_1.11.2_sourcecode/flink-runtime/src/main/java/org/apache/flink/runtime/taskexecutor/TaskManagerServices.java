@@ -253,14 +253,14 @@ public class TaskManagerServices {
 		checkTempDirs(taskManagerServicesConfiguration.getTmpDirPaths());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 TaskEventDispatcher
 		 *  Flink 运行的是 流式任务:  StreamTask （OperatorChain Pipline   输入给我，调用 Transformation执行，输出结果）
 		 */
 		final TaskEventDispatcher taskEventDispatcher = new TaskEventDispatcher();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 IOManagerASync
 		 *  启动一定数量的 WriterThread 和 ReaderThread
 		 */
@@ -268,7 +268,7 @@ public class TaskManagerServices {
 		final IOManager ioManager = new IOManagerAsync(taskManagerServicesConfiguration.getTmpDirPaths());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： shuffleEnvironment = NettyShuffleEnvironment
 		 *  上游 StreamTask 和 下游 StreamTask 有 shuffle 动作。
 		 *  在这个动作过程中，肯定需要很多的一些组件来为其服务， 现在创建的这个 NettyShuffleEnvironment
@@ -285,7 +285,7 @@ public class TaskManagerServices {
 		final int listeningDataPort = shuffleEnvironment.start();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 KVStageService = KvStateService
 		 *  状态管理服务
 		 */
@@ -300,13 +300,13 @@ public class TaskManagerServices {
 				taskManagerServicesConfiguration.getExternalDataPort() : listeningDataPort);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 BroadCastVariableManager = BroadcastVariableManager
 		 */
 		final BroadcastVariableManager broadcastVariableManager = new BroadcastVariableManager();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 TaskSlotTable = TaskSlotTableImpl
 		 *  当前节点能提供很多的 Slot， 也会执行很多的 Task
 		 *  到底哪些 Task 对应到 哪些 Slot 执行，这里面通过一张表进行管理
@@ -320,13 +320,13 @@ public class TaskManagerServices {
 			ioExecutor);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：  初始化 JobTable = DefaultJobTable
 		 */
 		final JobTable jobTable = DefaultJobTable.create();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 JobLeaderService（JobMaster）
 		 */
 		final JobLeaderService jobLeaderService = new DefaultJobLeaderService(
@@ -335,7 +335,7 @@ public class TaskManagerServices {
 		);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 StateRootDirectory 和 StateRootDirectoryFile
 		 */
 		final String[] stateRootDirectoryStrings = taskManagerServicesConfiguration.getLocalRecoveryStateRootDirectories();
@@ -345,7 +345,7 @@ public class TaskManagerServices {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 TaskExecutorLocalStateStoresManager
 		 */
 		final TaskExecutorLocalStateStoresManager taskStateManager = new TaskExecutorLocalStateStoresManager(
@@ -355,7 +355,7 @@ public class TaskManagerServices {
 			.getBoolean(CoreOptions.FAIL_ON_USER_CLASS_LOADING_METASPACE_OOM);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 初始化 LibraryCacheManager
 		 *  第一个参数： PermanentBlobService
 		 *  第二个参数： DefaultClassLoaderFactory
@@ -369,7 +369,7 @@ public class TaskManagerServices {
 		);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回： TaskManagerServices
 		 */
 		return new TaskManagerServices(
@@ -397,7 +397,7 @@ public class TaskManagerServices {
 		final Executor memoryVerificationExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 超时服务
 		 */
 		final TimerService<AllocationID> timerService = new TimerService<>(
@@ -405,7 +405,7 @@ public class TaskManagerServices {
 			timerServiceShutdownTimeout);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 生成 TaskSlotTableImpl
 		 */
 		return new TaskSlotTableImpl<>(
@@ -426,7 +426,7 @@ public class TaskManagerServices {
 		TaskEventDispatcher taskEventDispatcher, MetricGroup taskManagerMetricGroup, Executor ioExecutor) throws FlinkException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 Shuffle 上下文对象：ShuffleEnvironmentContext
 		 */
 		final ShuffleEnvironmentContext shuffleEnvironmentContext = new ShuffleEnvironmentContext(
@@ -440,7 +440,7 @@ public class TaskManagerServices {
 			ioExecutor);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 通过反射拿到 NettyShuffleServiceFactory 对象
 		 */
 		return ShuffleServiceLoader.loadShuffleServiceFactory(

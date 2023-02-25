@@ -119,7 +119,7 @@ class ChannelStateWriteRequestExecutorImpl implements ChannelStateWriteRequestEx
 	public void submit(ChannelStateWriteRequest request) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 执行提交
 		 */
 		submitInternal(request, () -> deque.add(request));
@@ -133,7 +133,7 @@ class ChannelStateWriteRequestExecutorImpl implements ChannelStateWriteRequestEx
 	private void submitInternal(ChannelStateWriteRequest request, RunnableWithException action) throws Exception {
 		try {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 启动一个线程获取一个 Action
 			 */
 			action.run();

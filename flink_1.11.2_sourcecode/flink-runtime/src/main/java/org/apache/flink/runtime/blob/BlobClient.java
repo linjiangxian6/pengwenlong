@@ -302,7 +302,7 @@ public final class BlobClient implements Closeable {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 执行上传
 		 */
 		try(BlobOutputStream os = new BlobOutputStream(jobId, blobType, socket)) {
@@ -359,7 +359,7 @@ public final class BlobClient implements Closeable {
 		try(InputStream is = fs.open(file)) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 执行上传
 			 */
 			return (PermanentBlobKey) putInputStream(jobId, is, PERMANENT_BLOB);

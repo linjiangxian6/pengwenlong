@@ -50,7 +50,7 @@ public class RegionPartitionReleaseStrategy implements PartitionReleaseStrategy 
 		this.schedulingTopology = checkNotNull(schedulingTopology);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		initRegionExecutionViewByVertex();
@@ -118,7 +118,7 @@ public class RegionPartitionReleaseStrategy implements PartitionReleaseStrategy 
 		public PartitionReleaseStrategy createInstance(final SchedulingTopology schedulingStrategy) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： schedulingStrategy = DefaultExecutionTopology
 			 */
 			return new RegionPartitionReleaseStrategy(schedulingStrategy);

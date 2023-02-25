@@ -80,7 +80,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第一步： 加载 Hadoop 配置
 			 */
 			// -- (1) get the loaded Hadoop config (or fall back to one loaded from the classpath)
@@ -98,7 +98,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第二步： 根据 URI schema 获取 Hadoop FileSystem Class
 			 */
 			// -- (2) get the Hadoop file system class for that scheme
@@ -112,7 +112,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第三步： 创建 FileSystem 实例对象
 			 */
 			// -- (3) instantiate the Hadoop file system
@@ -121,7 +121,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 			final org.apache.hadoop.fs.FileSystem hadoopFs = fsClass.newInstance();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第四步： 初始化 FileSystem 实例
 			 */
 			// -- (4) create the proper URI to initialize the file system
@@ -163,7 +163,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 第五步： 配置 Hadoop FileSystem
 			 */
 			// -- (5) configure the Hadoop file system
@@ -177,7 +177,7 @@ public class HadoopFsFactory implements FileSystemFactory {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 把获取到的 Hadoop FileSystem 实例包装成： HadoopFileSystem
 			 */
 			HadoopFileSystem fs = new HadoopFileSystem(hadoopFs);

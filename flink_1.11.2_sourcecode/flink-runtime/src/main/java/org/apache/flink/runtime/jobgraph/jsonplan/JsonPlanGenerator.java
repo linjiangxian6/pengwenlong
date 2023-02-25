@@ -32,7 +32,7 @@ import java.util.List;
 
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO 
  *  注释： 生成的结果：
  *  -
  *  {"jid": "", "name": "", "nodes": [
@@ -97,7 +97,7 @@ public class JsonPlanGenerator {
 				gen.writeStartObject();
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 写入核心5个属性
 				 *  1、id -> jobvertex ID
 				 *  2、parallelism -> jobvertex 并行度
@@ -132,7 +132,7 @@ public class JsonPlanGenerator {
 						gen.writeStartObject();
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO 
 						 *  注释： 在 inputs 节点下面，再写入 num 和  id 子节点
 						 */
 						gen.writeNumberField("num", inputNum);
@@ -149,7 +149,7 @@ public class JsonPlanGenerator {
 						}
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO 
 						 *  注释： 在 inputs 节点下面，再写入 exchange 子节点
 						 */
 						gen.writeStringField("exchange", edge.getSource().getResultType().name().toLowerCase());
@@ -182,7 +182,7 @@ public class JsonPlanGenerator {
 			gen.close();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 返回 JSON 字符串
 			 */
 			return writer.toString();

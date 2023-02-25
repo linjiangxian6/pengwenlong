@@ -126,7 +126,7 @@ public class ResultPartitionFactory {
 		ResultSubpartition[] subpartitions = new ResultSubpartition[numberOfSubpartitions];
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		ResultPartition partition = forcePartitionReleaseOnConsumption || !type.isBlocking() ? new ReleaseOnConsumptionResultPartition(
@@ -151,7 +151,7 @@ public class ResultPartitionFactory {
 				bufferPoolFactory);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		createSubpartitions(partition, type, blockingSubpartitionType, subpartitions);
@@ -177,7 +177,7 @@ public class ResultPartitionFactory {
 		} else {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 流分区
 			 */
 			for (int i = 0; i < subpartitions.length; i++) {

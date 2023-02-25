@@ -65,7 +65,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 	private final Object lock = new Object();
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 一个 JobGragh 对应到一个 JobRunner
 	 */
 	/** The job graph needs to run. */
@@ -144,7 +144,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 		this.leaderGatewayFuture = new CompletableFuture<>();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动 JobMaster
 		 *  jobMasterService = JobMaster 实例
 		 */
@@ -177,7 +177,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 	//----------------------------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 启动 JobMaster
 	 */
 	@Override
@@ -185,7 +185,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：ZooKeeperLeaderElectionService = leaderElectionService
 			 *  选举成功，则跳转到：ZooKeeperLeaderElectionService 的 isLeader() 方法
 			 */
@@ -306,7 +306,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 					synchronized (lock) {
 
 						/*************************************************
-						 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+						 * TODO
 						 *  注释： 调度 并启动 JobManager
 						 */
 						//TODO *****
@@ -330,7 +330,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 				} else {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 启动 JobMaster
 					 */
 					//TODO *****
@@ -344,7 +344,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 			jobGraph.getName(), jobGraph.getJobID(), leaderSessionId, jobMasterService.getAddress());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 当 JobMaster 启动好了之后，更改 Job 状态为 Running
 		 *  1、runningJobsRegistry = ZooKeeperRunningJobsRegistry
 		 */
@@ -360,7 +360,7 @@ public class JobManagerRunnerImpl implements LeaderContender, OnCompletionAction
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 JobMaster
 			 */
 			//TODO ***** 实现类JobMaster

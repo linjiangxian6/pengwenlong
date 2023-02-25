@@ -44,7 +44,7 @@ public class StandaloneClientFactory implements ClusterClientFactory<StandaloneC
 		checkNotNull(configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 StandaloneClusterDescriptor 实例
 		 */
 		return new StandaloneClusterDescriptor(configuration);

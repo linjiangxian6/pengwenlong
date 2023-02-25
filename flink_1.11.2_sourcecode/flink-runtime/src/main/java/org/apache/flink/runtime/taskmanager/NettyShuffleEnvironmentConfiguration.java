@@ -211,7 +211,7 @@ public class NettyShuffleEnvironmentConfiguration {
 		String compressionCodec = configuration.getString(NettyShuffleEnvironmentOptions.SHUFFLE_COMPRESSION_CODEC);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回结果对象： NettyShuffleEnvironmentConfiguration
 		 */
 		return new NettyShuffleEnvironmentConfiguration(numberOfNetworkBuffers, pageSize, initialRequestBackoff, maxRequestBackoff, buffersPerChannel,
@@ -286,7 +286,7 @@ public class NettyShuffleEnvironmentConfiguration {
 			final InetSocketAddress taskManagerInetSocketAddress = new InetSocketAddress(taskManagerAddress, dataport);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 创建一个 NettyConfig
 			 */
 			nettyConfig = new NettyConfig(taskManagerInetSocketAddress.getAddress(), taskManagerInetSocketAddress.getPort(),

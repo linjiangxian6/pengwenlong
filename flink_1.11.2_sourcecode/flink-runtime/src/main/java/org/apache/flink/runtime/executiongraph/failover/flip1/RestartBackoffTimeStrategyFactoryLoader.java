@@ -67,7 +67,7 @@ public final class RestartBackoffTimeStrategyFactoryLoader {
 		checkNotNull(clusterConfiguration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重启策略
 		 */
 		return getJobRestartStrategyFactory(jobRestartStrategyConfiguration)
@@ -105,7 +105,7 @@ public final class RestartBackoffTimeStrategyFactoryLoader {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 重启策略
 		 */
 		switch(restartStrategyName.toLowerCase()) {

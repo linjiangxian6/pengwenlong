@@ -25,19 +25,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO
  *  注释： 表示ExecutionVertex的一个输出分区，producer是ExecutionVertex，consumer是若干个ExecutionEdge
  */
 public class IntermediateResultPartition {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 从属于哪个 IntermediateResult
 	 */
 	private final IntermediateResult totalResult;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 对应到哪个 ExecutionVertex
 	 */
 	private final ExecutionVertex producer;
@@ -46,13 +46,13 @@ public class IntermediateResultPartition {
 	private final int partitionNumber;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： IntermediateResultPartition 的 ID
 	 */
 	private final IntermediateResultPartitionID partitionId;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 对应到多个 ExecutionEdge
 	 */
 	private List<List<ExecutionEdge>> consumers;

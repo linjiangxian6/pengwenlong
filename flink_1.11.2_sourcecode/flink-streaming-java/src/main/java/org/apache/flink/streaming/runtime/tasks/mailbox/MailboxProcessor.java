@@ -94,7 +94,7 @@ public class MailboxProcessor implements Closeable {
 	public MailboxProcessor(MailboxDefaultAction mailboxDefaultAction) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  第三个参数的初始化：StreamTaskActionExecutor
 		 */
@@ -104,7 +104,7 @@ public class MailboxProcessor implements Closeable {
 	public MailboxProcessor(MailboxDefaultAction mailboxDefaultAction, StreamTaskActionExecutor actionExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 *  第二个参数的初始化
 		 */
@@ -190,7 +190,7 @@ public class MailboxProcessor implements Closeable {
 		final MailboxController defaultActionContext = new MailboxController(this);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		while(runMailboxStep(localMailbox, defaultActionContext)) {
@@ -204,7 +204,7 @@ public class MailboxProcessor implements Closeable {
 	private boolean runMailboxStep(TaskMailbox localMailbox, MailboxController defaultActionContext) throws Exception {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		if(processMail(localMailbox)) {
@@ -283,7 +283,7 @@ public class MailboxProcessor implements Closeable {
 		while(isMailboxLoopRunning() && (maybeMail = mailbox.tryTakeFromBatch()).isPresent()) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			maybeMail.get().run();

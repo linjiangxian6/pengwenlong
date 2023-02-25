@@ -49,7 +49,7 @@ public class JobDispatcherLeaderProcess extends AbstractDispatcherLeaderProcess 
 	protected void onStart() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		final DispatcherGatewayService dispatcherService = dispatcherGatewayServiceFactory.create(

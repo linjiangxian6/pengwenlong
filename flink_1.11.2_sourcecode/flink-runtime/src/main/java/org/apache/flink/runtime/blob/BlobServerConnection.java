@@ -122,7 +122,7 @@ class BlobServerConnection extends Thread {
 				switch(operation) {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 处理上传操作
 					 */
 					case PUT_OPERATION:
@@ -130,7 +130,7 @@ class BlobServerConnection extends Thread {
 						break;
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 处理下载操作
 					 */
 					case GET_OPERATION:

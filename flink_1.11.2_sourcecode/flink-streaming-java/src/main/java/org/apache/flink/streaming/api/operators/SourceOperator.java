@@ -181,7 +181,7 @@ public class SourceOperator<OUT, SplitT extends SourceSplit> extends AbstractStr
 		if(currentMainOutput != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return sourceReader.pollNext(currentMainOutput);

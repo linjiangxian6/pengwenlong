@@ -32,13 +32,13 @@ import static org.apache.flink.util.Preconditions.checkNotNull;
 public class SlotExecutionVertexAssignment {
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： ExecutionVertexID
 	 */
 	private final ExecutionVertexID executionVertexId;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 申请 slot 的响应
 	 */
 	private final CompletableFuture<LogicalSlot> logicalSlotFuture;

@@ -169,7 +169,7 @@ public class HadoopFileSystem extends FileSystem {
 	public boolean mkdirs(final Path f) throws IOException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建 HDFS 上的 BlobStore
 		 */
 		return this.fs.mkdirs(toHadoopPath(f));

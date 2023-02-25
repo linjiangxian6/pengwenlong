@@ -49,7 +49,7 @@ public interface HistoryServerArchivist {
 			final Path archivePath = WebMonitorUtils.validateAndNormalizeUri(new Path(configuredArchivePath).toUri());
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释：
 			 */
 			return new JsonResponseHistoryServerArchivist(jsonArchivist, archivePath, ioExecutor);

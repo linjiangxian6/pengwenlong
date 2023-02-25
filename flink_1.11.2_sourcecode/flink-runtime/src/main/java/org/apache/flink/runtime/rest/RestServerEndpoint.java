@@ -144,7 +144,7 @@ public abstract class RestServerEndpoint implements AutoCloseableAsync {
 			final CompletableFuture<String> restAddressFuture = new CompletableFuture<>();
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 主要是初始化各种 Handler，包括： JobSubmitHandler
 			 */
 			//TODO ***** 实现类DispatcherRestEndpoint
@@ -164,7 +164,7 @@ public abstract class RestServerEndpoint implements AutoCloseableAsync {
 			handlers.forEach(handler -> registerHandler(router, handler, log));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 Netty 服务端
 			 */
 			ChannelInitializer<SocketChannel> initializer = new ChannelInitializer<SocketChannel>() {
@@ -192,7 +192,7 @@ public abstract class RestServerEndpoint implements AutoCloseableAsync {
 			NioEventLoopGroup workerGroup = new NioEventLoopGroup(0, new ExecutorThreadFactory("flink-rest-server-netty-worker"));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动 Netty 网络通信 服务端引导程序
 			 */
 			bootstrap = new ServerBootstrap();
@@ -252,14 +252,14 @@ public abstract class RestServerEndpoint implements AutoCloseableAsync {
 			state = State.RUNNING;
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 到此为止，我们的 主节点上的 WebMonitorEndpoint 组件的 Netty 服务端起好了。
 			 *  任务提交的时候： 启动 Netty 的客户端
 			 */
 
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 启动
 			 */
 			//TODO ***** 实现类WebMonitorEndpoint

@@ -37,7 +37,7 @@ public final class PluginUtils {
 	public static PluginManager createPluginManagerFromRootFolder(Configuration configuration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回 DefaultPluginManager
 		 */
 		return createPluginManagerFromRootFolder(PluginConfig.fromConfiguration(configuration));

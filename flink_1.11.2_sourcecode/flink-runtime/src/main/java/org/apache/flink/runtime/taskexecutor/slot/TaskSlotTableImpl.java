@@ -164,7 +164,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 第一个参数：SlotActionsImpl
 	 */
 	@Override
@@ -175,7 +175,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 		this.mainThreadExecutor = Preconditions.checkNotNull(mainThreadExecutor);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 启动 TimerService（超时检测服务）
 		 */
 		timerService.start(this);
@@ -264,7 +264,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 分配 Slot 的详细实现
 	 */
 	@Override
@@ -298,7 +298,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 封装一个 TaskSlot 对象
 		 *  Index = Slot 序号
 		 */
@@ -316,7 +316,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 		timerService.registerTimeout(allocationId, slotTimeout.getSize(), slotTimeout.getUnit());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 更新 job 在该节点上申请的 Slot 数量
 		 */
 		// add this slot to the set of job slots
@@ -387,7 +387,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 		if(taskSlot != null) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 释放 Sot
 			 */
 			return freeSlotInternal(taskSlot, cause).isDone() ? taskSlot.getIndex() : -1;
@@ -397,7 +397,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 完成 Slot 的释放逻辑
 	 */
 	private CompletableFuture<Void> freeSlotInternal(TaskSlot<T> taskSlot, Throwable cause) {
@@ -514,7 +514,7 @@ public class TaskSlotTableImpl<T extends TaskSlotPayload> implements TaskSlotTab
 		Preconditions.checkNotNull(task);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 根据 Task 获取 TaskSlot
 		 */
 		TaskSlot<T> taskSlot = getTaskSlot(task.getAllocationId());

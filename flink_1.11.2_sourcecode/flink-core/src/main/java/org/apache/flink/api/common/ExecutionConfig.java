@@ -463,14 +463,14 @@ public class ExecutionConfig implements Serializable, Archiveable<ArchivedExecut
 			if(getNumberOfExecutionRetries() > 0 && getExecutionRetryDelay() >= 0) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释：
 				 */
 				return RestartStrategies.fixedDelayRestart(getNumberOfExecutionRetries(), getExecutionRetryDelay());
 			} else if(getNumberOfExecutionRetries() == 0) {
 
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释：
 				 */
 				return RestartStrategies.noRestart();

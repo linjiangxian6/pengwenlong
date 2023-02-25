@@ -75,7 +75,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 	protected void onStart() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 开启服务: 启动 JobGraghStore
 		 *  一个用来存储 JobGragh 的存储组件
 		 */
@@ -86,7 +86,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 		onGoingRecoveryOperation = recoverJobsAsync()
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 运行: createDispatcherIfRunning()
 			 */
 			//TODO ***** createDispatcherIfRunning
@@ -98,7 +98,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 开启 ZooKeeperJobGraphStore
 			 */
 			jobGraphStore.start(this);
@@ -115,7 +115,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 	private void createDispatcherIfRunning(Collection<JobGraph> jobGraphs) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		//TODO ***** createDispatcher
@@ -125,7 +125,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 	private void createDispatcher(Collection<JobGraph> jobGraphs) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  调用对象： DefaultDispatcherGatewayServiceFactory
 		 */
@@ -308,7 +308,7 @@ public class SessionDispatcherLeaderProcess extends AbstractDispatcherLeaderProc
 			FatalErrorHandler fatalErrorHandler) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 SessionDispatcherLeaderProcess 实例
 		 */
 		return new SessionDispatcherLeaderProcess(

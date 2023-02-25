@@ -236,7 +236,7 @@ public class WindowedStream<T, K, W extends Window> {
 		function = input.getExecutionEnvironment().clean(function);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return reduce(function, new PassThroughWindowFunction<K, W, T>());
@@ -259,7 +259,7 @@ public class WindowedStream<T, K, W extends Window> {
 		TypeInformation<R> resultType = getWindowFunctionReturnType(function, inType);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		return reduce(reduceFunction, function, resultType);
@@ -284,7 +284,7 @@ public class WindowedStream<T, K, W extends Window> {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 Function
 		 */
 		//clean the closures
@@ -292,14 +292,14 @@ public class WindowedStream<T, K, W extends Window> {
 		reduceFunction = input.getExecutionEnvironment().clean(reduceFunction);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取 Operator Name
 		 */
 		final String opName = generateOperatorName(windowAssigner, trigger, evictor, reduceFunction, function);
 		KeySelector<T, K> keySel = input.getKeySelector();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 Operator
 		 */
 		OneInputStreamOperator<T, R> operator;
@@ -321,7 +321,7 @@ public class WindowedStream<T, K, W extends Window> {
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行转换，依然将算子，加入到 transformations 集合中
 		 */
 		return input.transform(opName, resultType, operator);

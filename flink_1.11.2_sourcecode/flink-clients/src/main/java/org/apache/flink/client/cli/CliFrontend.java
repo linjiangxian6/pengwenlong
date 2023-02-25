@@ -84,7 +84,7 @@ import static org.apache.flink.client.cli.CliFrontendParser.HELP_OPTION;
 import static org.apache.flink.util.Preconditions.checkNotNull;
 
 /*************************************************
- * TODO 马中华 https://blog.csdn.net/zhongqi2513
+ * TODO
  *  注释： flink run 提交程序执行的一个入口类
  */
 
@@ -125,7 +125,7 @@ public class CliFrontend {
 	public CliFrontend(Configuration configuration, List<CustomCommandLine> customCommandLines) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		this(configuration, new DefaultClusterClientServiceLoader(), customCommandLines);
@@ -225,7 +225,7 @@ public class CliFrontend {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 初始化 CliFrontend
 			 */
 			final CliFrontend cli = new CliFrontend(configuration, customCommandLines);
@@ -233,7 +233,7 @@ public class CliFrontend {
 			SecurityUtils.install(new SecurityConfiguration(cli.configuration));
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 运行
 			 *  解析命令行并并开始请求操作
 			 *	flink run class arg1
@@ -275,7 +275,7 @@ public class CliFrontend {
 		final ProgramOptions programOptions = ProgramOptions.create(commandLine);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构建 Program
 		 */
 		//TODO *****
@@ -285,7 +285,7 @@ public class CliFrontend {
 		final List<URL> jobJars = program.getJobJarAndDependencies();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 有效配置
 		 *  1、activeCommandLine
 		 *  2、commandLine
@@ -297,7 +297,7 @@ public class CliFrontend {
 		LOG.debug("Effective executor configuration: {}", effectiveConfiguration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 执行
 		 */
 		try {
@@ -314,7 +314,7 @@ public class CliFrontend {
 			LOG.info("Building program from JAR file");
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			//TODO *****
@@ -739,7 +739,7 @@ public class CliFrontend {
 	protected void executeProgram(final Configuration configuration, final PackagedProgram program) throws ProgramInvocationException {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 */
 		//TODO *****
@@ -765,7 +765,7 @@ public class CliFrontend {
 		File jarFile = jarFilePath != null ? getJarFile(jarFilePath) : null;
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 设置主类： .setEntryPointClassName(entryPointClass)
 		 */
 		return PackagedProgram.newBuilder()
@@ -1075,7 +1075,7 @@ public class CliFrontend {
 		try {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 加入一个： FlinkYarnSessionCli
 			 */
 			customCommandLines.add(loadCustomCommandLine(flinkYarnSessionCLI, configuration, configurationDirectory, "y", "yarn"));

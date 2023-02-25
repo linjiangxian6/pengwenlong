@@ -47,7 +47,7 @@ public class YarnJobClusterExecutorFactory implements PipelineExecutorFactory {
 	public PipelineExecutor getExecutor(@Nonnull final Configuration configuration) {
 		try {
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释：
 			 */
 			return new YarnJobClusterExecutor();

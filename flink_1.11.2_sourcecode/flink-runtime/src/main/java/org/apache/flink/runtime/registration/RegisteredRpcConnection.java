@@ -91,7 +91,7 @@ public abstract class RegisteredRpcConnection<F extends Serializable, G extends 
 		checkState(!isConnected() && pendingRegistration == null, "The RPC connection is already started");
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建注册对象
 		 *  返回的结果是：
 		 *  1、TaskExecutor注册： TaskExecutorToResourceManagerConnection.ResourceManagerRegistration
@@ -105,7 +105,7 @@ public abstract class RegisteredRpcConnection<F extends Serializable, G extends 
 		if (REGISTRATION_UPDATER.compareAndSet(this, null, newRegistration)) {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： 开始注册
 			 */
 			//TODO *****
@@ -240,7 +240,7 @@ public abstract class RegisteredRpcConnection<F extends Serializable, G extends 
 	private RetryingRegistration<F, G, S> createNewRegistration() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 生成注册对象 ResourceManagerRegistration
 		 *  调用 ResourceManagerConnection 的 generateRegistration() 生成注册对象：
 		 *  TaskExecutorToResourceManagerConnection.ResourceManagerRegistration

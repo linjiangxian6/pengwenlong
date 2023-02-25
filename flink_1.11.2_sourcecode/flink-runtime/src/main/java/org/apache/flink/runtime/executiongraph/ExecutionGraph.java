@@ -231,7 +231,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	private boolean isStoppable = true;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 包含一堆 ExecutionJobVertex
 	 *  一个 JobVertex 对应到一个 ExecutionJobVertex
 	 */
@@ -412,7 +412,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	private String stateBackendName;
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 根据 JsonPlanGenerator 把 JobGraph 变成一个 Json 字符串描述
 	 */
 	private String jsonPlan;
@@ -427,7 +427,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 	// --------------------------------------------------------------------------------------------
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 创建一个 ExecutionGraph 的构造方法
 	 */
 	public ExecutionGraph(JobInformation jobInformation, ScheduledExecutorService futureExecutor, Executor ioExecutor, Time rpcTimeout,
@@ -479,7 +479,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 		this.partitionTracker = checkNotNull(partitionTracker);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建一个： ExecutionGraphResultPartitionAvailabilityChecker
 		 */
 		this.resultPartitionAvailabilityChecker = new ExecutionGraphResultPartitionAvailabilityChecker(this::createResultPartitionId, partitionTracker);
@@ -876,7 +876,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 		final long createTimestamp = System.currentTimeMillis();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 遍历所有的 JobVertex
 		 */
 		for(JobVertex jobVertex : topologiallySorted) {
@@ -886,14 +886,14 @@ public class ExecutionGraph implements AccessExecutionGraph {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 一个 JobVertex 对应的创建一个 ExecutionJobVertex
 			 */
 			// create the execution job vertex and attach it to the graph
 			ExecutionJobVertex ejv = new ExecutionJobVertex(this, jobVertex, 1, maxPriorAttemptsHistoryLength, rpcTimeout, globalModVersion, createTimestamp);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 处理 JobEdge 和 IntermediateResult 和 ExecutionJobVertex中的 ExecutionVertex
 			 *  对每个 JobEdge，获取对应的 IntermediateResult，并记录到本节点的输入上
 			 *  最后，把每个 ExecutorVertex 和对应的 IntermediateResult 关联起来
@@ -902,7 +902,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 			ejv.connectToPredecessors(this.intermediateResults);
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 将生成好的 ExecutionJobVertex 加入到 ExecutionGraph 中
 			 */
 			ExecutionJobVertex previousTask = this.tasks.putIfAbsent(jobVertex.getID(), ejv);
@@ -913,7 +913,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 将当前 JobVertex 的输入 IntermediateResult 加入到 intermediateResults map 中
 			 */
 			for(IntermediateResult res : ejv.getProducedDataSets()) {
@@ -925,7 +925,7 @@ public class ExecutionGraph implements AccessExecutionGraph {
 			}
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 使用创建顺序保存的 ExecutionJobVertex
 			 */
 			this.verticesInCreationOrder.add(ejv);

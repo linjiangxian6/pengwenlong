@@ -42,7 +42,7 @@ public final class ExecutionVertexSchedulingRequirementsMapper {
 		final SlotSharingGroup slotSharingGroup = executionVertex.getJobVertex().getSlotSharingGroup();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 将 ExecutionVertex 封装成 ExecutionVertexSchedulingRequirements
 		 */
 		return new ExecutionVertexSchedulingRequirements.Builder()

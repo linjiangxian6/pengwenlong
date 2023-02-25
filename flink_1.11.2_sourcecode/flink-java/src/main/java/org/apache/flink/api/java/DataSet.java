@@ -257,7 +257,7 @@ public abstract class DataSet<T> {
 		TypeInformation<R> resultType = TypeExtractor.getFlatMapReturnTypes(flatMapper, getType(), callLocation, true);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 其实你每次调用一个 算子，就是得到一个 Operator 对象
 		 */
 		return new FlatMapOperator<>(this, resultType, clean(flatMapper), callLocation);
@@ -686,7 +686,7 @@ public abstract class DataSet<T> {
 	public UnsortedGrouping<T> groupBy(int... fields) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： groupBy 算子的返回值是： UnsortedGrouping
 		 */
 		return new UnsortedGrouping<>(this, new Keys.ExpressionKeys<>(fields, getType()));
@@ -1573,7 +1573,7 @@ public abstract class DataSet<T> {
 	public DataSink<T> writeAsCsv(String filePath, String rowDelimiter, String fieldDelimiter) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释：
 		 */
 		return internalWriteAsCsv(new Path(filePath), rowDelimiter, fieldDelimiter, null);

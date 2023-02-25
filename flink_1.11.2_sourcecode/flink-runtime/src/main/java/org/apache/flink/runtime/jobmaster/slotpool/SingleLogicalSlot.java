@@ -88,7 +88,7 @@ public class SingleLogicalSlot implements LogicalSlot, PhysicalSlot.Payload {
 	public TaskManagerGateway getTaskManagerGateway() {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： slotContext = AllocatedSlot
 		 */
 		return slotContext.getTaskManagerGateway();

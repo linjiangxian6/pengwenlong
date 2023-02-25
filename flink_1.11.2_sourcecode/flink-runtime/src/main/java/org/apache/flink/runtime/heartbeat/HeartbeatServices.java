@@ -69,7 +69,7 @@ public class HeartbeatServices {
 		ScheduledExecutor mainThreadExecutor, Logger log) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 构造一个 HeartbeatManagerImpl 实例返回
 		 */
 		return new HeartbeatManagerImpl<>(heartbeatTimeout, resourceId, heartbeatListener, mainThreadExecutor, log);
@@ -92,7 +92,7 @@ public class HeartbeatServices {
 		ScheduledExecutor mainThreadExecutor, Logger log) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 创建心跳对象实例 HeartbeatManagerSenderImpl
 		 */
 		//TODO *****
@@ -108,7 +108,7 @@ public class HeartbeatServices {
 	public static HeartbeatServices fromConfiguration(Configuration configuration) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 获取心跳的两个关键参数：
 		 *  1、心跳间隔时间 heartbeatInterval（heartbeat.interval = 10000）
 		 *  2、心跳超时时间 heartbeatTimeout（heartbeat.timeout = 50000）
@@ -117,7 +117,7 @@ public class HeartbeatServices {
 		long heartbeatTimeout = configuration.getLong(HeartbeatManagerOptions.HEARTBEAT_TIMEOUT);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *   注释： 启动心跳服务
 		 */
 		return new HeartbeatServices(heartbeatInterval, heartbeatTimeout);

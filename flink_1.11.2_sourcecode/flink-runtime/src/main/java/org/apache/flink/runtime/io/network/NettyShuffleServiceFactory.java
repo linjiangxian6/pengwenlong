@@ -60,7 +60,7 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 		checkNotNull(shuffleEnvironmentContext);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 NettyShuffleEnvironmentConfiguration 对象
 		 */
 		NettyShuffleEnvironmentConfiguration networkConfig = NettyShuffleEnvironmentConfiguration.fromConfiguration(
@@ -70,7 +70,7 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 				shuffleEnvironmentContext.getHostAddress());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建一个 NettyShuffleEnvironment
 		 */
 		return createNettyShuffleEnvironment(networkConfig,
@@ -85,7 +85,7 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 		TaskEventPublisher taskEventPublisher, MetricGroup metricGroup, Executor ioExecutor) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 创建： NettyShuffleEnvironment
 		 */
 		return createNettyShuffleEnvironment(config, taskExecutorResourceId, taskEventPublisher, new ResultPartitionManager(), metricGroup,
@@ -104,20 +104,20 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 		NettyConfig nettyConfig = config.nettyConfig();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回： FileChannelManagerImpl
 		 */
 		FileChannelManager fileChannelManager = new FileChannelManagerImpl(config.getTempDirs(), DIR_NAME_PREFIX);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回： NettyConnectionManager
 		 */
 		ConnectionManager connectionManager = nettyConfig != null ? new NettyConnectionManager(resultPartitionManager, taskEventPublisher,
 			nettyConfig) : new LocalConnectionManager();
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 返回： NetworkBufferPool
 		 */
 		NetworkBufferPool networkBufferPool = new NetworkBufferPool(config.numNetworkBuffers(), config.networkBufferSize(),
@@ -126,7 +126,7 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 		registerShuffleMetrics(metricGroup, networkBufferPool);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 ResultPartitionFactory
 		 */
 		ResultPartitionFactory resultPartitionFactory = new ResultPartitionFactory(resultPartitionManager, fileChannelManager, networkBufferPool,
@@ -135,14 +135,14 @@ public class NettyShuffleServiceFactory implements ShuffleServiceFactory<NettySh
 			config.getCompressionCodec(), config.getMaxBuffersPerChannel());
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 构建 SingleInputGateFactory
 		 */
 		SingleInputGateFactory singleInputGateFactory = new SingleInputGateFactory(taskExecutorResourceId, config, connectionManager,
 			resultPartitionManager, taskEventPublisher, networkBufferPool);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： NettyShuffleEnvironment
 		 */
 		return new NettyShuffleEnvironment(taskExecutorResourceId, config, networkBufferPool, connectionManager, resultPartitionManager,

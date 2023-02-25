@@ -67,7 +67,7 @@ public abstract class LeaderRetrievalHandler<T extends RestfulGateway> extends S
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO
 	 *  注释： 到这一步，不用再往前找，Netty 的 Pipline 中的 Handler，
 	 *  会被 Netty 自动调用对应Hanlder 的 channelRead0 方法执行处理
 	 */
@@ -83,14 +83,14 @@ public abstract class LeaderRetrievalHandler<T extends RestfulGateway> extends S
 		optLeaderConsumer.ifPresent(
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO
 			 *  注释： gateway
 			 */
 			gateway -> {
 				try {
 
 					/*************************************************
-					 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+					 * TODO
 					 *  注释： 调用 Handler 执行请求处理
 					 */
 					respondAsLeader(channelHandlerContext, routedRequest, gateway);

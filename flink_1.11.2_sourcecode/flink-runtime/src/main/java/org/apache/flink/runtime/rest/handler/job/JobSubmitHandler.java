@@ -73,7 +73,7 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 	}
 
 	/*************************************************
-	 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+	 * TODO 
 	 *  注释： 接收到客户端的请求（SubmitJob）
 	 */
 	@Override
@@ -91,7 +91,7 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 拿到请求体
 		 */
 		final JobSubmitRequestBody requestBody = request.getRequestBody();
@@ -102,7 +102,7 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 		}
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 恢复得到 JobGragh
 		 *  由此可见： 服务端接收到客户端提交的，其实就是一个 JobGragh
 		 *  到此为止： 我们可以认为：客户端终于把 JobGragh 提交给 JobManager 了。 最终由 JobSubmitHandler 来执行处理
@@ -110,25 +110,25 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 		CompletableFuture<JobGraph> jobGraphFuture = loadJobGraph(requestBody, nameToFile);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 得到 jar
 		 */
 		Collection<Path> jarFiles = getJarFilesToUpload(requestBody.jarFileNames, nameToFile);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 获取 依赖 jar
 		 */
 		Collection<Tuple2<String, Path>> artifacts = getArtifactFilesToUpload(requestBody.artifactFileNames, nameToFile);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 上传： JobGraph + 程序jar + 依赖 jar
 		 */
 		CompletableFuture<JobGraph> finalizedJobGraphFuture = uploadJobGraphFiles(gateway, jobGraphFuture, jarFiles, artifacts, configuration);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO 
 		 *  注释： 提交任务
 		 */
 		CompletableFuture<Acknowledge> jobSubmissionFuture = finalizedJobGraphFuture.thenCompose(
@@ -156,7 +156,7 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 		return CompletableFuture.supplyAsync(() -> {
 
 			/*************************************************
-			 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+			 * TODO 
 			 *  注释： 从 JobGraghFile 文件中，反序列化回来 JobGragh 对象
 			 */
 			JobGraph jobGraph;
@@ -197,7 +197,7 @@ public final class JobSubmitHandler extends AbstractRestHandler<DispatcherGatewa
 			final InetSocketAddress address = new InetSocketAddress(gateway.getHostname(), blobServerPort);
 			try {
 				/*************************************************
-				 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+				 * TODO 
 				 *  注释： 通过 BlobClient 来上传 jar 资源和依赖 jar 和 jobGraph
 				 */
 				ClientUtils.uploadJobGraphFiles(jobGraph, jarFiles, artifacts, () -> new BlobClient(address, configuration));

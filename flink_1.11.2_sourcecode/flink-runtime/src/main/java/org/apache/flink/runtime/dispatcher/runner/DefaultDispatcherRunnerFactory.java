@@ -64,7 +64,7 @@ public class DefaultDispatcherRunnerFactory implements DispatcherRunnerFactory {
 			fatalErrorHandler);
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释：
 		 *  第一个参数：ZooKeeperLeaderElectionService
 		 *  第四个参数：SessionDispatcherLeaderProcessFactoryFactory
@@ -79,7 +79,7 @@ public class DefaultDispatcherRunnerFactory implements DispatcherRunnerFactory {
 	public static DefaultDispatcherRunnerFactory createSessionRunner(DispatcherFactory dispatcherFactory) {
 
 		/*************************************************
-		 * TODO 马中华 https://blog.csdn.net/zhongqi2513
+		 * TODO
 		 *  注释： 注意参数：SessionDispatcherLeaderProcessFactoryFactory
 		 */
 		return new DefaultDispatcherRunnerFactory(
